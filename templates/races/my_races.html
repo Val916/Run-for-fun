@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Page header -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>My Races</h1>
+    <a href="{% url 'create-race' %}" class="btn btn-primary">Create New Race</a>
+</div>
+
+<!-- Check if user has created any races -->
+{% if races %}
+    <!-- Display user's races in a grid -->
+    <div class="row">
+        {% for race in races %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <!-- Each race gets its own card -->
+                <div class="card h-100">
+                    <!-- Race image if available -->
+                    {% if race.image %}
+                        <img src="{{ race.image.url }}" class="card-img-top" alt="{{ race.name }}" style="height: 150px; object-fit: cover;">
+                    {% endif %}
+                    
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="card-title mb-0">{{ race.name }}</h6>
+                        <!-- Show race status -->
+                        {% if race.status == 0 %}
+                            <span class="badge bg-warning">Draft</span>
+                        {% elif race.status == 1 %}
+                            <span class="badge bg-success">Published</span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="card-body">
+                        <!-- Race summary -->
+                        <p class="card-text">
+                            <strong>Date:</strong> {{ race.race_date|date:"d/m/Y" }}<br>
+                            <strong>Location:</strong> {{ race.city }}, {{ race.country }}<br>
+                            <strong>Distance:</strong> 
+                            <!-- Show custom distance if "Other" was selected -->
+                            {% if race.distance == 'OTHER' and race.custom_distance %}
+                                {{ race.custom_distance }}
+                            {% else %}
+                                {{ race.get_distance_display }}
+                            {% endif %}
+                        </p>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <!-- Action button -->
+                        <a href="{% url 'race-detail' race.pk %}" class="btn btn-outline-primary btn-sm w-100">
+                            View Details
+                        </a>
+                        
+                        <!-- Creation date -->
+                        <div class="mt-2">
+                            <small class="text-muted">
+                                Created: {{ race.created_at|date:"d/m/Y" }}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination for user's races -->
+    {% if is_paginated %}
+        <nav aria-label="My races pagination">
+            <ul class="pagination justify-content-center">
+                <!-- Previous page -->
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                {% endif %}
+
+                <!-- Current page info -->
+                <li class="page-item active">
+                    <span class="page-link">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span>
+                </li>
+
+                <!-- Next page -->
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+
+{% else %}
+    <!-- Show this if user hasn't created any races -->
+    <div class="text-center mt-5">
+        <div class="card">
+            <div class="card-body py-5">
+                <h4 class="text-muted">No races yet!</h4>
+                <p class="text-muted mb-4">You haven't created any races yet. Start by creating your first race!</p>
+                <a href="{% url 'create-race' %}" class="btn btn-primary btn-lg">
+                    Create Your First Race
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock content %}

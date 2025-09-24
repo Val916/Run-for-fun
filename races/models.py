@@ -22,13 +22,12 @@ class Race(models.Model):
     # Difficulty levels help runners choose appropriate races
 
     DIFFICULTY_CHOICES = [
-        ('EASY', 'Easy'),                   # Flat, beginner-friendly
-        ('ADULT_ONLY', 'Adult Only'),       # Some alcohol involved
-        ('CRAZY_TOUGH', 'Crazy Tough'),     # Challenging even for pros
-        ('EXTREMELY_FUNNY', 'Extremely Funny'),  # Very interesting conditions
+        ('EASY_PEASY', 'Easy-peasy'),        
+        ('ADULTS_ONLY', 'Adults Only'),      
+        ('CRAZY_TOUGH', 'Crazy Tough'),     
+        ('EXTREME_LAUGH', 'Extreme Laugh'),  
     ]
     
-
     # Status tracks the race lifecycle
     STATUS_CHOICES = [
         (0, "Draft"),
@@ -56,12 +55,19 @@ class Race(models.Model):
         help_text="Select the race distance"
     )
     
+    # Custom distance field - only used when "OTHER" is selected
+    custom_distance = models.CharField(
+        max_length=50,                    
+        blank=True,                        
+        help_text="If 'Other Distance' selected, specify the exact distance"
+    )
+    
     # Race difficulty - uses our DIFFICULTY_CHOICES from above  
     difficulty = models.CharField(
         max_length=20,                     # Increased for your longer choice names
         choices=DIFFICULTY_CHOICES,        
-        default='EASY',                    
-        help_text="Select the difficulty level"
+        default='EASY_PEASY',                    
+        help_text="Select the difficulty level of your crazy run"
     )
     
     # DATE AND TIME FIELDS
@@ -74,6 +80,14 @@ class Race(models.Model):
     registration_link = models.URLField(
         blank=True,                       
         help_text="URL to external registration page"
+    )
+    
+    # Race image - optional photo for the race
+    image = models.ImageField(
+        upload_to='race_images/',         # Images will be stored in media/race_images/
+        blank=True,                       # Field is optional
+        null=True,                        # Can be empty in database
+        help_text="Upload a photo for this race (optional)"
     )
 
     

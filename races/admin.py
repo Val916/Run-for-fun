@@ -19,7 +19,10 @@ class RaceAdmin(admin.ModelAdmin):
     # Group form fields logically
     fieldsets = (
         ('Basic Race Info', {
-            'fields': ('name', 'description', 'distance', 'difficulty')
+            'fields': (
+                'name', 'description', 'distance', 'custom_distance',
+                'difficulty'
+            )
         }),
         ('When & Where', {
             'fields': ('race_date', 'city', 'country', 'latitude', 'longitude')

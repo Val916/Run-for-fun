@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <!-- Main race information -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>{{ race.name }}</h1>
+            </div>
+            
+            <!-- Race image if available -->
+            {% if race.image %}
+                <img src="{{ race.image.url }}" class="card-img-top" alt="{{ race.name }}" style="height: 300px; object-fit: cover;">
+            {% endif %}
+            
+            <div class="card-body">
+                <!-- Race details in two columns -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Race Details</h5>
+                        <p><strong>Distance:</strong> 
+                            <!-- Show custom distance if "Other" was selected -->
+                            {% if race.distance == 'OTHER' and race.custom_distance %}
+                                {{ race.custom_distance }}
+                            {% else %}
+                                {{ race.get_distance_display }}
+                            {% endif %}
+                        </p>
+                        <p><strong>Difficulty:</strong> {{ race.get_difficulty_display }}</p>
+                        <p><strong>Date:</strong> {{ race.race_date|date:"d/m/Y" }}</p>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h5>Location</h5>
+                        <p><strong>City:</strong> {{ race.city }}</p>
+                        <p><strong>Country:</strong> {{ race.country }}</p>
+                        
+                        <!-- Show if map coordinates are available -->
+                        {% if race.has_coordinates %}
+                            <p><em>Map coordinates available</em></p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- Race description -->
+                <h5>Description</h5>
+                <p>{{ race.description|linebreaks }}</p>
+                
+                <!-- Registration link if available -->
+                {% if race.registration_link %}
+                    <div class="alert alert-success">
+                        <h6>Ready to join?</h6>
+                        <a href="{{ race.registration_link }}" target="_blank" class="btn btn-success">
+                            Register for this Race
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Footer with creation info -->
+            <div class="card-footer text-muted">
+                <small>Created by {{ race.created_by.username }} on {{ race.created_at|date:"d/m/Y" }}</small>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sidebar with navigation -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6>Quick Actions</h6>
+            </div>
+            <div class="card-body">
+                <!-- Back to list -->
+                <a href="{% url 'race-list' %}" class="btn btn-outline-primary w-100 mb-2">
+                    ← Back to All Races
+                </a>
+                
+                <!-- Create new race (only for logged in users) -->
+                {% if user.is_authenticated %}
+                    <a href="{% url 'create-race' %}" class="btn btn-primary w-100">
+                        Create New Race
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
