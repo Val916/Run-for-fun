@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'run-for-fun-b329a2374625.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
 
 # Application definition
