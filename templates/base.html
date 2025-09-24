@@ -14,18 +14,43 @@
             <!-- Site logo/title -->
             <a class="navbar-brand" href="{% url 'race-list' %}">Run for Fun</a>
             
+            <!-- Navigation toggle button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
             <!-- Navigation links -->
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="{% url 'race-list' %}">All Races</a>
-                
-                <!-- Show different links for logged in users -->
-                {% if user.is_authenticated %}
-                    <a class="nav-link" href="{% url 'create-race' %}">Create Race</a>
-                    <a class="nav-link" href="{% url 'my-races' %}">My Races</a>
-                    <span class="nav-link">Hello, {{ user.username }}!</span>
-                {% else %}
-                    <span class="nav-link">Please log in to create races</span>
-                {% endif %}
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- All Races link (always visible) -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'race-list' %}">All Races</a>
+                    </li>
+                    
+                    <!-- Links for authenticated users -->
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create-race' %}">Create Race</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'my-races' %}">My Races</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">Hello, {{ user.username }}!</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <!-- Links for non-authenticated users -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </nav>

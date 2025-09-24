@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'crispy_forms',
-    # 'storages',  # Removed - not needed for simple race management
     'cloudinary_storage',
     'cloudinary',
     'races',

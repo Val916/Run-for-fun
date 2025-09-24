@@ -26,9 +26,8 @@ Shows title and create button (if user logged in)
 
 <!-- 
 MAIN CONTENT SECTION
-Check if we have races to display or show empty message
+Loop through races or show empty message if none exist
 -->
-{% if races %}
     <!-- 
     RACE CARDS GRID
     Bootstrap row/col system creates responsive grid layout
@@ -159,9 +158,9 @@ Check if we have races to display or show empty message
                 {% endif %}
             </ul>
         </nav>
-    {% endif %}
+    {% endif %}  <!-- End of pagination -->
 
-{% else %}
+{% empty %}
     <!-- 
     EMPTY STATE SECTION
     This shows when there are no races in the database yet
@@ -189,6 +188,6 @@ Check if we have races to display or show empty message
             </div>
         </div>
     </div>
-{% endif %}  <!-- End of races check -->
-
-{% endblock content %}  <!-- End of template content block -->
+{% endfor %}  <!-- End of for race in races -->
+{% endif %}
+{% endblock %}  <!-- End of template content block -->
