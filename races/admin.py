@@ -1,64 +1,40 @@
 from django.contrib import admin
-
-from .models import Race, RaceRegistration
+from .models import Race
 
 
 @admin.register(Race)
 class RaceAdmin(admin.ModelAdmin):
-    list_display = [
-        'name', 'distance', 'race_date', 'city', 'status',
-        'max_participants', 'spots_remaining'
-    ]
-    list_filter = ['distance', 'difficulty', 'status', 'city', 'race_date']
-    search_fields = ['name', 'city', 'location']
-    date_hierarchy = 'race_date'
-    readonly_fields = ['created_at', 'updated_at', 'spots_remaining']
+    """ admin interface for Race model"""
     
+    # What columns to show in the race list
+    list_display = [
+        'name', 
+        'distance', 
+        'race_date', 
+        'city', 
+        'status',
+        'created_by'
+    ]
+    
+    # Group form fields logically
     fieldsets = (
-        ('Basic Information', {
+        ('Basic Race Info', {
             'fields': ('name', 'description', 'distance', 'difficulty')
         }),
-        ('Schedule', {
-            'fields': (
-                'race_date', 'registration_open', 'registration_close'
-            )
-        }),
-        ('Location', {
-            'fields': ('location', 'city', 'state', 'country')
+        ('When & Where', {
+            'fields': ('race_date', 'city', 'country', 'latitude', 'longitude')
         }),
         ('Registration', {
-            'fields': (
-                'max_participants', 'registration_fee', 'status'
-            )
+            'fields': ('registration_link', 'status')
         }),
-        ('Metadata', {
-            'fields': ('created_by', 'created_at', 'updated_at'),
-            'classes': ('collapse',)
+        ('Creator Info', {
+            'fields': ('created_by',),
+            'classes': ('collapse',)  # Starts collapsed
         })
     )
-
-
-@admin.register(RaceRegistration)
-class RaceRegistrationAdmin(admin.ModelAdmin):
-    list_display = [
-        'user', 'race', 'registered_at', 'tshirt_size',
-        'finish_time', 'position'
-    ]
-    list_filter = ['race', 'registered_at', 'tshirt_size']
-    search_fields = ['user__username', 'race__name']
-    readonly_fields = ['registered_at']
     
-    fieldsets = (
-        ('Registration', {
-            'fields': ('race', 'user', 'registered_at')
-        }),
-        ('Runner Details', {
-            'fields': (
-                'emergency_contact', 'emergency_phone', 'tshirt_size'
-            )
-        }),
-        ('Race Results', {
-            'fields': ('finish_time', 'position'),
-            'description': 'Filled after race completion'
-        })
-    )
+    # Automatically set the creator to current user
+    def save_model(self, request, obj, form, change):
+        if not change:  # Only when creating new race
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
