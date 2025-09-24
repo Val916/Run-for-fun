@@ -28,20 +28,23 @@ Shows title and create button (if user logged in)
 MAIN CONTENT SECTION
 Loop through races or show empty message if none exist
 -->
+{% for race in races %}
+    <!-- First race - start the grid container -->
+    {% if forloop.first %}
     <!-- 
     RACE CARDS GRID
     Bootstrap row/col system creates responsive grid layout
-    On medium screens: 3 cards per row (col-md-4)
+    On medium screens: 3 cards per row (col-md-4)  
     On small screens: 1 card per row (stacks vertically)
     -->
     <div class="row">
+    {% endif %}
         <!-- 
-        LOOP THROUGH EACH RACE
+        INDIVIDUAL RACE CARD
         Django template loop: {% for race in races %}
         'races' comes from view context (page_obj from pagination)
         -->
-        {% for race in races %}
-            <div class="col-md-4 mb-4">  <!-- Bootstrap column: 4/12 width, margin-bottom -->
+        <div class="col-md-4 mb-4">  <!-- Bootstrap column: 4/12 width, margin-bottom -->
                 
                 <!-- 
                 RACE CARD
@@ -64,9 +67,21 @@ Loop through races or show empty message if none exist
                         -->
                     {% endif %}
                     
-                    <!-- CARD HEADER - Race name -->
+                    <!-- CARD HEADER - Race name with approval status -->
                     <div class="card-header">
                         <h5 class="card-title mb-0">{{ race.name }}</h5>
+                        
+                        <!-- 
+                        APPROVAL STATUS BADGE
+                        Show approval status for admins and race creators
+                        -->
+                        {% if user.is_staff or user.is_superuser or race.created_by == user %}
+                            {% if race.approved %}
+                                <span class="badge bg-success">✅ Approved</span>
+                            {% else %}
+                                <span class="badge bg-warning">⏳ Pending Approval</span>
+                            {% endif %}
+                        {% endif %}
                     </div>
                     
                     <!-- 
@@ -111,16 +126,49 @@ Loop through races or show empty message if none exist
                         </a>
                     </div>
                 </div>
-            </div>
-        {% endfor %}  <!-- End of race loop -->
-    </div>  <!-- End of grid row -->
+        </div>
+    
+    <!-- Last race - close the grid container -->
+    {% if forloop.last %}
+    </div>  <!-- End of row -->
+    {% endif %}
 
+{% empty %}
     <!-- 
-    PAGINATION SECTION
-    Only show pagination controls if there are multiple pages
-    is_paginated = True if more than 5 races (comes from view)
+    EMPTY STATE SECTION
+    This shows when there are no races in the database yet
+    Encourages users to create the first race
     -->
-    {% if is_paginated %}
+    <div class="text-center mt-5">  <!-- Centered with top margin -->
+        <div class="card">
+            <div class="card-body py-5">  <!-- Extra padding top/bottom -->
+                
+                <!-- Empty state message -->
+                <h4 class="text-muted">No races available yet!</h4>
+                <p class="text-muted mb-4">Be the first to create a race for the community!</p>
+                
+                <!-- 
+                CONDITIONAL ACTION BUTTON
+                Different message based on login status
+                -->
+                {% if user.is_authenticated %}
+                    <!-- Logged in users can create race -->
+                    <a href="{% url 'create-race' %}" class="btn btn-primary btn-lg">Create First Race</a>
+                {% else %}
+                    <!-- Not logged in - explain they need to log in -->
+                    <p class="text-muted">Please log in to create races.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}  <!-- End of for race in races -->
+
+<!-- 
+PAGINATION SECTION
+Only show pagination controls if there are multiple pages
+is_paginated = True if more than 5 races (comes from view)
+-->
+{% if is_paginated %}
         <nav aria-label="Race list pagination">  <!-- Accessibility label -->
             <ul class="pagination justify-content-center">  <!-- Bootstrap pagination, centered -->
                 
@@ -158,36 +206,6 @@ Loop through races or show empty message if none exist
                 {% endif %}
             </ul>
         </nav>
-    {% endif %}  <!-- End of pagination -->
-
-{% empty %}
-    <!-- 
-    EMPTY STATE SECTION
-    This shows when there are no races in the database yet
-    Encourages users to create the first race
-    -->
-    <div class="text-center mt-5">  <!-- Centered with top margin -->
-        <div class="card">
-            <div class="card-body py-5">  <!-- Extra padding top/bottom -->
-                
-                <!-- Empty state message -->
-                <h4 class="text-muted">No races available yet!</h4>
-                <p class="text-muted mb-4">Be the first to create a race for the community!</p>
-                
-                <!-- 
-                CONDITIONAL ACTION BUTTON
-                Different message based on login status
-                -->
-                {% if user.is_authenticated %}
-                    <!-- Logged in users can create race -->
-                    <a href="{% url 'create-race' %}" class="btn btn-primary btn-lg">Create First Race</a>
-                {% else %}
-                    <!-- Not logged in - explain they need to log in -->
-                    <p class="text-muted">Please log in to create races.</p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-{% endfor %}  <!-- End of for race in races -->
-{% endif %}
+{% endif %}  <!-- End of pagination -->
+   
 {% endblock %}  <!-- End of template content block -->

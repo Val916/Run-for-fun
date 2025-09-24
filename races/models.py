@@ -127,6 +127,29 @@ class Race(models.Model):
         help_text="Current race status"
     )
     
+    # Approval system - races need admin approval to be visible to all users
+    approved = models.BooleanField(
+        default=False,                     # New races start as unapproved
+        help_text="Whether this race has been approved by admin"
+    )
+    
+    # When was this race approved (if approved)
+    approved_at = models.DateTimeField(
+        blank=True,
+        null=True,
+        help_text="When this race was approved by admin"
+    )
+    
+    # Who approved this race (if approved)
+    approved_by = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,         # Keep approval record even if admin user deleted
+        related_name='approved_races',     # Allows: admin.approved_races.all()
+        blank=True,
+        null=True,
+        help_text="Admin user who approved this race"
+    )
+    
     # METADATA FIELDS
     # Who created this race (ForeignKey creates relationship to User model)
     created_by = models.ForeignKey(
@@ -186,6 +209,42 @@ class Race(models.Model):
         Usage: race.is_published (no parentheses needed)
         """
         return self.status == 1
+    
+    @property
+    def is_visible_to_public(self):
+        """
+        Check if race is visible to all users (published AND approved)
+        Returns True only if both published and approved by admin
+        
+        Usage: race.is_visible_to_public
+        """
+        return self.is_published and self.approved
+    
+    def is_visible_to_user(self, user):
+        """
+        Check if race is visible to a specific user
+        - Public races: visible to everyone
+        - Unapproved races: visible only to creator and admin
+        
+        Usage: race.is_visible_to_user(request.user)
+        """
+        # Public races are visible to everyone
+        if self.is_visible_to_public:
+            return True
+        
+        # Anonymous users can only see public races
+        if not user.is_authenticated:
+            return False
+        
+        # Admins can see all races
+        if user.is_staff or user.is_superuser:
+            return True
+        
+        # Race creators can see their own races (even if not approved)
+        if self.created_by == user:
+            return True
+        
+        return False
     
     
     @property  

@@ -26,7 +26,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'run-for-fun-b329a2374625.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    'django.contrib.sites',        # Required by allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'races',
 ]
 
-SITE_ID = 1
+SITE_ID = 1  # Required by allauth
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 

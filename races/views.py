@@ -14,16 +14,31 @@ from .forms import RaceForm
 
 def race_list(request):
     """
-    VIEW 1: Homepage - Display list of all published races
+    VIEW 1: Homepage - Display races based on user permissions
     
-    This view handles the main page where everyone can see all races.
-    It shows only published races (status=1), not drafts (status=0).
+    This view shows different races depending on who's viewing:
+    - Everyone: approved and published races only
+    - Admin: all races (approved and pending approval)  
+    - Race creators: their own races + approved races by others
     """
     
-    # STEP 1: Get all published races from database
-    # filter(status=1) = only get races with status "Published" 
-    # order_by('race_date') = sort by race date (earliest first)
-    races = Race.objects.filter(status=1).order_by('race_date')
+    # STEP 1: Get base queryset of published races
+    if request.user.is_authenticated and (request.user.is_staff or request.user.is_superuser):
+        # ADMIN VIEW: Show all published races (approved + pending approval)
+        races = Race.objects.filter(status=1).order_by('race_date')
+    else:
+        # PUBLIC VIEW: Only show approved and published races
+        # For logged-in users, also include their own unapproved races
+        if request.user.is_authenticated:
+            from django.db.models import Q
+            # Show: (approved races) OR (user's own races)
+            races = Race.objects.filter(
+                Q(status=1, approved=True) | 
+                Q(status=1, created_by=request.user)
+            ).order_by('race_date')
+        else:
+            # Anonymous users: only approved races
+            races = Race.objects.filter(status=1, approved=True).order_by('race_date')
     
     # STEP 2: Split races into pages (pagination)
     # This prevents showing 100+ races on one page
@@ -52,20 +67,24 @@ def race_list(request):
 
 def race_detail(request, pk):
     """
-    VIEW 2: Race Detail Page - Show full information about one race
+    VIEW 2: Race Detail Page - Show race if user has permission to see it
     
-    This view shows all details of a specific race when user clicks "View Details".
-    The 'pk' parameter comes from the URL (e.g., /race/5/ means pk=5).
+    This view shows race details only if the user is allowed to view it:
+    - Everyone can see approved races
+    - Admins can see all races
+    - Race creators can see their own races (even if not approved)
     """
     
-    # STEP 1: Get the specific race from database
-    # pk = primary key (unique ID number for each race)
-    # get_object_or_404 means: find this race OR show 404 error page
-    # status=1 ensures we only show published races, not drafts
+    # STEP 1: Get the race from database (published races only)
     race = get_object_or_404(Race, pk=pk, status=1)
     
-    # STEP 2: Send race data to the detail template
-    # Template will display all race information (name, date, description, etc.)
+    # STEP 2: Check if user has permission to view this race
+    if not race.is_visible_to_user(request.user):
+        # User doesn't have permission - show 404 error
+        from django.http import Http404
+        raise Http404("Race not found or not available.")
+    
+    # STEP 3: Send race data to template
     return render(request, 'races/race_detail.html', {'race': race})
 
 
@@ -96,14 +115,21 @@ def create_race(request):
             # STEP 5: Add the current user as the race creator
             race.created_by = request.user
             
-            # STEP 6: Set race status to "Published" (1)
+            # STEP 6: Set race status to "Published" but not yet approved
             race.status = 1  # Published (not draft)
+            race.approved = False  # Needs admin approval
             
             # STEP 7: Now save the complete race to database
             race.save()
             
-            # STEP 8: Show success message to user
-            messages.success(request, f'Race "{race.name}" created!')
+            # STEP 8: Show appropriate success message
+            if request.user.is_staff or request.user.is_superuser:
+                messages.success(request, f'Race "{race.name}" created and published!')
+            else:
+                messages.success(
+                    request, 
+                    f'Race "{race.name}" created! It will be visible to others once approved by admin.'
+                )
             
             # STEP 9: Redirect user to the new race's detail page
             return redirect('race-detail', pk=race.pk)
