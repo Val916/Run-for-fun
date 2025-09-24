@@ -66,8 +66,8 @@ class Race(models.Model):
     
     # DATE AND TIME FIELDS
     
-    race_date = models.DateTimeField(
-        help_text="Set the race start date and time"
+    race_date = models.DateField(
+        help_text="Set the race date"
     )
     
     # Link to external registration page
@@ -148,9 +148,9 @@ class Race(models.Model):
         """
         Returns human-readable string representation of the race
         This appears in admin lists, dropdowns, and when printing race objects
-        Format: "Race Name - YYYY-MM-DD"
+        Format: "Race Name - DD/MM/YYYY" (European format)
         """
-        return f"{self.name} - {self.race_date.strftime('%Y-%m-%d')}"
+        return f"{self.name} - {self.race_date.strftime('%d/%m/%Y')}"
     
 
     # MODEL METHODS AND PROPERTIES
@@ -195,5 +195,5 @@ class Race(models.Model):
         Usage: race.days_until_race
         Template: "Race in {{ race.days_until_race }} days"
         """
-        time_diff = self.race_date.date() - timezone.now().date()
+        time_diff = self.race_date - timezone.now().date()
         return time_diff.days
