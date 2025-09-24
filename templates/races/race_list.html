@@ -17,7 +17,6 @@ Shows title and create button (if user logged in)
     <!-- 
     CONDITIONAL CREATE BUTTON
     Only show "Create New Race" button if user is logged in
-    {% if user.is_authenticated %} checks login status
     -->
     {% if user.is_authenticated %}
         <a href="{% url 'create-race' %}" class="btn btn-primary">Create New Race</a>
@@ -28,184 +27,155 @@ Shows title and create button (if user logged in)
 MAIN CONTENT SECTION
 Loop through races or show empty message if none exist
 -->
-{% for race in races %}
-    <!-- First race - start the grid container -->
-    {% if forloop.first %}
-    <!-- 
-    RACE CARDS GRID
-    Bootstrap row/col system creates responsive grid layout
-    On medium screens: 3 cards per row (col-md-4)  
-    On small screens: 1 card per row (stacks vertically)
-    -->
-    <div class="row">
-    {% endif %}
+<div class="row">
+    {% for race in races %}
         <!-- 
         INDIVIDUAL RACE CARD
-        Django template loop: {% for race in races %}
-        'races' comes from view context (page_obj from pagination)
+        Bootstrap column: 4/12 width on medium screens, full width on small screens
         -->
-        <div class="col-md-4 mb-4">  <!-- Bootstrap column: 4/12 width, margin-bottom -->
+        <div class="col-md-4 mb-4">
+            <!-- 
+            RACE CARD
+            h-100 = full height (makes all cards same height in row)
+            -->
+            <div class="card h-100">
                 
                 <!-- 
-                RACE CARD
-                h-100 = full height (makes all cards same height in row)
+                RACE IMAGE (OPTIONAL)
+                Only show image if race has one uploaded
                 -->
-                <div class="card h-100">
+                {% if race.image %}
+                    <img src="{{ race.image.url }}" 
+                         class="card-img-top" 
+                         alt="{{ race.name }}" 
+                         style="height: 200px; object-fit: cover;">
+                {% endif %}
+                
+                <!-- CARD HEADER - Race name with approval status -->
+                <div class="card-header">
+                    <h5 class="card-title mb-0">{{ race.name }}</h5>
                     
                     <!-- 
-                    RACE IMAGE (OPTIONAL)
-                    Only show image if race has one uploaded
+                    APPROVAL STATUS BADGE
+                    Show approval status for admins and race creators
                     -->
-                    {% if race.image %}
-                        <img src="{{ race.image.url }}" 
-                             class="card-img-top" 
-                             alt="{{ race.name }}" 
-                             style="height: 200px; object-fit: cover;">
-                        <!-- 
-                        race.image.url = URL to uploaded image file
-                        object-fit: cover = crop image to fit without stretching
-                        -->
+                    {% if user.is_staff or user.is_superuser or race.created_by == user %}
+                        {% if race.approved %}
+                            <span class="badge bg-success">✅ Approved</span>
+                        {% else %}
+                            <span class="badge bg-warning">⏳ Pending Approval</span>
+                        {% endif %}
                     {% endif %}
-                    
-                    <!-- CARD HEADER - Race name with approval status -->
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">{{ race.name }}</h5>
+                </div>
+                
+                <!-- 
+                CARD BODY - Main race information
+                -->
+                <div class="card-body">
+                    <p class="card-text">
+                        <!-- 
+                        RACE DATE with European format
+                        |date:"d/m/Y" = Django filter for DD/MM/YYYY format
+                        -->
+                        <strong>Date:</strong> {{ race.race_date|date:"d/m/Y" }}<br>
+                        
+                        <!-- LOCATION - City and country -->
+                        <strong>Location:</strong> {{ race.city }}, {{ race.country }}<br>
                         
                         <!-- 
-                        APPROVAL STATUS BADGE
-                        Show approval status for admins and race creators
+                        DISTANCE - Smart display logic
+                        If user selected "OTHER" and provided custom text, show custom
+                        Otherwise show the standard distance choice
                         -->
-                        {% if user.is_staff or user.is_superuser or race.created_by == user %}
-                            {% if race.approved %}
-                                <span class="badge bg-success">✅ Approved</span>
-                            {% else %}
-                                <span class="badge bg-warning">⏳ Pending Approval</span>
-                            {% endif %}
+                        <strong>Distance:</strong> 
+                        {% if race.distance == 'OTHER' and race.custom_distance %}
+                            {{ race.custom_distance }}
+                        {% else %}
+                            {{ race.get_distance_display }}
                         {% endif %}
-                    </div>
-                    
-                    <!-- 
-                    CARD BODY - Main race information
-                    -->
-                    <div class="card-body">
-                        <p class="card-text">
-                            <!-- 
-                            RACE DATE with European format
-                            |date:"d/m/Y" = Django filter for DD/MM/YYYY format
-                            -->
-                            <strong>Date:</strong> {{ race.race_date|date:"d/m/Y" }}<br>
-                            
-                            <!-- LOCATION - City and country -->
-                            <strong>Location:</strong> {{ race.city }}, {{ race.country }}<br>
-                            
-                            <!-- 
-                            DISTANCE - Smart display logic
-                            If user selected "OTHER" and provided custom text, show custom
-                            Otherwise show the standard distance choice
-                            -->
-                            <strong>Distance:</strong> 
-                            {% if race.distance == 'OTHER' and race.custom_distance %}
-                                {{ race.custom_distance }}  <!-- Custom distance text -->
-                            {% else %}
-                                {{ race.get_distance_display }}  <!-- Standard choice -->
-                            {% endif %}
-                        </p>
-                    </div>
-                    
-                    <!-- 
-                    CARD FOOTER - Action button
-                    -->
-                    <div class="card-footer">
-                        <!-- 
-                        VIEW DETAILS LINK
-                        {% url 'race-detail' race.pk %} = generate URL like /race/5/
-                        race.pk = primary key (unique ID) of this race
-                        -->
-                        <a href="{% url 'race-detail' race.pk %}" class="btn btn-outline-primary btn-sm">
-                            View Details
-                        </a>
-                    </div>
+                    </p>
                 </div>
-        </div>
-    
-    <!-- Last race - close the grid container -->
-    {% if forloop.last %}
-    </div>  <!-- End of row -->
-    {% endif %}
-
-{% empty %}
-    <!-- 
-    EMPTY STATE SECTION
-    This shows when there are no races in the database yet
-    Encourages users to create the first race
-    -->
-    <div class="text-center mt-5">  <!-- Centered with top margin -->
-        <div class="card">
-            <div class="card-body py-5">  <!-- Extra padding top/bottom -->
-                
-                <!-- Empty state message -->
-                <h4 class="text-muted">No races available yet!</h4>
-                <p class="text-muted mb-4">Be the first to create a race for the community!</p>
                 
                 <!-- 
-                CONDITIONAL ACTION BUTTON
-                Different message based on login status
+                CARD FOOTER - Action button
                 -->
-                {% if user.is_authenticated %}
-                    <!-- Logged in users can create race -->
-                    <a href="{% url 'create-race' %}" class="btn btn-primary btn-lg">Create First Race</a>
-                {% else %}
-                    <!-- Not logged in - explain they need to log in -->
-                    <p class="text-muted">Please log in to create races.</p>
-                {% endif %}
+                <div class="card-footer">
+                    <!-- 
+                    VIEW DETAILS LINK
+                    {% url 'race-detail' race.pk %} = generate URL like /race/5/
+                    -->
+                    <a href="{% url 'race-detail' race.pk %}" class="btn btn-outline-primary btn-sm">
+                        View Details
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-{% endfor %}  <!-- End of for race in races -->
+    {% empty %}
+        <!-- 
+        EMPTY STATE SECTION
+        This shows when there are no races in the database yet
+        -->
+        <div class="col-12">
+            <div class="text-center mt-5">
+                <div class="card">
+                    <div class="card-body py-5">
+                        <!-- Empty state message -->
+                        <h4 class="text-muted">No races available yet!</h4>
+                        <p class="text-muted mb-4">Be the first to create a race for the community!</p>
+                        
+                        <!-- 
+                        CONDITIONAL ACTION BUTTON
+                        Different message based on login status
+                        -->
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'create-race' %}" class="btn btn-primary btn-lg">Create First Race</a>
+                        {% else %}
+                            <p class="text-muted">Please log in to create races.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>  <!-- End of row -->
 
 <!-- 
 PAGINATION SECTION
 Only show pagination controls if there are multiple pages
-is_paginated = True if more than 5 races (comes from view)
 -->
 {% if is_paginated %}
-        <nav aria-label="Race list pagination">  <!-- Accessibility label -->
-            <ul class="pagination justify-content-center">  <!-- Bootstrap pagination, centered -->
-                
-                <!-- 
-                PREVIOUS PAGE LINK
-                Only show if user is not on first page
-                -->
-                {% if page_obj.has_previous %}
-                    <li class="page-item">
-                        <!-- 
-                        Generate URL with previous page number
-                        ?page=2 gets added to current URL
-                        -->
-                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-                    </li>
-                {% endif %}
-
-                <!-- 
-                CURRENT PAGE INDICATOR
-                Shows "Page 2 of 5" etc.
-                'active' class highlights current page
-                -->
-                <li class="page-item active">
-                    <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    <nav aria-label="Race list pagination">
+        <ul class="pagination justify-content-center">
+            
+            <!-- 
+            PREVIOUS PAGE LINK
+            Only show if user is not on first page
+            -->
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
                 </li>
+            {% endif %}
 
-                <!-- 
-                NEXT PAGE LINK
-                Only show if user is not on last page
-                -->
-                {% if page_obj.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </nav>
-{% endif %}  <!-- End of pagination -->
-   
-{% endblock %}  <!-- End of template content block -->
+            <!-- 
+            CURRENT PAGE INDICATOR
+            Shows "Page 2 of 5" etc.
+            -->
+            <li class="page-item active">
+                <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            </li>
+
+            <!-- 
+            NEXT PAGE LINK
+            Only show if user is not on last page
+            -->
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+
+{% endblock %}
