@@ -1,0 +1,197 @@
+/* 
+==============================================
+RUN FOR FUN - BEGINNER-FRIENDLY STYLING
+==============================================
+Super simple CSS - just change the colors below to customize everything!
+*/
+
+/* 
+==============================================
+YOUR CUSTOM COLORS - CHANGE THESE TO CUSTOMIZE EVERYTHING!
+==============================================
+Just change the color codes here and everything updates automatically
+*/
+:root {
+    /* Headers and Navigation Colors */
+    --header-color: #00535F;     /* Dark teal - used for all headings and navbar */
+    --header-alt: #5D8AA8;       /* Steel blue - alternate header color */
+    
+    /* Button Colors */
+    --button-color: #E07A5F;     /* Coral - main buttons and links */
+    --button-alt: #F2CC8F;       /* Golden - accent buttons */
+    
+    /* Background Colors */
+    --bg-light: #F4F1DE;        /* Cream - main page background */
+    --bg-dark: #BBD1D5;         /* Cool gray - cards and sections */
+    
+    /* Interactive Colors */
+    --hover-color: #007788;      /* Teal - hover effects on everything */
+}
+
+/* 
+==============================================
+1. BASIC PAGE STYLING (applies to ALL pages)
+==============================================
+*/
+body {
+    background-color: var(--bg-light);  /* Light cream background on all pages */
+}
+
+/* 
+==============================================
+2. ALL HEADERS - H1, H2, H3, etc. (applies to ALL pages)
+==============================================
+*/
+h1, h2, h3, h4, h5, h6 {
+    color: var(--header-color) !important;  /* Dark teal for all headings */
+}
+
+/* 
+==============================================
+3. NAVIGATION BAR (appears on ALL pages)
+==============================================
+*/
+.navbar {
+    background-color: var(--header-color) !important;  /* Dark teal navbar */
+}
+
+.navbar-brand:hover {
+    color: var(--button-alt) !important;  /* Golden hover on site title */
+}
+
+.nav-link:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover on nav links */
+    border-radius: 5px;
+    color: white !important;
+}
+
+/* 
+==============================================
+4. ALL BUTTONS (applies to ALL pages)
+==============================================
+*/
+.btn-primary {
+    background-color: var(--button-color) !important;  /* Coral buttons */
+    border-color: var(--button-color) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover */
+    border-color: var(--hover-color) !important;
+}
+
+.btn-secondary {
+    background-color: var(--button-alt) !important;  /* Golden secondary buttons */
+    border-color: var(--button-alt) !important;
+    color: #333 !important;  /* Dark text on golden */
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover */
+    border-color: var(--hover-color) !important;
+    color: white !important;
+}
+
+/* 
+==============================================
+5. ALL CARDS (applies to ALL pages)
+==============================================
+*/
+.card-header {
+    background-color: var(--bg-dark) !important;  /* Cool gray card headers */
+    color: var(--header-color) !important;  /* Dark teal text */
+}
+
+.card-title {
+    color: var(--header-color) !important;  /* Dark teal card titles */
+}
+
+.card-footer {
+    background-color: var(--bg-light) !important;  /* Light cream footers */
+}
+
+/* 
+==============================================
+6. STATUS BADGES (applies to ALL pages)
+==============================================
+*/
+.badge.bg-success {
+    background-color: var(--hover-color) !important;  /* Teal for approved/success */
+}
+
+.badge.bg-warning {
+    background-color: var(--button-alt) !important;  /* Golden for pending/warning */
+    color: #333 !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--button-color) !important;  /* Coral for danger/error */
+}
+
+/* 
+==============================================
+7. SPECIAL NAVIGATION BUTTONS
+==============================================
+Make Register/Login buttons stand out
+*/
+.navbar .nav-link[href*="signup"] {
+    background-color: var(--button-color) !important;  /* Coral Register button */
+    color: white !important;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.navbar .nav-link[href*="signup"]:hover {
+    background-color: var(--button-alt) !important;  /* Golden hover */
+    color: #333 !important;
+}
+
+/* 
+==============================================
+8. ALL FORMS (applies to ALL pages)
+==============================================
+*/
+/* Form headers */
+.auth-form-container .card-header {
+    background-color: var(--header-color) !important;  /* Dark teal header */
+    color: white !important;
+}
+
+.auth-title {
+    color: white !important;
+}
+
+.auth-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Form inputs */
+.auth-input, .form-control {
+    border: 2px solid var(--bg-dark) !important;  /* Cool gray border */
+}
+
+.auth-input:focus, .form-control:focus {
+    border-color: var(--hover-color) !important;  /* Teal focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 119, 136, 0.25) !important;
+}
+
+/* 
+==============================================
+9. ALL LINKS (applies to ALL pages)
+==============================================
+*/
+a, .auth-link {
+    color: var(--button-color) !important;  /* Coral links */
+}
+
+a:hover, .auth-link:hover {
+    color: var(--hover-color) !important;  /* Teal hover */
+}
+
+/* 
+==============================================
+TO CUSTOMIZE COLORS:
+Just scroll to the top and change the color codes in the :root section!
+==============================================
+*/
