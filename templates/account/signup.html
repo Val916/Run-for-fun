@@ -2,20 +2,73 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
+{% block head_title %}{% trans "Sign Up - Run for Fun" %}{% endblock head_title %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<!-- Simple Bootstrap card for signup form -->
+<div class="auth-form-container mt-5">
+    <div class="card shadow">
+        <!-- Card header with your custom colors -->
+        <div class="card-header text-center py-4">
+            <h1 class="auth-title">{% trans "Join Run for Fun!" %}</h1>
+            <p class="auth-subtitle mb-0">{% trans "Create your account to start sharing amazing races" %}</p>
+        </div>
+        
+        <!-- Card body with the form -->
+        <div class="card-body p-4">
+            <p class="text-center mb-4">
+                {% blocktrans %}Already have an account? <a href="{{ login_url }}" class="auth-link">Sign in here</a>.{% endblocktrans %}
+            </p>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+            <!-- Simple form using Bootstrap classes -->
+            <form method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                
+                <!-- Loop through form fields and add Bootstrap styling -->
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">{{ field.label }}</label>
+                        <!-- Add Bootstrap classes to the form field -->
+                        <input type="{{ field.field.widget.input_type|default:'text' }}" 
+                               class="form-control auth-input" 
+                               name="{{ field.name }}" 
+                               value="{{ field.value|default:'' }}"
+                               {% if field.field.required %}required{% endif %}>
+                        
+                        <!-- Show any errors -->
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <div class="text-danger mt-1">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        
+                        <!-- Show help text -->
+                        {% if field.help_text %}
+                            <small class="text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                
+                <!-- Submit button using Bootstrap -->
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        {% trans "Create My Account" %}
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Card footer -->
+        <div class="card-footer text-center">
+            <small class="text-muted">
+                {% trans "Welcome to our running community!" %}
+            </small>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}

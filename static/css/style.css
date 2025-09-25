@@ -1,0 +1,171 @@
+/* 
+==============================================
+RUN FOR FUN - SIMPLE CUSTOM STYLING
+==============================================
+Minimal custom CSS using your color palette with Bootstrap
+*/
+
+/* 
+==============================================
+CUSTOM COLOR VARIABLES
+==============================================
+Define your color scheme - easy to change in one place
+*/
+:root {
+    --primary-dark: #00535F;     /* Dark teal for navigation */
+    --primary-light: #5D8AA8;    /* Steel blue for accents */
+    --accent-warm: #E07A5F;      /* Coral for buttons */
+    --accent-golden: #F2CC8F;    /* Golden for highlights */
+    --bg-light: #F4F1DE;        /* Cream background */
+    --bg-cool: #BBD1D5;         /* Cool gray background */
+    --hover-color: #007788;      /* Teal for hover effects */
+}
+
+/* 
+==============================================
+SIMPLE GLOBAL STYLES
+==============================================
+Basic styling using Bootstrap + your colors
+*/
+body {
+    background-color: var(--bg-light);  /* Use your cream background */
+}
+
+/* 
+==============================================
+NAVIGATION BAR
+==============================================
+Override Bootstrap navbar with your colors
+*/
+.navbar {
+    background-color: var(--primary-dark) !important;  /* Your dark teal */
+}
+
+.navbar-brand:hover {
+    color: var(--accent-golden) !important;  /* Golden hover effect */
+}
+
+.nav-link:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover */
+    border-radius: 5px;  /* Rounded corners */
+}
+
+/* 
+==============================================
+BUTTON COLORS
+==============================================
+Simple button styling with your color scheme
+*/
+.btn-primary {
+    background-color: var(--accent-warm) !important;  /* Coral buttons */
+    border-color: var(--accent-warm) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color) !important;  /* Teal on hover */
+    border-color: var(--hover-color) !important;
+}
+
+.btn-outline-primary {
+    color: var(--accent-warm) !important;  /* Coral text */
+    border-color: var(--accent-warm) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--hover-color) !important;  /* Teal background on hover */
+    border-color: var(--hover-color) !important;
+    color: white !important;
+}
+
+/* 
+==============================================
+CARD STYLING
+==============================================
+Simple card enhancements using Bootstrap + your colors
+*/
+.card-header {
+    background-color: var(--bg-cool) !important;  /* Light blue-gray headers */
+}
+
+.card-title {
+    color: var(--primary-dark) !important;  /* Dark teal titles */
+}
+
+.card-footer {
+    background-color: var(--bg-light) !important;  /* Cream footers */
+}
+
+/* 
+==============================================
+HEADERS AND BADGES
+==============================================
+Color your headings and approval badges
+*/
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-dark) !important;  /* Dark teal headers */
+}
+
+.badge.bg-success {
+    background-color: var(--hover-color) !important;  /* Teal for approved */
+}
+
+.badge.bg-warning {
+    background-color: var(--accent-golden) !important;  /* Golden for pending */
+    color: #333 !important;  /* Dark text on golden background */
+}
+
+/* 
+==============================================
+SIGN UP BUTTON SPECIAL STYLING
+==============================================
+Make the Sign Up button in navigation stand out
+*/
+.navbar .nav-link[href*="signup"] {
+    background-color: var(--accent-warm) !important;  /* Coral background */
+    color: white !important;
+    border-radius: 5px;  /* Rounded corners */
+    font-weight: bold;  /* Bold text */
+    margin-left: 0.5rem;  /* Space from other links */
+}
+
+.navbar .nav-link[href*="signup"]:hover {
+    background-color: var(--accent-golden) !important;  /* Golden on hover */
+}
+
+/* 
+==============================================
+SIMPLE AUTH FORM STYLING  
+==============================================
+Clean styling for login and signup forms
+*/
+.auth-form-container .card-header {
+    background-color: var(--primary-dark) !important;  /* Dark teal header */
+    color: white !important;
+}
+
+.auth-title {
+    color: white !important;  /* White text on dark header */
+}
+
+.auth-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;  /* Slightly transparent white */
+}
+
+/* Style the form inputs with your colors */
+.auth-input {
+    border: 2px solid var(--bg-cool) !important;  /* Cool gray border */
+}
+
+.auth-input:focus {
+    border-color: var(--hover-color) !important;  /* Teal when focused */
+    box-shadow: 0 0 0 0.2rem rgba(0, 119, 136, 0.25) !important;  /* Teal glow */
+}
+
+/* Links in auth forms */
+.auth-link {
+    color: var(--accent-warm) !important;  /* Coral links */
+}
+
+.auth-link:hover {
+    color: var(--hover-color) !important;  /* Teal on hover */
+}
