@@ -69,27 +69,62 @@ h1, h2, h3, h4, h5, h6 {
 ==============================================
 4. ALL BUTTONS (applies to ALL pages)
 ==============================================
+Making sure text is ALWAYS visible and readable
 */
+
+/* PRIMARY BUTTONS - Coral with white text */
 .btn-primary {
-    background-color: var(--button-color) !important;  /* Coral buttons */
+    background-color: var(--button-color) !important;  /* Coral background */
     border-color: var(--button-color) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;  /* Slightly bold for readability */
 }
 
 .btn-primary:hover {
     background-color: var(--hover-color) !important;  /* Teal hover */
     border-color: var(--hover-color) !important;
+    color: white !important;  /* Keep white text on hover */
 }
 
+/* SECONDARY BUTTONS - Golden with dark text */
 .btn-secondary {
-    background-color: var(--button-alt) !important;  /* Golden secondary buttons */
+    background-color: var(--button-alt) !important;  /* Golden background */
     border-color: var(--button-alt) !important;
     color: #333 !important;  /* Dark text on golden */
+    font-weight: 500 !important;  /* Slightly bold for readability */
 }
 
 .btn-secondary:hover {
     background-color: var(--hover-color) !important;  /* Teal hover */
     border-color: var(--hover-color) !important;
-    color: white !important;
+    color: white !important;  /* White text on teal hover */
+}
+
+/* OUTLINE BUTTONS - Clean borders with colored text */
+.btn-outline-primary {
+    border-color: var(--button-color) !important;  /* Coral border */
+    color: var(--button-color) !important;  /* Coral text */
+    font-weight: 500 !important;  /* Bold text for visibility */
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--button-color) !important;  /* Coral background on hover */
+    border-color: var(--button-color) !important;
+    color: white !important;  /* White text on hover */
+}
+
+/* SUCCESS BUTTONS - Teal with white text */
+.btn-success {
+    background-color: var(--hover-color) !important;  /* Teal background */
+    border-color: var(--hover-color) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;  /* Bold text */
+}
+
+.btn-success:hover {
+    background-color: var(--header-color) !important;  /* Darker teal hover */
+    border-color: var(--header-color) !important;
+    color: white !important;  /* Keep white text */
 }
 
 /* 
@@ -132,11 +167,11 @@ h1, h2, h3, h4, h5, h6 {
 ==============================================
 7. SPECIAL NAVIGATION BUTTONS
 ==============================================
-Make Register/Login buttons stand out
+Make Register/Login buttons stand out with clear text
 */
 .navbar .nav-link[href*="signup"] {
     background-color: var(--button-color) !important;  /* Coral Register button */
-    color: white !important;
+    color: white !important;  /* White text for visibility */
     border-radius: 5px;
     font-weight: bold;
     margin-left: 0.5rem;
@@ -144,7 +179,18 @@ Make Register/Login buttons stand out
 
 .navbar .nav-link[href*="signup"]:hover {
     background-color: var(--button-alt) !important;  /* Golden hover */
-    color: #333 !important;
+    color: #333 !important;  /* Dark text on golden */
+}
+
+/* ALL NAVBAR LINKS - Make sure text is visible */
+.navbar-nav .nav-link {
+    color: white !important;  /* White text on dark navbar */
+    font-weight: 500 !important;  /* Slightly bold for readability */
+}
+
+.navbar-brand {
+    color: white !important;  /* White brand text */
+    font-weight: bold !important;
 }
 
 /* 
@@ -187,6 +233,65 @@ a, .auth-link {
 
 a:hover, .auth-link:hover {
     color: var(--hover-color) !important;  /* Teal hover */
+}
+
+/* 
+==============================================
+10. ADDITIONAL BUTTON STYLES
+==============================================
+Making sure ALL button types have good text contrast
+*/
+
+/* WARNING BUTTONS - Golden with dark text */
+.btn-warning {
+    background-color: var(--button-alt) !important;  /* Golden background */
+    border-color: var(--button-alt) !important;
+    color: #333 !important;  /* Dark text for contrast */
+    font-weight: 500 !important;
+}
+
+.btn-warning:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover */
+    border-color: var(--hover-color) !important;
+    color: white !important;  /* White text on hover */
+}
+
+/* DANGER BUTTONS - Coral with white text */
+.btn-danger {
+    background-color: var(--button-color) !important;  /* Coral background */
+    border-color: var(--button-color) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;
+}
+
+.btn-danger:hover {
+    background-color: #c85a47 !important;  /* Darker coral hover */
+    border-color: #c85a47 !important;
+    color: white !important;  /* Keep white text */
+}
+
+/* INFO BUTTONS - Steel blue with white text */
+.btn-info {
+    background-color: var(--header-alt) !important;  /* Steel blue background */
+    border-color: var(--header-alt) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;
+}
+
+.btn-info:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover */
+    border-color: var(--hover-color) !important;
+    color: white !important;  /* Keep white text */
+}
+
+/* SMALL BUTTONS - Extra bold text for visibility */
+.btn-sm {
+    font-weight: 600 !important;  /* Extra bold for small buttons */
+}
+
+/* LARGE BUTTONS - Keep text readable */
+.btn-lg {
+    font-weight: 500 !important;
 }
 
 /* 
