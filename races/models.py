@@ -5,9 +5,35 @@ from django.utils import timezone    # Utilities for time zone-aware datetimes
 
 
 class Race(models.Model):
+
+    
     name = models.CharField(
         max_length=200,                   
         help_text="Enter the race name")    # Shows in admin forms
+
+        
+    # CHOICE FIELDS: Define dropdown options for consistency
+    # Format: (database_value, display_value)
+    
+    DISTANCE_CHOICES = [
+        ('5K', '5K (3.1 miles)'),      
+        ('HALF', 'Half Marathon (13.1 miles)'),  
+        ('FULL', 'Full Marathon (26.2 miles)'),  
+        ('ULTRA', 'Ultra Marathon (50K+)'),      
+        ('OTHER', 'Other Distance'),            
+    ]
+
+    DIFFICULTY_CHOICES = [
+        ('EASY_PEASY', 'Easy-peasy'),        
+        ('ADULTS_ONLY', 'Adults Only'),      
+        ('CRAZY_TOUGH', 'Crazy Tough'),     
+        ('EXTREME_LAUGH', 'Extreme Laugh'),  
+    ]
+    
+    STATUS_CHOICES = [
+        (0, "Draft"),
+        (1, "Published"),
+    ]
 
     description = models.TextField(
         help_text="Describe the race, course, and any special details")
@@ -94,28 +120,6 @@ class Race(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True, help_text="When this race was first created")
 
-    # CHOICE FIELDS: Define dropdown options for consistency
-    # Format: (database_value, display_value)
-    
-    DISTANCE_CHOICES = [
-        ('5K', '5K (3.1 miles)'),      
-        ('HALF', 'Half Marathon (13.1 miles)'),  
-        ('FULL', 'Full Marathon (26.2 miles)'),  
-        ('ULTRA', 'Ultra Marathon (50K+)'),      
-        ('OTHER', 'Other Distance'),            
-    ]
-
-    DIFFICULTY_CHOICES = [
-        ('EASY_PEASY', 'Easy-peasy'),        
-        ('ADULTS_ONLY', 'Adults Only'),      
-        ('CRAZY_TOUGH', 'Crazy Tough'),     
-        ('EXTREME_LAUGH', 'Extreme Laugh'),  
-    ]
-    
-    STATUS_CHOICES = [
-        (0, "Draft"),
-        (1, "Published"),
-    ]
     
     
     class Meta:

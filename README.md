@@ -9,7 +9,6 @@ html
 </details>
 
 
-
 “”
 
 🤖 AI Tool Reflections
@@ -36,3 +35,12 @@ Testing & Debugging: Copilot supported the creation of Django test cases and hel
 ![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=white)
 
 
+https://www.mermaidchart.com/
+
+https://ui.dev/amiresponsive
+
+
+Incredible races list
+
+Custom Model: Race
+CRUD implimantation:: Users can see create their own races, update them (distance, difficalty, date, description, country and city), or delete. 
