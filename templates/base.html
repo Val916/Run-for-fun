@@ -62,16 +62,23 @@
     <div class="container mt-4">
         <!-- Show Django messages (success, error, etc.) -->
         {% if messages %}
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-            {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                            {{ message | safe }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
+            
+            <!-- Fireworks container - only show when there are success messages -->
+            {% for message in messages %}
+                {% if "success" in message.tags %}
+                    <div id="fireworks-container" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;"></div>
+                {% endif %}
             {% endfor %}
-        </div>
         {% endif %}
 
         <!-- Page content goes here -->
@@ -81,5 +88,162 @@
 
     <!-- Bootstrap 5 JavaScript for interactive components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Fireworks JS for celebratory effects - using different CDN -->
+    <script src="https://unpkg.com/fireworks-js@2.10.7/dist/index.umd.js"></script>
+
+    <!-- Fireworks script for success messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                console.log('📨 Message detected with tags:', '{{ message.tags }}');
+                console.log('📨 Message content:', '{{ message|escapejs }}');
+            </script>
+            {% if "success" in message.tags %}
+                <script>
+                    console.log('🎆 Success message detected, preparing fireworks...');
+                    
+                    // Function to start fireworks
+                    function startFireworks() {
+                        const container = document.getElementById('fireworks-container');
+                        console.log('Container found:', !!container);
+                        console.log('Fireworks library loaded:', typeof Fireworks !== 'undefined');
+                        
+                        if (container && typeof Fireworks !== 'undefined') {
+                            try {
+                                // Create fireworks instance with INTENSE settings
+                                const fireworks = new Fireworks(container, { 
+                                    autoresize: true, 
+                                    opacity: 0.9,              // More visible
+                                    acceleration: 1.2,         // Faster acceleration
+                                    friction: 0.95,            // Less friction = longer trails
+                                    gravity: 1.2,              // Slightly less gravity
+                                    particles: 100,            // Double the particles!
+                                    traceLength: 5,            // Longer trails
+                                    traceSpeed: 15,            // Faster trails
+                                    explosion: 8,              // Bigger explosions
+                                    intensity: 60,             // Much higher intensity
+                                    flickering: 80,            // More flickering
+                                    lineStyle: 'round',
+                                    hue: {
+                                        min: 0,
+                                        max: 360
+                                    },
+                                    delay: {
+                                        min: 10,               // Faster firing
+                                        max: 30
+                                    },
+                                    rocketsPoint: {
+                                        min: 30,               // More rocket points
+                                        max: 70
+                                    }
+                                });
+                                
+                                // Start fireworks
+                                fireworks.start();
+                                console.log('🎆 INTENSE Fireworks started successfully!');
+                                
+                                // Stop fireworks after 6 seconds (longer show!)
+                                setTimeout(function() {
+                                    fireworks.stop();
+                                    console.log('🎆 Fireworks stopped');
+                                    // Remove container after fireworks stop
+                                    setTimeout(function() {
+                                        container.remove();
+                                        console.log('🎆 Fireworks container removed');
+                                    }, 1000);
+                                }, 6000); // Extended from 4 to 6 seconds
+                                
+                            } catch (error) {
+                                console.error('❌ Fireworks error:', error);
+                                // Fallback to simple celebration
+                                showSimpleCelebration(container);
+                            }
+                        } else {
+                            console.warn('⚠️ Fireworks library not loaded, using fallback celebration');
+                            if (!container) {
+                                console.error('❌ Container element missing');
+                                return;
+                            }
+                            // Fallback celebration
+                            showSimpleCelebration(container);
+                        }
+                    }
+                    
+                    // Fallback celebration function
+                    function showSimpleCelebration(container) {
+                        console.log('🎉 Starting INTENSE celebration animation...');
+                        
+                        // Create MORE animated elements for intense effect
+                        for (let i = 0; i < 50; i++) {  // Keep 50 particles
+                            setTimeout(() => {
+                                const particle = document.createElement('div');
+                                particle.style.cssText = `
+                                    position: absolute;
+                                    width: 8px;
+                                    height: 8px;
+                                    background: hsl(${Math.random() * 360}, 100%, 50%);
+                                    border-radius: 50%;
+                                    left: ${Math.random() * 100}%;
+                                    top: ${Math.random() * 100}%;
+                                    animation: celebrate 2s ease-out forwards;
+                                    pointer-events: none;
+                                `;
+                                container.appendChild(particle);
+                                
+                                // Remove particle after animation
+                                setTimeout(() => {
+                                    if (particle.parentNode) {
+                                        particle.parentNode.removeChild(particle);
+                                    }
+                                }, 2000);
+                            }, i * 20); // Keep faster spawning
+                        }
+                        
+                        // Add CSS animation if not exists
+                        if (!document.querySelector('#celebration-styles')) {
+                            const style = document.createElement('style');
+                            style.id = 'celebration-styles';
+                            style.textContent = `
+                                @keyframes celebrate {
+                                    0% { 
+                                        transform: translateY(0) scale(1); 
+                                        opacity: 1; 
+                                    }
+                                    50% { 
+                                        transform: translateY(-300px) scale(1.5); 
+                                        opacity: 0.8; 
+                                    }
+                                    100% { 
+                                        transform: translateY(-500px) scale(0); 
+                                        opacity: 0; 
+                                    }
+                                }
+                            `;
+                            document.head.appendChild(style);
+                        }
+                        
+                        console.log('🎉 INTENSE celebration started!');
+                        
+                        // Clean up after 3 seconds (matches animation duration)
+                        setTimeout(() => {
+                            container.remove();
+                            console.log('🎉 Celebration finished!');
+                        }, 3000);
+                    }
+                    
+                    // Try multiple ways to ensure everything is loaded
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', startFireworks);
+                    } else {
+                        // DOM already loaded, start immediately
+                        startFireworks();
+                    }
+                    
+                    // Also try after a small delay to ensure library is loaded
+                    setTimeout(startFireworks, 100);
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 </body>
 </html>
