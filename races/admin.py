@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Race
+from .models import Race, Comment
 
 
 @admin.register(Race)
@@ -108,3 +108,40 @@ class RaceAdmin(admin.ModelAdmin):
         if not change:  # Only when creating new race
             obj.created_by = request.user
         super().save_model(request, obj, form, change)
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    """Admin interface for Comment model"""
+    
+    # What columns to show in the comments list
+    list_display = [
+        'short_body',
+        'author',
+        'race',
+        'created_on',
+        'approved'
+    ]
+    
+    # Add filters in the right sidebar
+    list_filter = [
+        'approved',
+        'created_on',
+        'race'
+    ]
+    
+    # Add search functionality
+    search_fields = [
+        'body',
+        'author__username',
+        'race__name'
+    ]
+    
+    # Order by newest first
+    ordering = ['-created_on']
+    
+    # Custom display methods
+    def short_body(self, obj):
+        """Show first 50 characters of comment"""
+        return obj.body[:50] + "..." if len(obj.body) > 50 else obj.body
+    short_body.short_description = 'Comment'

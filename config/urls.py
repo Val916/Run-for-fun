@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('races.urls')),  # Include races URLs at root level
+    path('', include('races.urls'), name='home'),  # Include races URLs at root level
     path("accounts/", include("allauth.urls")),
 ]
 

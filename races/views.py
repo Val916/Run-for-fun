@@ -6,9 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # Import Django's pagination system to split long lists into pages
 from django.core.paginator import Paginator
-# Import our Race model from the current app
-from .models import Race
-# Import our custom form for creating/editing races
+# Import our Race and Comment models from the current app
+from .models import Race, Comment
+# Import our custom forms
 from .forms import RaceForm
 
 
@@ -67,12 +67,9 @@ def race_list(request):
 
 def race_detail(request, pk):
     """
-    VIEW 2: Race Detail Page - Show race if user has permission to see it
+    VIEW 2: Race Detail Page - Show race with comments
     
-    This view shows race details only if the user is allowed to view it:
-    - Everyone can see approved races
-    - Admins can see all races
-    - Race creators can see their own races (even if not approved)
+    Handles both displaying race details AND processing new comments
     """
     
     # STEP 1: Get the race from database (published races only)
@@ -80,12 +77,32 @@ def race_detail(request, pk):
     
     # STEP 2: Check if user has permission to view this race
     if not race.is_visible_to_user(request.user):
-        # User doesn't have permission - show 404 error
         from django.http import Http404
         raise Http404("Race not found or not available.")
     
-    # STEP 3: Send race data to template
-    return render(request, 'races/race_detail.html', {'race': race})
+    # STEP 3: Get comments for this race
+    comments = race.comments.filter(approved=True).order_by('-created_on')
+    comment_count = comments.count()
+    
+    # STEP 4: Handle comment submission
+    if request.method == "POST" and request.user.is_authenticated:
+        comment_body = request.POST.get('body')
+        if comment_body:
+            Comment.objects.create(
+                race=race,
+                author=request.user,
+                body=comment_body
+            )
+            messages.success(request, 'Your comment has been added!')
+            return redirect('race-detail', pk=race.pk)
+    
+    # STEP 5: Send race and comments data to template
+    context = {
+        'race': race,
+        'comments': comments,
+        'comment_count': comment_count,
+    }
+    return render(request, 'races/race_detail.html', context)
 
 
 @login_required  # This decorator ensures only logged-in users can access this view

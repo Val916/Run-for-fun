@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <!-- Site logo/title -->
-            <a class="navbar-brand" href="{% url 'race-list' %}">Run for Fun</a>
+            <a class="navbar-brand" href="{% url 'race-list' %}"><b>Find your next wild race. From jungles to volcanoes, we’ve got it.</b></a>
             
             <!-- Navigation toggle button for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -62,12 +62,16 @@
     <div class="container mt-4">
         <!-- Show Django messages (success, error, etc.) -->
         {% if messages %}
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+            </div>
             {% endfor %}
+        </div>
         {% endif %}
 
         <!-- Page content goes here -->

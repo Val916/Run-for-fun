@@ -5,35 +5,37 @@ from django.utils import timezone    # Utilities for time zone-aware datetimes
 
 
 class Race(models.Model):
-
+    """
+    Race model represents a running event that users can create and view
+    """
     
-    name = models.CharField(
-        max_length=200,                   
-        help_text="Enter the race name")    # Shows in admin forms
-
-        
-    # CHOICE FIELDS: Define dropdown options for consistency
+    # CHOICE FIELDS: Define dropdown options FIRST, before using them
     # Format: (database_value, display_value)
     
     DISTANCE_CHOICES = [
-        ('5K', '5K (3.1 miles)'),      
-        ('HALF', 'Half Marathon (13.1 miles)'),  
-        ('FULL', 'Full Marathon (26.2 miles)'),  
-        ('ULTRA', 'Ultra Marathon (50K+)'),      
-        ('OTHER', 'Other Distance'),            
+        ('5K', '5K (3.1 miles)'),
+        ('HALF', 'Half Marathon (13.1 miles)'),
+        ('FULL', 'Full Marathon (26.2 miles)'),
+        ('ULTRA', 'Ultra Marathon (50K+)'),
+        ('OTHER', 'Other Distance'),
     ]
 
     DIFFICULTY_CHOICES = [
-        ('EASY_PEASY', 'Easy-peasy'),        
-        ('ADULTS_ONLY', 'Adults Only'),      
-        ('CRAZY_TOUGH', 'Crazy Tough'),     
-        ('EXTREME_LAUGH', 'Extreme Laugh'),  
+        ('EASY_PEASY', 'Easy-peasy'),
+        ('ADULTS_ONLY', 'Adults Only'),
+        ('CRAZY_TOUGH', 'Crazy Tough'),
+        ('EXTREME_LAUGH', 'Extreme Laugh'),
     ]
     
     STATUS_CHOICES = [
         (0, "Draft"),
         (1, "Published"),
     ]
+
+    # MODEL FIELDS start here
+    name = models.CharField(
+        max_length=200,
+        help_text="Enter the race name")
 
     description = models.TextField(
         help_text="Describe the race, course, and any special details")
@@ -200,3 +202,91 @@ class Race(models.Model):
         """
         time_diff = self.race_date - timezone.now().date()
         return time_diff.days
+
+
+class Comment(models.Model):
+    """
+    COMMENT MODEL - User discussions on races
+    
+    This model allows users to leave comments on race pages.
+    Comments create a community discussion around each race.
+    
+    RELATIONSHIPS:
+    - Each comment belongs to ONE race (ForeignKey to Race)
+    - Each comment has ONE author (ForeignKey to User)
+    - Each race can have MANY comments (related_name='comments')
+    """
+    
+    # RELATIONSHIP TO RACE - Which race this comment is about
+    race = models.ForeignKey(
+        Race,                           # Links to Race model
+        on_delete=models.CASCADE,       # If race deleted, delete all its comments
+        related_name='comments',        # Allows: race.comments.all()
+        help_text="Which race this comment belongs to"
+    )
+    
+    # RELATIONSHIP TO USER - Who wrote this comment
+    author = models.ForeignKey(
+        User,                           # Links to Django's User model
+        on_delete=models.CASCADE,       # If user deleted, delete their comments
+        help_text="User who wrote this comment"
+    )
+    
+    # COMMENT CONTENT - The actual text of the comment
+    body = models.TextField(
+        max_length=1000,                # Limit to prevent spam/abuse
+        help_text="Comment text (max 1000 characters)"
+    )
+    
+    # TIMESTAMP - When comment was created
+    created_on = models.DateTimeField(
+        auto_now_add=True,              # Automatically set when comment created
+        help_text="When comment was posted"
+    )
+    
+    # MODERATION SYSTEM - Allow admin to hide inappropriate comments
+    approved = models.BooleanField(
+        default=True,                   # Auto-approve (change to False for moderation)
+        help_text="Whether comment is approved for display"
+    )
+    
+    class Meta:
+        """
+        META OPTIONS for Comment model
+        """
+        # ORDERING: Show newest comments first
+        ordering = ['-created_on']     # Minus sign = descending order
+        
+        # DATABASE INDEXES: Speed up common queries
+        indexes = [
+            # Index for "get all comments for a race, newest first"
+            models.Index(fields=['race', '-created_on']),
+        ]
+    
+    # STRING REPRESENTATION - How comments appear in admin/lists
+    def __str__(self):
+        """
+        Display format: "Comment by username on Race Name"
+        Truncate long race names to keep it readable
+        """
+        race_name = self.race.name[:30] + "..." if len(self.race.name) > 30 else self.race.name
+        return f"Comment by {self.author.username} on {race_name}"
+    
+    # CUSTOM METHODS for Comment model
+    
+    @property
+    def is_recent(self):
+        """
+        Check if comment was posted in the last 24 hours
+        Useful for highlighting new comments
+        """
+        from datetime import timedelta
+        return timezone.now() - self.created_on < timedelta(hours=24)
+    
+    @property
+    def short_body(self):
+        """
+        Return first 100 characters of comment for previews
+        Useful in admin lists or comment summaries
+        """
+        return self.body[:100] + "..." if len(self.body) > 100 else self.body

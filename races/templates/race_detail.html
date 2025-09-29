@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+    <!-- Main race information -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>{{ race.name }}</h1>
+            </div>
+            
+            <!-- Race image if available -->
+            {% if race.image %}
+                <img src="{{ race.image.url }}" class="card-img-top" alt="{{ race.name }}" style="height: 300px; object-fit: cover;">
+            {% endif %}
+            
+            <div class="card-body">
+                <!-- Race details in two columns -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Race Details</h5>
+                        <p><strong>Distance:</strong> 
+                            <!-- Show custom distance if "Other" was selected -->
+                            {% if race.distance == 'OTHER' and race.custom_distance %}
+                                {{ race.custom_distance }}
+                            {% else %}
+                                {{ race.get_distance_display }}
+                            {% endif %}
+                        </p>
+                        <p><strong>Difficulty:</strong> {{ race.get_difficulty_display }}</p>
+                        <p><strong>Date:</strong> {{ race.race_date|date:"d/m/Y" }}</p>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h5>Location</h5>
+                        <p><strong>City:</strong> {{ race.city }}</p>
+                        <p><strong>Country:</strong> {{ race.country }}</p>
+                        
+                        <!-- Show if map coordinates are available -->
+                        {% if race.has_coordinates %}
+                            <p><em>Map coordinates available</em></p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- Race description -->
+                <h5>Description</h5>
+                <p>{{ race.description|linebreaks }}</p>
+                
+                <!-- Registration link if available -->
+                {% if race.registration_link %}
+                    <div class="alert alert-success">
+                        <h6>Ready to join?</h6>
+                        <a href="{{ race.registration_link }}" target="_blank" class="btn btn-success">
+                            Register for this Race
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Footer with creation info -->
+            <div class="card-footer text-muted">
+                <small>Created by {{ race.created_by.username }} on {{ race.created_at|date:"d/m/Y" }}</small>
+            </div>
+        </div>
+
+        <!-- COMMENTS SECTION - Moved here for better organization -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>💬 Discussion ({{ comment_count }} comment{{ comment_count|pluralize }})</h5>
+            </div>
+            <div class="card-body">
+                <!-- Display existing comments -->
+                {% for comment in comments %}
+                    <div class="card mb-3 border-left-primary">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="card-title mb-1">
+                                        👤 {{ comment.author.username }}
+                                        {% if comment.is_recent %}
+                                            <span class="badge badge-primary">New</span>
+                                        {% endif %}
+                                    </h6>
+                                    <small class="text-muted">{{ comment.created_on|date:"d/m/Y H:i" }}</small>
+                                </div>
+                            </div>
+                            <p class="card-text mt-2">{{ comment.body|linebreaks }}</p>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="text-center py-4">
+                        <p class="text-muted mb-2">💭 No comments yet</p>
+                        <p class="text-muted">Be the first to share your thoughts about this race!</p>
+                    </div>
+                {% endfor %}
+                
+                <!-- Add comment form for logged-in users -->
+                {% if user.is_authenticated %}
+                    <div class="card mt-4 bg-light">
+                        <div class="card-header">
+                            <h6>✍️ Leave a Comment</h6>
+                        </div>
+                        <div class="card-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="comment-body" class="form-label">Your thoughts:</label>
+                                    <textarea 
+                                        name="body" 
+                                        id="comment-body"
+                                        class="form-control" 
+                                        rows="4" 
+                                        placeholder="Share your experience, tips, or questions about this race..."
+                                        maxlength="1000"
+                                        required>
+                                    </textarea>
+                                    <div class="form-text">Maximum 1000 characters</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    💬 Post Comment
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="card mt-4 bg-light">
+                        <div class="card-body text-center">
+                            <p class="mb-2">👋 Want to join the discussion?</p>
+                            <a href="{% url 'account_login' %}" class="btn btn-outline-primary">
+                                Login to Comment
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sidebar with navigation -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6>🚀 Quick Actions</h6>
+            </div>
+            <div class="card-body">
+                <!-- Back to list -->
+                <a href="{% url 'race-list' %}" class="btn btn-outline-primary w-100 mb-2">
+                    ← Back to All Races
+                </a>
+                
+                <!-- Create new race (only for logged in users) -->
+                {% if user.is_authenticated %}
+                    <a href="{% url 'create-race' %}" class="btn btn-primary w-100 mb-2">
+                        ➕ Create New Race
+                    </a>
+                    
+                    <!-- My races link -->
+                    <a href="{% url 'my-races' %}" class="btn btn-outline-secondary w-100">
+                        📋 My Races
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Race Statistics Card -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6>📊 Race Info</h6>
+            </div>
+            <div class="card-body">
+                <small class="text-muted">
+                    <p><strong>Days until race:</strong> 
+                        {% if race.days_until_race > 0 %}
+                            {{ race.days_until_race }} days
+                        {% elif race.days_until_race == 0 %}
+                            Today! 🎉
+                        {% else %}
+                            {{ race.days_until_race|add:"-1" }} days ago
+                        {% endif %}
+                    </p>
+                    
+                    {% if race.approved %}
+                        <span class="badge bg-success">✅ Approved</span>
+                    {% else %}
+                        <span class="badge bg-warning">⏳ Pending Approval</span>
+                    {% endif %}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
