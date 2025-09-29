@@ -192,3 +192,30 @@ def my_races(request):
     
     # STEP 6: Show the "My Races" template with user's races
     return render(request, 'races/my_races.html', context)
+
+
+@login_required
+def delete_comment(request, comment_id):
+    """
+    VIEW 5: Delete Comment - Allow users to delete their own comments
+    
+    Only the comment author can delete their own comment
+    """
+    
+    # STEP 1: Get the comment or return 404 if not found
+    comment = get_object_or_404(Comment, id=comment_id)
+    
+    # STEP 2: Check if current user is the comment author
+    if comment.author != request.user:
+        messages.error(request, "You can only delete your own comments!")
+        return redirect('race-detail', pk=comment.race.pk)
+    
+    # STEP 3: Store race pk before deleting comment
+    race_pk = comment.race.pk
+    
+    # STEP 4: Delete the comment
+    comment.delete()
+    
+    # STEP 5: Show success message and redirect back to race
+    messages.success(request, "Your comment has been deleted!")
+    return redirect('race-detail', pk=race_pk)

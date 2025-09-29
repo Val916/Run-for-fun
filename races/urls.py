@@ -28,4 +28,8 @@ urlpatterns = [
     # MY RACES: '/my-races/' shows current user's races
     # Requires login (handled by @login_required in view)
     path('my-races/', views.my_races, name='my-races'),
+    
+    # DELETE COMMENT: '/delete-comment/5/' deletes comment with ID 5
+    # <int:comment_id> = capture comment ID from URL
+    path('delete-comment/<int:comment_id>/', views.delete_comment, name='delete-comment'),
 ]
