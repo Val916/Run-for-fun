@@ -13,19 +13,22 @@ Just change the color codes here and everything updates automatically
 */
 :root {
     /* Headers and Navigation Colors */
-    --header-color: #00535F;     /* Dark teal - used for all headings and navbar */
-    --header-alt: #5D8AA8;       /* Steel blue - alternate header color */
+    --header-color: #00535F;     /* Midnight Green - used for all headings and navbar */
+    --header-alt: #5D8AA8;       /* Air Force Blue - alternate header color */
     
     /* Button Colors */
-    --button-color: #E07A5F;     /* Coral - main buttons and links */
-    --button-alt: #F2CC8F;       /* Golden - accent buttons */
+    --button-color: #E07A5F;     /* Burnt Sienna - main buttons and links */
+    --button-alt: #F2CC8F;       /* Sunset - accent buttons */
     
     /* Background Colors */
-    --bg-light: #F4F1DE;        /* Cream - main page background */
-    --bg-dark: #BBD1D5;         /* Cool gray - cards and sections */
+    --bg-light: #F4F1DE;        /* Eggshell - main page background */
+    --bg-dark: #85ABB5;         /* Cadet Gray - cards and sections */
+    --bg-medium: #BBD1D5;       /* Light Blue - medium backgrounds */
+    --bg-neutral: #B5B8BA;      /* Silver - neutral elements */
     
     /* Interactive Colors */
-    --hover-color: #007788;      /* Teal - hover effects on everything */
+    --hover-color: #007788;      /* Caribbean Current - hover effects on everything */
+    --accent-color: #54909E;     /* Blue (Munsell) - accents and highlights */
 }
 
 /* 
@@ -69,27 +72,62 @@ h1, h2, h3, h4, h5, h6 {
 ==============================================
 4. ALL BUTTONS (applies to ALL pages)
 ==============================================
+Making sure text is ALWAYS visible and readable
 */
+
+/* PRIMARY BUTTONS - Coral with white text */
 .btn-primary {
-    background-color: var(--button-color) !important;  /* Coral buttons */
+    background-color: var(--button-color) !important;  /* Coral background */
     border-color: var(--button-color) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;  /* Slightly bold for readability */
 }
 
 .btn-primary:hover {
     background-color: var(--hover-color) !important;  /* Teal hover */
     border-color: var(--hover-color) !important;
+    color: white !important;  /* Keep white text on hover */
 }
 
+/* SECONDARY BUTTONS - Golden with dark text */
 .btn-secondary {
-    background-color: var(--button-alt) !important;  /* Golden secondary buttons */
+    background-color: var(--button-alt) !important;  /* Golden background */
     border-color: var(--button-alt) !important;
     color: #333 !important;  /* Dark text on golden */
+    font-weight: 500 !important;  /* Slightly bold for readability */
 }
 
 .btn-secondary:hover {
     background-color: var(--hover-color) !important;  /* Teal hover */
     border-color: var(--hover-color) !important;
-    color: white !important;
+    color: white !important;  /* White text on teal hover */
+}
+
+/* OUTLINE BUTTONS - Clean borders with colored text */
+.btn-outline-primary {
+    border-color: var(--button-color) !important;  /* Coral border */
+    color: var(--button-color) !important;  /* Coral text */
+    font-weight: 500 !important;  /* Bold text for visibility */
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--button-color) !important;  /* Coral background on hover */
+    border-color: var(--button-color) !important;
+    color: white !important;  /* White text on hover */
+}
+
+/* SUCCESS BUTTONS - Teal with white text */
+.btn-success {
+    background-color: var(--hover-color) !important;  /* Teal background */
+    border-color: var(--hover-color) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;  /* Bold text */
+}
+
+.btn-success:hover {
+    background-color: var(--header-color) !important;  /* Darker teal hover */
+    border-color: var(--header-color) !important;
+    color: white !important;  /* Keep white text */
 }
 
 /* 
@@ -97,54 +135,111 @@ h1, h2, h3, h4, h5, h6 {
 5. ALL CARDS (applies to ALL pages)
 ==============================================
 */
+.card {
+    border: 1px solid var(--bg-neutral) !important;  /* Silver border for definition */
+    box-shadow: 0 2px 4px rgba(0, 83, 95, 0.1) !important;  /* Subtle midnight green shadow */
+}
+
 .card-header {
-    background-color: var(--bg-dark) !important;  /* Cool gray card headers */
-    color: var(--header-color) !important;  /* Dark teal text */
+    background-color: var(--bg-dark) !important;  /* Cadet Gray card headers */
+    color: var(--header-color) !important;  /* Midnight Green text */
+    border-bottom: 2px solid var(--accent-color) !important;  /* Blue Munsell accent border */
 }
 
 .card-title {
-    color: var(--header-color) !important;  /* Dark teal card titles */
+    color: var(--header-color) !important;  /* Midnight Green card titles */
 }
 
 .card-footer {
-    background-color: var(--bg-light) !important;  /* Light cream footers */
+    background-color: var(--bg-medium) !important;  /* Light Blue footers */
+    border-top: 1px solid var(--bg-neutral) !important;  /* Silver top border */
+}
+
+.card-body {
+    background-color: rgba(244, 241, 222, 0.7) !important;  /* Semi-transparent eggshell */
 }
 
 /* 
 ==============================================
-6. STATUS BADGES (applies to ALL pages)
+6. STATUS BADGES & ALERTS (applies to ALL pages)
 ==============================================
 */
 .badge.bg-success {
-    background-color: var(--hover-color) !important;  /* Teal for approved/success */
+    background-color: var(--hover-color) !important;  /* Caribbean Current for approved/success */
 }
 
 .badge.bg-warning {
-    background-color: var(--button-alt) !important;  /* Golden for pending/warning */
+    background-color: var(--button-alt) !important;  /* Sunset for pending/warning */
     color: #333 !important;
 }
 
 .badge.bg-danger {
-    background-color: var(--button-color) !important;  /* Coral for danger/error */
+    background-color: var(--button-color) !important;  /* Burnt Sienna for danger/error */
+}
+
+.badge.bg-info {
+    background-color: var(--accent-color) !important;  /* Blue Munsell for info */
+    color: white !important;
+}
+
+/* Alert styling */
+.alert-success {
+    background-color: rgba(0, 119, 136, 0.15) !important;  /* Light Caribbean Current */
+    border-color: var(--hover-color) !important;
+    color: var(--header-color) !important;
+}
+
+.alert-warning {
+    background-color: rgba(242, 204, 143, 0.3) !important;  /* Light Sunset */
+    border-color: var(--button-alt) !important;
+    color: var(--header-color) !important;
+}
+
+.alert-danger {
+    background-color: rgba(224, 122, 95, 0.15) !important;  /* Light Burnt Sienna */
+    border-color: var(--button-color) !important;
+    color: var(--header-color) !important;
+}
+
+.alert-info {
+    background-color: rgba(84, 144, 158, 0.15) !important;  /* Light Blue Munsell */
+    border-color: var(--accent-color) !important;
+    color: var(--header-color) !important;
 }
 
 /* 
 ==============================================
 7. SPECIAL NAVIGATION BUTTONS
 ==============================================
-Make Register/Login buttons stand out
+Make Register/Login buttons stand out with clear text
 */
 .navbar .nav-link[href*="signup"] {
-    background-color: var(--button-color) !important;  /* Coral Register button */
-    color: white !important;
+    background-color: var(--button-color) !important;  /* Burnt Sienna Register button */
+    color: white !important;  /* White text for visibility */
     border-radius: 5px;
     font-weight: bold;
     margin-left: 0.5rem;
 }
 
 .navbar .nav-link[href*="signup"]:hover {
-    background-color: var(--button-alt) !important;  /* Golden hover */
-    color: #333 !important;
+    background-color: var(--button-alt) !important;  /* Sunset hover */
+    color: #333 !important;  /* Dark text on sunset */
+}
+
+/* ALL NAVBAR LINKS - Make sure text is visible */
+.navbar-nav .nav-link {
+    color: white !important;  /* White text on dark navbar */
+    font-weight: 500 !important;  /* Slightly bold for readability */
+}
+
+.navbar-brand {
+    color: white !important;  /* White brand text */
+    font-weight: bold !important;
+}
+
+/* Add subtle accent border to active nav items */
+.navbar-nav .nav-link.active {
+    border-bottom: 2px solid var(--accent-color) !important;  /* Blue Munsell accent */
 }
 
 /* 
@@ -191,7 +286,119 @@ a:hover, .auth-link:hover {
 
 /* 
 ==============================================
+10. ADDITIONAL BUTTON STYLES
+==============================================
+Making sure ALL button types have good text contrast
+*/
+
+/* WARNING BUTTONS - Golden with dark text */
+.btn-warning {
+    background-color: var(--button-alt) !important;  /* Golden background */
+    border-color: var(--button-alt) !important;
+    color: #333 !important;  /* Dark text for contrast */
+    font-weight: 500 !important;
+}
+
+.btn-warning:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover */
+    border-color: var(--hover-color) !important;
+    color: white !important;  /* White text on hover */
+}
+
+/* DANGER BUTTONS - Coral with white text */
+.btn-danger {
+    background-color: var(--button-color) !important;  /* Coral background */
+    border-color: var(--button-color) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;
+}
+
+.btn-danger:hover {
+    background-color: #c85a47 !important;  /* Darker coral hover */
+    border-color: #c85a47 !important;
+    color: white !important;  /* Keep white text */
+}
+
+/* INFO BUTTONS - Steel blue with white text */
+.btn-info {
+    background-color: var(--header-alt) !important;  /* Steel blue background */
+    border-color: var(--header-alt) !important;
+    color: white !important;  /* White text for contrast */
+    font-weight: 500 !important;
+}
+
+.btn-info:hover {
+    background-color: var(--hover-color) !important;  /* Teal hover */
+    border-color: var(--hover-color) !important;
+    color: white !important;  /* Keep white text */
+}
+
+/* SMALL BUTTONS - Extra bold text for visibility */
+.btn-sm {
+    font-weight: 600 !important;  /* Extra bold for small buttons */
+}
+
+/* LARGE BUTTONS - Keep text readable */
+.btn-lg {
+    font-weight: 500 !important;
+}
+
+/* 
+==============================================
 TO CUSTOMIZE COLORS:
 Just scroll to the top and change the color codes in the :root section!
 ==============================================
 */
+
+/* 
+==============================================
+ADDITIONAL SHARP STYLING ELEMENTS
+==============================================
+*/
+
+/* Sharp borders and modern shadows */
+.btn {
+    border-radius: 6px !important;  /* Slightly rounded corners */
+    border-width: 2px !important;   /* Thicker borders for definition */
+    transition: all 0.2s ease !important;  /* Smooth transitions */
+}
+
+.card {
+    border-radius: 8px !important;  /* Modern rounded corners */
+}
+
+/* Enhanced hover effects */
+.btn:hover {
+    transform: translateY(-1px) !important;  /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 83, 95, 0.2) !important;  /* Midnight green shadow */
+}
+
+/* Sharp text elements */
+.card-title, .card-header h1, .card-header h2, .card-header h3, 
+.card-header h4, .card-header h5, .card-header h6 {
+    font-weight: 600 !important;  /* Semi-bold headers */
+    letter-spacing: 0.5px !important;  /* Slight letter spacing for clarity */
+}
+
+/* Enhanced form elements */
+.form-control {
+    border-radius: 6px !important;
+    border-width: 2px !important;
+    transition: all 0.2s ease !important;
+}
+
+.form-control:focus {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 119, 136, 0.15) !important;  /* Caribbean Current shadow */
+}
+
+/* Modern list styling */
+.list-group-item {
+    border-color: var(--bg-neutral) !important;  /* Silver borders */
+    transition: all 0.2s ease !important;
+}
+
+.list-group-item:hover {
+    background-color: var(--bg-medium) !important;  /* Light Blue hover */
+    transform: translateX(4px) !important;  /* Subtle slide effect */
+}

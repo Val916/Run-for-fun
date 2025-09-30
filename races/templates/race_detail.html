@@ -105,7 +105,7 @@
                             <h6>✍️ Leave a Comment</h6>
                         </div>
                         <div class="card-body">
-                            <form method="post">
+                            <form method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="mb-3">
                                     <label for="comment-body" class="form-label">Your thoughts:</label>

@@ -9,13 +9,23 @@
     <!-- Custom CSS -->
     {% load static %}
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicons/site.webmanifest' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicons/favicon.ico' %}">{# Standard favicon #}
 </head>
 <body>
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <!-- Site logo/title -->
-            <a class="navbar-brand" href="{% url 'race-list' %}"><b>Find your next wild race. From jungles to volcanoes, we’ve got it.</b></a>
+            <!-- Site title -->
+            <a class="navbar-brand" href="{% url 'race-list' %}">
+                <img src="{% static 'images/logos/logo-tiny.png' %}" alt="Run" height="40" class="me-2">
+                Adventures await. From jungles to volcanoes, we've got it.
+            </a>
             
             <!-- Navigation toggle button for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -27,6 +37,7 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- All Races link (always visible) -->
                     <li class="nav-item">
+                        
                         <a class="nav-link" href="{% url 'race-list' %}">All Races</a>
                     </li>
                     

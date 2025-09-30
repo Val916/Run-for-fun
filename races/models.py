@@ -131,7 +131,7 @@ class Race(models.Model):
         """
         ordering = ['race_date']   #  (earliest date first)
         indexes = [
-            models.Index(fields=['race_date']),    # Database indexes for better query performance
+            models.Index(fields=['race_date']),  # Database indexes for better query performance
             models.Index(fields=['city']),         
             models.Index(fields=['status']),       
         ]
