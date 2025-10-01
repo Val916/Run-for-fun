@@ -73,20 +73,30 @@ Loop through races or show empty message if none exist
                     </div>
                 {% endif %}
                 
-                <!-- CARD HEADER - Race name with approval status -->
+                <!-- CARD HEADER - Race name with difficulty level and approval status -->
                 <div class="card-header">
-                    <h5 class="card-title mb-0">{{ race.name }}</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Race name on the left -->
+                        <h5 class="card-title mb-0 flex-grow-1">{{ race.name }}</h5>
+                        
+                        <!-- Difficulty level badge on the right -->
+                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} ms-2">
+                            {{ race.get_difficulty_display }}
+                        </span>
+                    </div>
                     
                     <!-- 
                     APPROVAL STATUS BADGE
                     Show approval status for admins and race creators
                     -->
                     {% if user.is_staff or user.is_superuser or race.created_by == user %}
-                        {% if race.approved %}
-                            <span class="badge bg-success">✅ Approved</span>
-                        {% else %}
-                            <span class="badge bg-warning">⏳ Pending Approval</span>
-                        {% endif %}
+                        <div class="mt-2">
+                            {% if race.approved %}
+                                <span class="badge bg-success">✅ Approved</span>
+                            {% else %}
+                                <span class="badge bg-warning">⏳ Pending Approval</span>
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div>
                 

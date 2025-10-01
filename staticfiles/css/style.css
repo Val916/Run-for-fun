@@ -55,7 +55,8 @@ h1, h2, h3, h4, h5, h6 {
 /* EXCEPTION: Keep "All Races" header in Deep Ocean Blue */
 .page-header h1 {
     color: var(--navbar-color) !important;  /* Deep Ocean Blue for page headers */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;  /* Enhanced shadow for "All Races" header */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;  /* Reduced shadow for "All Races" header */
+    font-weight: 700 !important;  /* Bold font weight for "All Races" header */
 }
 
 /* 
@@ -175,7 +176,55 @@ Making sure text is ALWAYS visible and readable
 ==============================================
 */
 .badge.bg-success {
-    background-color: var(--hover-color) !important;  /* Caribbean Current for approved/success */
+    background-color: rgba(228, 88, 11, 0.6) !important;  /* More transparent Volcano Ember for approved badges */
+    color: rgba(255, 255, 255, 0.9) !important;  /* Slightly transparent white text */
+    font-size: 0.75rem !important;  /* Smaller font size */
+    padding: 0.25rem 0.5rem !important;  /* Smaller padding */
+}
+
+/* 
+DIFFICULTY BADGE STYLING
+Color-coded badges for different difficulty levels
+*/
+.difficulty-badge {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 15px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s ease !important;
+}
+
+.difficulty-badge:hover {
+    transform: scale(1.05) !important;
+}
+
+/* Easy-peasy difficulty - Green gradient */
+.difficulty-easypeasy {
+    background: linear-gradient(135deg, #28a745, #20c997) !important;
+    color: white !important;
+}
+
+/* Adults Only difficulty - Golden gradient */
+.difficulty-adultsonly {
+    background: linear-gradient(135deg, var(--button-alt), #ffc107) !important;
+    color: var(--navbar-color) !important;
+    text-shadow: none !important;
+}
+
+/* Crazy Tough difficulty - Orange to Red gradient */
+.difficulty-crazytough {
+    background: linear-gradient(135deg, var(--button-color), var(--hover-color)) !important;
+    color: white !important;
+}
+
+/* Extreme Laugh difficulty - Red to Pink gradient */
+.difficulty-extremelaugh {
+    background: linear-gradient(135deg, #dc3545, #e83e8c) !important;
+    color: white !important;
 }
 
 .badge.bg-warning {
@@ -526,4 +575,74 @@ ADDITIONAL SHARP STYLING ELEMENTS
 .list-group-item:hover {
     background-color: var(--bg-light) !important;  /* Sandstone hover */
     transform: translateX(4px) !important;  /* Subtle slide effect */
+}
+
+/* 
+==============================================
+LOGOUT PAGE STYLING
+Enhanced styling for sign out page
+==============================================
+*/
+
+/* Logout form improvements */
+.logout-form .btn {
+    min-width: 180px;  /* Slightly wider buttons for better proportion */
+    font-weight: 600;  /* Semi-bold text */
+    transition: all 0.3s ease;  /* Smooth transitions */
+}
+
+/* Logout confirm button styling */
+.logout-confirm-btn {
+    background: linear-gradient(135deg, var(--button-color), var(--hover-color)) !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 1, 0.3) !important;
+}
+
+.logout-confirm-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 1, 0.4) !important;
+}
+
+/* Logout cancel button styling */
+.logout-cancel-btn {
+    border: 2px solid var(--bg-dark) !important;
+    color: var(--bg-dark) !important;
+    background: transparent !important;
+}
+
+.logout-cancel-btn:hover {
+    background: var(--bg-dark) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(44, 61, 115, 0.3) !important;
+}
+
+/* Logout message styling */
+.logout-message h4 {
+    color: var(--header-color) !important;
+    font-weight: 500 !important;
+}
+
+/* Enhanced button container for wider cards */
+.logout-form .d-flex {
+    gap: 2rem !important;  /* Increased gap between buttons */
+}
+
+/* Responsive spacing for logout buttons */
+@media (max-width: 576px) {
+    .logout-form .btn {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .logout-form .d-flex {
+        flex-direction: column !important;
+        gap: 1rem !important;  /* Smaller gap on mobile */
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .logout-form .btn {
+        min-width: 200px;  /* Even wider buttons on tablets */
+    }
 }
