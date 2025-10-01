@@ -22,10 +22,11 @@
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <!-- Site title -->
-            <a class="navbar-brand" href="{% url 'race-list' %}">
+            <!-- Site title with responsive text -->
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'race-list' %}">
                 <img src="{% static 'images/logos/logo-tiny.png' %}" alt="Run" height="40" class="me-2">
-                Adventures await. From jungles to volcanoes, we've got it.
+                <span class="navbar-full-text">Adventures await. Run for Fun</span>
+                <span class="navbar-short-text">Run for Fun</span>
             </a>
             
             <!-- Navigation toggle button for mobile -->

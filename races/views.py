@@ -44,7 +44,7 @@ def race_list(request):
     # This prevents showing 100+ races on one page
     # CHANGE THIS NUMBER to control races per page:
     # 6 = 6 races per page | 9 = 9 races per page | 12 = 12 races per page
-    paginator = Paginator(races, 6)  # Show 6 races per page
+    paginator = Paginator(races, 3)  # Show 3 races per page
     
     # STEP 3: Get which page number user wants to see
     # If URL is "/?page=2", this gets "2"
@@ -177,7 +177,7 @@ def my_races(request):
     
     # STEP 2: Split user's races into pages
     # Show 6 races per page (smaller number since it's personal view)
-    paginator = Paginator(races, 6)
+    paginator = Paginator(races, 3)
     
     # STEP 3: Get which page user wants to see
     page_number = request.GET.get('page')

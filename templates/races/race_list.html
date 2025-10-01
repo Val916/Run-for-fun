@@ -64,6 +64,11 @@ Loop through races or show empty message if none exist
                                 {% endif %}
                             {% endwith %}
                         </a>
+                        
+                        <!-- Difficulty badge positioned on top-right of image for screens < 1000px -->
+                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} difficulty-on-image d-block d-lg-none">
+                            {{ race.get_difficulty_display }}
+                        </span>
                     </div>
                 {% else %}
                     <!-- Show default image when no image is uploaded -->
@@ -74,6 +79,11 @@ Loop through races or show empty message if none exist
                                  alt="default race image"
                                  loading="lazy">
                         </a>
+                        
+                        <!-- Difficulty badge positioned on top-right of image for screens < 1000px -->
+                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} difficulty-on-image d-block d-lg-none">
+                            {{ race.get_difficulty_display }}
+                        </span>
                     </div>
                 {% endif %}
                 
@@ -83,8 +93,8 @@ Loop through races or show empty message if none exist
                         <!-- Race name on the left -->
                         <h5 class="card-title mb-0 flex-grow-1">{{ race.name }}</h5>
                         
-                        <!-- Difficulty level badge on the right -->
-                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} ms-2">
+                        <!-- Difficulty level badge on the right - only show on large screens (≥1000px) -->
+                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} ms-2 d-none d-lg-block">
                             {{ race.get_difficulty_display }}
                         </span>
                     </div>

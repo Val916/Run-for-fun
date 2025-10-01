@@ -69,14 +69,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5rem !important;  /* Better spacing above headers */
 }
 
-/* COMMENT SECTION HEADERS - Ensure comments headers are also Deep Ocean Blue */
-.card-body h5:contains('Comments'),
-.card-body h6:contains('Add a comment') {
-    color: var(--navbar-color) !important;  /* Deep Ocean Blue for comment headers */
-    font-weight: 600 !important;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
-}
-
 /* First header in card body shouldn't have top margin */
 .card-body h5:first-child,
 .card-body h6:first-child {
@@ -251,6 +243,21 @@ Color-coded badges for different difficulty levels
     color: white !important;
 }
 
+/* 
+DIFFICULTY BADGE ON IMAGE POSITIONING
+For screens smaller than 1000px (lg breakpoint)
+*/
+.difficulty-on-image {
+    position: absolute !important;
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    z-index: 10 !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important; /* Better readability over images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; /* Subtle shadow for depth */
+}
+
 .badge.bg-warning {
     background-color: var(--button-alt) !important;  /* Sunset for pending/warning */
     color: #333 !important;
@@ -318,11 +325,59 @@ Make Register/Login buttons stand out with clear text
 .navbar-brand {
     color: white !important;  /* White brand text */
     font-weight: bold !important;
+    font-size: 1.1rem !important;  /* Slightly smaller on all screens */
 }
 
 /* Add subtle accent border to active nav items */
 .navbar-nav .nav-link.active {
     border-bottom: 2px solid var(--accent-color) !important;  /* Blue Munsell accent */
+}
+
+/* 
+==============================================
+MOBILE NAVBAR IMPROVEMENTS
+Responsive navbar for better mobile experience
+==============================================
+*/
+
+/* Default - show full text, hide short text */
+.navbar-full-text { display: inline !important; }
+.navbar-short-text { display: none !important; }
+
+/* Screens 550px and smaller - show short text only */
+@media (max-width: 550px) {
+    .navbar-full-text { display: none !important; }
+    .navbar-short-text { display: inline !important; }
+    
+    .navbar-brand {
+        font-size: 0.95rem !important;
+        max-width: 70% !important;
+    }
+    
+    .navbar-brand img { height: 35px !important; }
+}
+
+/* Mobile improvements for all small screens */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        border: none !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+    
+    .navbar-collapse {
+        margin-top: 0.5rem !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-top: 0.5rem !important;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none !important;
+    }
 }
 
 /* 
@@ -524,6 +579,17 @@ Smallest screens - optimize for touch and limited space
     .race-detail-image {
         max-height: 250px !important; /* Prevent huge images on small screens */
     }
+    
+    /* Mobile button styling */
+    .logout-form .btn {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .logout-form .d-flex {
+        flex-direction: column !important;
+        gap: 1rem !important;  /* Smaller gap on mobile */
+    }
 }
 
 /* 
@@ -537,6 +603,11 @@ Medium screens - balance between mobile and desktop
     
     .race-detail-image {
         max-height: 350px !important; /* More space for detail images */
+    }
+    
+    /* Tablet button styling */
+    .logout-form .btn {
+        min-width: 200px;  /* Even wider buttons on tablets */
     }
 }
 
@@ -670,23 +741,4 @@ Enhanced styling for sign out page
 /* Enhanced button container for wider cards */
 .logout-form .d-flex {
     gap: 2rem !important;  /* Increased gap between buttons */
-}
-
-/* Responsive spacing for logout buttons */
-@media (max-width: 576px) {
-    .logout-form .btn {
-        width: 100% !important;
-        margin-bottom: 0.5rem !important;
-    }
-    
-    .logout-form .d-flex {
-        flex-direction: column !important;
-        gap: 1rem !important;  /* Smaller gap on mobile */
-    }
-}
-
-@media (min-width: 577px) and (max-width: 768px) {
-    .logout-form .btn {
-        min-width: 200px;  /* Even wider buttons on tablets */
-    }
 }
