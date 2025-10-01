@@ -5,6 +5,7 @@ This template extends base.html (gets navigation, CSS, etc.)
 It displays all published races in a card layout with pagination.
 -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <!-- 
@@ -44,12 +45,27 @@ Loop through races or show empty message if none exist
                 
                 <!-- 
                 RACE IMAGE (OPTIONAL)
-                Only show image if race has one uploaded
+                Cloudinary integration with placeholder fallback
                 -->
                 {% if race.image %}
-                    <img src="{{ race.image.url }}" 
-                         class="card-img-top" 
-                         alt="{{ race.name }}" 
+                    <div class="image-container">
+                        {% with race.image.url as image_url %}
+                            {% if "placeholder" in image_url or image_url == "" %}
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                   alt="placeholder image"
+                                   style="height: 200px; object-fit: cover;">
+                            {% else %}
+                                <img src="{{ image_url }}" 
+                                     class="card-img-top" 
+                                     alt="{{ race.name }}" 
+                                     style="height: 200px; object-fit: cover;">
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                {% else %}
+                    <!-- Show default image when no image is uploaded -->
+                    <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                         alt="default race image"
                          style="height: 200px; object-fit: cover;">
                 {% endif %}
                 

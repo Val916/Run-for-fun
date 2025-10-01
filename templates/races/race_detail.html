@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="row">
@@ -9,9 +10,27 @@
                 <h1>{{ race.name }}</h1>
             </div>
             
-            <!-- Race image if available -->
+            <!-- Race image with Cloudinary integration -->
             {% if race.image %}
-                <img src="{{ race.image.url }}" class="card-img-top" alt="{{ race.name }}" style="height: 300px; object-fit: cover;">
+                <div class="image-container">
+                    {% with race.image.url as image_url %}
+                        {% if "placeholder" in image_url or image_url == "" %}
+                            <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                               alt="placeholder image"
+                               style="height: 300px; object-fit: cover;">
+                        {% else %}
+                            <img src="{{ image_url }}" 
+                                 class="card-img-top" 
+                                 alt="{{ race.name }}" 
+                                 style="height: 300px; object-fit: cover;">
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            {% else %}
+                <!-- Show default image when no image is uploaded -->
+                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                     alt="default race image"
+                     style="height: 300px; object-fit: cover;">
             {% endif %}
             
             <div class="card-body">

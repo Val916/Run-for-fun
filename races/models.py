@@ -1,5 +1,6 @@
 from django.db import models         # Django ORM: model definitions
 from django.contrib.auth.models import User  # Built-in user model for authentication
+from cloudinary.models import CloudinaryField  # Cloudinary image field for media storage
 from django.urls import reverse      # Utility for generating URLs by name
 from django.utils import timezone    # Utilities for time zone-aware datetimes
 
@@ -64,11 +65,12 @@ class Race(models.Model):
         blank=True,                       
         help_text="URL to external registration page")
     
-    image = models.ImageField(
-        upload_to='race_images/',         # Images will be stored in media/race_images/
+    image = CloudinaryField(
+        'image',                          # Cloudinary field name
         blank=True,                       # Field is optional
         null=True,                        # Can be empty in database
         help_text="Upload a photo for this race (optional)")
+    featured_image = CloudinaryField('image', default='placeholder')  # Cloudinary image field for better media handling
 
     city = models.CharField(
         max_length=100,
@@ -231,6 +233,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,       # If user deleted, delete their comments
         help_text="User who wrote this comment"
     )
+
     
     # COMMENT CONTENT - The actual text of the comment
     body = models.TextField(

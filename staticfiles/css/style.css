@@ -13,22 +13,22 @@ Just change the color codes here and everything updates automatically
 */
 :root {
     /* Headers and Navigation Colors */
-    --header-color: #00535F;     /* Midnight Green - used for all headings and navbar */
-    --header-alt: #5D8AA8;       /* Air Force Blue - alternate header color */
+    --header-color: #0B3D91;     /* Deep Ocean Blue - used for all headings and navbar */
+    --header-alt: #2C3D73;       /* Twilight Indigo - alternate header color */
     
     /* Button Colors */
-    --button-color: #E07A5F;     /* Burnt Sienna - main buttons and links */
-    --button-alt: #F2CC8F;       /* Sunset - accent buttons */
+    --button-color: #FF6B01;     /* Expedition Orange - main buttons and links */
+    --button-alt: #FFD372;       /* Desert Gold - accent buttons */
     
     /* Background Colors */
-    --bg-light: #F4F1DE;        /* Eggshell - main page background */
-    --bg-dark: #85ABB5;         /* Cadet Gray - cards and sections */
-    --bg-medium: #BBD1D5;       /* Light Blue - medium backgrounds */
-    --bg-neutral: #B5B8BA;      /* Silver - neutral elements */
+    --bg-light: #F4F1DE;        /* Sandstone - main page background */
+    --bg-dark: #2C3D73;         /* Twilight Indigo - cards and sections */
+    --bg-medium: #F4F1DE;       /* Sandstone - medium backgrounds */
+    --bg-neutral: s#E4580B;      /* Volcano Ember - neutral elements */
     
     /* Interactive Colors */
-    --hover-color: #007788;      /* Caribbean Current - hover effects on everything */
-    --accent-color: #54909E;     /* Blue (Munsell) - accents and highlights */
+    --hover-color: #E4580B;      /* Volcano Ember - hover effects on everything */
+    --accent-color: #FFD372;     /* Desert Gold - accents and highlights */
 }
 
 /* 
@@ -89,18 +89,18 @@ Making sure text is ALWAYS visible and readable
     color: white !important;  /* Keep white text on hover */
 }
 
-/* SECONDARY BUTTONS - Golden with dark text */
+/* SECONDARY BUTTONS - Desert Gold with dark text */
 .btn-secondary {
-    background-color: var(--button-alt) !important;  /* Golden background */
+    background-color: var(--button-alt) !important;  /* Desert Gold background */
     border-color: var(--button-alt) !important;
-    color: #333 !important;  /* Dark text on golden */
+    color: var(--header-color) !important;  /* Deep Ocean Blue text on gold */
     font-weight: 500 !important;  /* Slightly bold for readability */
 }
 
 .btn-secondary:hover {
-    background-color: var(--hover-color) !important;  /* Teal hover */
+    background-color: var(--hover-color) !important;  /* Volcano Ember hover */
     border-color: var(--hover-color) !important;
-    color: white !important;  /* White text on teal hover */
+    color: white !important;  /* White text on volcano ember hover */
 }
 
 /* OUTLINE BUTTONS - Clean borders with colored text */
@@ -136,27 +136,27 @@ Making sure text is ALWAYS visible and readable
 ==============================================
 */
 .card {
-    border: 1px solid var(--bg-neutral) !important;  /* Silver border for definition */
-    box-shadow: 0 2px 4px rgba(0, 83, 95, 0.1) !important;  /* Subtle midnight green shadow */
+    border: 1px solid var(--bg-neutral) !important;  /* Volcano Ember border for definition */
+    box-shadow: 0 2px 4px rgba(11, 61, 145, 0.1) !important;  /* Subtle deep ocean blue shadow */
 }
 
 .card-header {
-    background-color: var(--bg-dark) !important;  /* Cadet Gray card headers */
-    color: var(--header-color) !important;  /* Midnight Green text */
-    border-bottom: 2px solid var(--accent-color) !important;  /* Blue Munsell accent border */
+    background-color: var(--bg-dark) !important;  /* Twilight Indigo card headers */
+    color: var(--accent-color) !important;  /* Desert Gold text */
+    border-bottom: 2px solid var(--button-color) !important;  /* Expedition Orange accent border */
 }
 
 .card-title {
-    color: var(--header-color) !important;  /* Midnight Green card titles */
+    color: var(--header-color) !important;  /* Deep Ocean Blue card titles */
 }
 
 .card-footer {
-    background-color: var(--bg-medium) !important;  /* Light Blue footers */
-    border-top: 1px solid var(--bg-neutral) !important;  /* Silver top border */
+    background-color: var(--bg-light) !important;  /* Sandstone footers */
+    border-top: 1px solid var(--bg-neutral) !important;  /* Volcano Ember top border */
 }
 
 .card-body {
-    background-color: rgba(244, 241, 222, 0.7) !important;  /* Semi-transparent eggshell */
+    background-color: rgba(244, 241, 222, 0.9) !important;  /* Semi-transparent sandstone */
 }
 
 /* 
@@ -184,26 +184,26 @@ Making sure text is ALWAYS visible and readable
 
 /* Alert styling */
 .alert-success {
-    background-color: rgba(0, 119, 136, 0.15) !important;  /* Light Caribbean Current */
-    border-color: var(--hover-color) !important;
+    background-color: rgba(255, 211, 114, 0.2) !important;  /* Light Desert Gold */
+    border-color: var(--accent-color) !important;
     color: var(--header-color) !important;
 }
 
 .alert-warning {
-    background-color: rgba(242, 204, 143, 0.3) !important;  /* Light Sunset */
-    border-color: var(--button-alt) !important;
-    color: var(--header-color) !important;
-}
-
-.alert-danger {
-    background-color: rgba(224, 122, 95, 0.15) !important;  /* Light Burnt Sienna */
+    background-color: rgba(255, 107, 1, 0.15) !important;  /* Light Expedition Orange */
     border-color: var(--button-color) !important;
     color: var(--header-color) !important;
 }
 
+.alert-danger {
+    background-color: rgba(228, 88, 11, 0.15) !important;  /* Light Volcano Ember */
+    border-color: var(--hover-color) !important;
+    color: var(--header-color) !important;
+}
+
 .alert-info {
-    background-color: rgba(84, 144, 158, 0.15) !important;  /* Light Blue Munsell */
-    border-color: var(--accent-color) !important;
+    background-color: rgba(44, 61, 115, 0.1) !important;  /* Light Twilight Indigo */
+    border-color: var(--header-alt) !important;
     color: var(--header-color) !important;
 }
 
@@ -214,7 +214,7 @@ Making sure text is ALWAYS visible and readable
 Make Register/Login buttons stand out with clear text
 */
 .navbar .nav-link[href*="signup"] {
-    background-color: var(--button-color) !important;  /* Burnt Sienna Register button */
+    background-color: var(--button-color) !important;  /* Expedition Orange Register button */
     color: white !important;  /* White text for visibility */
     border-radius: 5px;
     font-weight: bold;
@@ -222,8 +222,8 @@ Make Register/Login buttons stand out with clear text
 }
 
 .navbar .nav-link[href*="signup"]:hover {
-    background-color: var(--button-alt) !important;  /* Sunset hover */
-    color: #333 !important;  /* Dark text on sunset */
+    background-color: var(--button-alt) !important;  /* Desert Gold hover */
+    color: var(--header-color) !important;  /* Deep Ocean Blue text on gold */
 }
 
 /* ALL NAVBAR LINKS - Make sure text is visible */
@@ -291,16 +291,16 @@ a:hover, .auth-link:hover {
 Making sure ALL button types have good text contrast
 */
 
-/* WARNING BUTTONS - Golden with dark text */
+/* WARNING BUTTONS - Desert Gold with dark text */
 .btn-warning {
-    background-color: var(--button-alt) !important;  /* Golden background */
+    background-color: var(--button-alt) !important;  /* Desert Gold background */
     border-color: var(--button-alt) !important;
-    color: #333 !important;  /* Dark text for contrast */
+    color: var(--header-color) !important;  /* Deep Ocean Blue text for contrast */
     font-weight: 500 !important;
 }
 
 .btn-warning:hover {
-    background-color: var(--hover-color) !important;  /* Teal hover */
+    background-color: var(--hover-color) !important;  /* Volcano Ember hover */
     border-color: var(--hover-color) !important;
     color: white !important;  /* White text on hover */
 }
@@ -370,7 +370,7 @@ ADDITIONAL SHARP STYLING ELEMENTS
 /* Enhanced hover effects */
 .btn:hover {
     transform: translateY(-1px) !important;  /* Subtle lift effect */
-    box-shadow: 0 4px 8px rgba(0, 83, 95, 0.2) !important;  /* Midnight green shadow */
+    box-shadow: 0 4px 8px rgba(11, 61, 145, 0.2) !important;  /* Deep Ocean Blue shadow */
 }
 
 /* Sharp text elements */
@@ -389,7 +389,7 @@ ADDITIONAL SHARP STYLING ELEMENTS
 
 .form-control:focus {
     transform: translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(0, 119, 136, 0.15) !important;  /* Caribbean Current shadow */
+    box-shadow: 0 4px 12px rgba(228, 88, 11, 0.15) !important;  /* Volcano Ember shadow */
 }
 
 /* Modern list styling */
@@ -399,6 +399,6 @@ ADDITIONAL SHARP STYLING ELEMENTS
 }
 
 .list-group-item:hover {
-    background-color: var(--bg-medium) !important;  /* Light Blue hover */
+    background-color: var(--bg-light) !important;  /* Sandstone hover */
     transform: translateX(4px) !important;  /* Subtle slide effect */
 }
