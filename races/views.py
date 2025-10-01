@@ -42,7 +42,9 @@ def race_list(request):
     
     # STEP 2: Split races into pages (pagination)
     # This prevents showing 100+ races on one page
-    paginator = Paginator(races, 5)  # Show 5 races per page
+    # CHANGE THIS NUMBER to control races per page:
+    # 6 = 6 races per page | 9 = 9 races per page | 12 = 12 races per page
+    paginator = Paginator(races, 6)  # Show 6 races per page
     
     # STEP 3: Get which page number user wants to see
     # If URL is "/?page=2", this gets "2"

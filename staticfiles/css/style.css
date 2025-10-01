@@ -13,7 +13,8 @@ Just change the color codes here and everything updates automatically
 */
 :root {
     /* Headers and Navigation Colors */
-    --header-color: #0B3D91;     /* Deep Ocean Blue - used for all headings and navbar */
+    --header-color: #F39C12;     /* Warm Golden Yellow - used for all headings */
+    --navbar-color: #0B3D91;     /* Deep Ocean Blue - used only for navbar */
     --header-alt: #2C3D73;       /* Twilight Indigo - alternate header color */
     
     /* Button Colors */
@@ -46,7 +47,15 @@ body {
 ==============================================
 */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--header-color) !important;  /* Dark teal for all headings */
+    color: var(--header-color) !important;  /* Warm Golden Yellow for all headings */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;  /* Subtle dark shadow for depth */
+    font-weight: 600 !important;  /* Semi-bold for better readability with shadow */
+}
+
+/* EXCEPTION: Keep "All Races" header in Deep Ocean Blue */
+.page-header h1 {
+    color: var(--navbar-color) !important;  /* Deep Ocean Blue for page headers */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;  /* Enhanced shadow for "All Races" header */
 }
 
 /* 
@@ -55,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 ==============================================
 */
 .navbar {
-    background-color: var(--header-color) !important;  /* Dark teal navbar */
+    background-color: var(--navbar-color) !important;  /* Keep Deep Ocean Blue for navbar */
 }
 
 .navbar-brand:hover {
@@ -125,8 +134,8 @@ Making sure text is ALWAYS visible and readable
 }
 
 .btn-success:hover {
-    background-color: var(--header-color) !important;  /* Darker teal hover */
-    border-color: var(--header-color) !important;
+    background-color: var(--navbar-color) !important;  /* Deep Ocean Blue hover */
+    border-color: var(--navbar-color) !important;
     color: white !important;  /* Keep white text */
 }
 
@@ -147,7 +156,8 @@ Making sure text is ALWAYS visible and readable
 }
 
 .card-title {
-    color: var(--header-color) !important;  /* Deep Ocean Blue card titles */
+    color: var(--header-color) !important;  /* Warm Golden Yellow card titles */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;  /* Subtle shadow for card titles */
 }
 
 .card-footer {
@@ -249,7 +259,7 @@ Make Register/Login buttons stand out with clear text
 */
 /* Form headers */
 .auth-form-container .card-header {
-    background-color: var(--header-color) !important;  /* Dark teal header */
+    background-color: var(--navbar-color) !important;  /* Keep Deep Ocean Blue for form headers */
     color: white !important;
 }
 
