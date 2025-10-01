@@ -59,6 +59,30 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700 !important;  /* Bold font weight for "All Races" header */
 }
 
+/* RACE DETAIL PAGE HEADERS - Make section headers more visible */
+.card-body h5,
+.card-body h6 {
+    color: var(--navbar-color) !important;  /* Deep Ocean Blue for detail page section headers */
+    font-weight: 600 !important;  /* Semi-bold for better visibility */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;  /* Subtle shadow for readability */
+    margin-bottom: 1rem !important;  /* Better spacing below headers */
+    margin-top: 1.5rem !important;  /* Better spacing above headers */
+}
+
+/* COMMENT SECTION HEADERS - Ensure comments headers are also Deep Ocean Blue */
+.card-body h5:contains('Comments'),
+.card-body h6:contains('Add a comment') {
+    color: var(--navbar-color) !important;  /* Deep Ocean Blue for comment headers */
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* First header in card body shouldn't have top margin */
+.card-body h5:first-child,
+.card-body h6:first-child {
+    margin-top: 0 !important;
+}
+
 /* 
 ==============================================
 3. NAVIGATION BAR (appears on ALL pages)
@@ -427,6 +451,26 @@ Fixed aspect ratio ensures consistent card heights
     height: 200px !important;         /* Fixed height for uniform cards */
     object-fit: cover !important;     /* Crop image to fit without stretching */
     transition: transform 0.3s ease !important;  /* Smooth hover animation */
+}
+
+/* 
+CLICKABLE IMAGE LINK STYLING
+Makes race images clickable with smooth hover effects
+*/
+.race-image-link {
+    display: block !important;        /* Make link fill container */
+    text-decoration: none !important; /* Remove underline */
+    border-radius: 8px !important;    /* Match container border radius */
+    overflow: hidden !important;      /* Ensure images stay within bounds */
+}
+
+.race-image-link:hover .race-image {
+    transform: scale(1.05) !important;  /* Slight zoom effect on hover */
+}
+
+.race-image-link:focus {
+    outline: 3px solid var(--button-color) !important;  /* Accessibility focus indicator */
+    outline-offset: 2px !important;
 }
 
 /* 

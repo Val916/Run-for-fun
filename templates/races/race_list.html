@@ -44,32 +44,36 @@ Loop through races or show empty message if none exist
             <div class="card h-100">
                 
                 <!-- 
-                RACE IMAGE - Responsive for all screen sizes
+                RACE IMAGE - Responsive for all screen sizes with clickable link
                 -->
                 {% if race.image %}
                     <div class="image-container position-relative overflow-hidden">
-                        {% with race.image.url as image_url %}
-                            {% if "placeholder" in image_url or image_url == "" %}
-                                <img class="card-img-top img-fluid race-image" 
-                                     src="{% static 'images/default.jpg' %}"
-                                     alt="placeholder image"
-                                     loading="lazy">
-                            {% else %}
-                                <img src="{{ image_url }}" 
-                                     class="card-img-top img-fluid race-image" 
-                                     alt="{{ race.name }}" 
-                                     loading="lazy"
-                                     onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
-                            {% endif %}
-                        {% endwith %}
+                        <a href="{% url 'race-detail' race.pk %}" class="race-image-link">
+                            {% with race.image.url as image_url %}
+                                {% if "placeholder" in image_url or image_url == "" %}
+                                    <img class="card-img-top img-fluid race-image" 
+                                         src="{% static 'images/default.jpg' %}"
+                                         alt="placeholder image"
+                                         loading="lazy">
+                                {% else %}
+                                    <img src="{{ image_url }}" 
+                                         class="card-img-top img-fluid race-image" 
+                                         alt="{{ race.name }}" 
+                                         loading="lazy"
+                                         onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
+                                {% endif %}
+                            {% endwith %}
+                        </a>
                     </div>
                 {% else %}
                     <!-- Show default image when no image is uploaded -->
                     <div class="image-container position-relative overflow-hidden">
-                        <img class="card-img-top img-fluid race-image" 
-                             src="{% static 'images/default.png' %}"
-                             alt="default race image"
-                             loading="lazy">
+                        <a href="{% url 'race-detail' race.pk %}" class="race-image-link">
+                            <img class="card-img-top img-fluid race-image" 
+                                 src="{% static 'images/default.png' %}"
+                                 alt="default race image"
+                                 loading="lazy">
+                        </a>
                     </div>
                 {% endif %}
                 
@@ -86,18 +90,9 @@ Loop through races or show empty message if none exist
                     </div>
                     
                     <!-- 
-                    APPROVAL STATUS BADGE
-                    Show approval status for admins and race creators
+                    APPROVAL STATUS BADGE - REMOVED FROM MAIN PAGE
+                    Approval status is now only visible on race detail pages
                     -->
-                    {% if user.is_staff or user.is_superuser or race.created_by == user %}
-                        <div class="mt-2">
-                            {% if race.approved %}
-                                <span class="badge bg-success">✅ Approved</span>
-                            {% else %}
-                                <span class="badge bg-warning">⏳ Pending Approval</span>
-                            {% endif %}
-                        </div>
-                    {% endif %}
                 </div>
                 
                 <!-- 
