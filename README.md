@@ -129,6 +129,7 @@ User Password Reset - The user can reset their password.
 Search Bar - The search bar allows the user to search for events by tag.
 
 Technologies Used
+
 HTML5 - The structure of the site was created using HTML5.
 CSS3 - The styling of the site was created using CSS3.
 JavaScript - The site uses JavaScript for interactivity.
@@ -140,6 +141,9 @@ Google Fonts - The site uses Google Fonts for typography.
 Heroku - The site is deployed on Heroku.
 PostgreSQL - The site uses a PostgreSQL database.
 Cloudinary - The site uses Cloudinary for image hosting.
+https://favicon.io/favicon-converter/
+
+
 How AI Was Used
 Artificial Intelligence played a significant role in the development of this project. Here are some ways AI was utilised:
 

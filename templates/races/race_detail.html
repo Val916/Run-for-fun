@@ -10,27 +10,32 @@
                 <h1>{{ race.name }}</h1>
             </div>
             
-            <!-- Race image with Cloudinary integration -->
+            <!-- Race image - Responsive for all screen sizes -->
             {% if race.image %}
-                <div class="image-container">
+                <div class="image-container position-relative overflow-hidden mb-3">
                     {% with race.image.url as image_url %}
                         {% if "placeholder" in image_url or image_url == "" %}
-                            <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                               alt="placeholder image"
-                               style="height: 300px; object-fit: cover;">
+                            <img class="img-fluid w-100 race-detail-image" 
+                                 src="{% static 'images/default.png' %}"
+                                 alt="placeholder image"
+                                 loading="lazy">
                         {% else %}
                             <img src="{{ image_url }}" 
-                                 class="card-img-top" 
+                                 class="img-fluid w-100 race-detail-image" 
                                  alt="{{ race.name }}" 
-                                 style="height: 300px; object-fit: cover;">
+                                 loading="lazy"
+                                 onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
                         {% endif %}
                     {% endwith %}
                 </div>
             {% else %}
                 <!-- Show default image when no image is uploaded -->
-                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                     alt="default race image"
-                     style="height: 300px; object-fit: cover;">
+                <div class="image-container position-relative overflow-hidden mb-3">
+                    <img class="img-fluid w-100 race-detail-image" 
+                         src="{% static 'images/default.png' %}"
+                         alt="default race image"
+                         loading="lazy">
+                </div>
             {% endif %}
             
             <div class="card-body">

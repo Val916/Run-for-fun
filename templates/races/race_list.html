@@ -14,7 +14,7 @@ Shows title and create button (if user logged in)
 -->
 <div class="page-header">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>🏃‍♀️ All Races 🏃‍♂️</h1>
+        <h1>All Races</h1>
         
         <!-- 
         CONDITIONAL CREATE BUTTON
@@ -44,29 +44,33 @@ Loop through races or show empty message if none exist
             <div class="card h-100">
                 
                 <!-- 
-                RACE IMAGE (OPTIONAL)
-                Cloudinary integration with placeholder fallback
+                RACE IMAGE - Responsive for all screen sizes
                 -->
                 {% if race.image %}
-                    <div class="image-container">
+                    <div class="image-container position-relative overflow-hidden">
                         {% with race.image.url as image_url %}
                             {% if "placeholder" in image_url or image_url == "" %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                   alt="placeholder image"
-                                   style="height: 200px; object-fit: cover;">
+                                <img class="card-img-top img-fluid race-image" 
+                                     src="{% static 'images/default.jpg' %}"
+                                     alt="placeholder image"
+                                     loading="lazy">
                             {% else %}
                                 <img src="{{ image_url }}" 
-                                     class="card-img-top" 
+                                     class="card-img-top img-fluid race-image" 
                                      alt="{{ race.name }}" 
-                                     style="height: 200px; object-fit: cover;">
+                                     loading="lazy"
+                                     onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
                             {% endif %}
                         {% endwith %}
                     </div>
                 {% else %}
                     <!-- Show default image when no image is uploaded -->
-                    <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                         alt="default race image"
-                         style="height: 200px; object-fit: cover;">
+                    <div class="image-container position-relative overflow-hidden">
+                        <img class="card-img-top img-fluid race-image" 
+                             src="{% static 'images/default.png' %}"
+                             alt="default race image"
+                             loading="lazy">
+                    </div>
                 {% endif %}
                 
                 <!-- CARD HEADER - Race name with approval status -->
@@ -136,7 +140,7 @@ Loop through races or show empty message if none exist
         <div class="col-12">
             <div class="empty-state">
                 <!-- Empty state message -->
-                <h4>🏃‍♀️ No races available yet! 🏃‍♂️</h4>
+                <h4>No races available yet!</h4>
                 <p class="text-muted mb-4">Be the first to create a race for the community and get everyone running!</p>
                 
                 <!-- 

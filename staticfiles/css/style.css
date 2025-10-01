@@ -352,6 +352,121 @@ Just scroll to the top and change the color codes in the :root section!
 
 /* 
 ==============================================
+RESPONSIVE IMAGE STYLING
+Advanced image handling for race cards and detail pages
+Ensures images look great on all devices from mobile to desktop
+==============================================
+*/
+
+/* 
+RACE CARD IMAGES - Used on homepage race list
+These appear in Bootstrap cards on the main races page
+Fixed aspect ratio ensures consistent card heights
+*/
+.race-image {
+    width: 100% !important;           /* Fill entire card width */
+    height: 200px !important;         /* Fixed height for uniform cards */
+    object-fit: cover !important;     /* Crop image to fit without stretching */
+    transition: transform 0.3s ease !important;  /* Smooth hover animation */
+}
+
+/* 
+HOVER EFFECT - Subtle zoom on mouse hover
+Creates engaging interaction without being distracting
+*/
+.race-image:hover {
+    transform: scale(1.05) !important;  /* Slight zoom effect (5% larger) */
+}
+
+/* 
+RACE DETAIL IMAGES - Used on individual race pages
+Fully responsive design that adapts to content area
+Maintains quality while preventing oversized images
+*/
+.race-detail-image {
+    width: 100% !important;           /* Fill available width */
+    height: auto !important;          /* Maintain aspect ratio */
+    max-height: 400px !important;     /* Prevent images from being too tall */
+    object-fit: cover !important;     /* Crop if needed to fit max-height */
+    border-radius: 8px !important;    /* Rounded corners for modern look */
+}
+
+/* 
+IMAGE CONTAINER STYLING
+Wrapper div improvements for better visual presentation
+Matches the overall design theme
+*/
+.image-container {
+    border-radius: 8px !important;           /* Rounded container corners */
+    background-color: var(--bg-light) !important;  /* Fallback background color */
+}
+
+/* 
+==============================================
+RESPONSIVE BREAKPOINTS
+Different image sizes for different screen sizes
+Mobile-first approach: smallest screens first, then larger
+==============================================
+*/
+
+/* 
+MOBILE PHONES (up to 576px wide)
+Smallest screens - optimize for touch and limited space
+*/
+@media (max-width: 576px) {
+    .race-image {
+        height: 180px !important;     /* Smaller height for mobile cards */
+    }
+    
+    .race-detail-image {
+        max-height: 250px !important; /* Prevent huge images on small screens */
+    }
+}
+
+/* 
+TABLETS (577px to 768px wide)
+Medium screens - balance between mobile and desktop
+*/
+@media (min-width: 577px) and (max-width: 768px) {
+    .race-image {
+        height: 220px !important;     /* Slightly taller for better visibility */
+    }
+    
+    .race-detail-image {
+        max-height: 350px !important; /* More space for detail images */
+    }
+}
+
+/* 
+SMALL LAPTOPS (769px to 992px wide)
+Smaller desktop screens - standard sizing
+*/
+@media (min-width: 769px) and (max-width: 992px) {
+    .race-image {
+        height: 200px !important;     /* Standard card height */
+    }
+    
+    .race-detail-image {
+        max-height: 400px !important; /* Good balance for detail viewing */
+    }
+}
+
+/* 
+LARGE SCREENS (993px and wider)
+Full desktop experience - maximum visual impact
+*/
+@media (min-width: 993px) {
+    .race-image {
+        height: 220px !important;     /* Slightly taller for large screens */
+    }
+    
+    .race-detail-image {
+        max-height: 450px !important; /* Maximum size for best quality viewing */
+    }
+}
+
+/* 
+==============================================
 ADDITIONAL SHARP STYLING ELEMENTS
 ==============================================
 */
