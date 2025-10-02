@@ -221,3 +221,71 @@ def delete_comment(request, comment_id):
     # STEP 5: Show success message and redirect back to race
     messages.success(request, "Your comment has been deleted!")
     return redirect('race-detail', pk=race_pk)
+
+
+@login_required  # Only logged-in users can access edit functionality
+def edit_race(request, pk):
+    """
+    VIEW 6: Edit Race - Allow race creator and admin to edit existing races
+    
+    This view handles both displaying the edit form AND processing the updates.
+    Only the race creator or admin/staff can edit a race.
+    """
+    
+    # STEP 1: Get the race from database (published races only)
+    race = get_object_or_404(Race, pk=pk, status=1)
+    
+    # STEP 2: Check permissions - only race creator or admin can edit
+    user_is_creator = race.created_by == request.user
+    user_is_admin = request.user.is_staff or request.user.is_superuser
+    
+    if not (user_is_creator or user_is_admin):
+        # User doesn't have permission to edit this race
+        messages.error(request, "You can only edit races that you created!")
+        return redirect('race-detail', pk=race.pk)
+    
+    # STEP 3: Check if user is submitting updated data (POST) or viewing (GET)
+    if request.method == 'POST':
+        # USER SUBMITTED THE FORM - Process the updated data
+        
+        # STEP 4: Create form instance with submitted data and existing race
+        # request.POST = new text data (name, description, etc.)
+        # request.FILES = new uploaded files (race image)
+        # instance=race = tells form to update existing race, not create new
+        form = RaceForm(request.POST, request.FILES, instance=race)
+        
+        # STEP 5: Check if all updated form data is valid
+        if form.is_valid():
+            # STEP 6: Save the updated race to database
+            # No need to set created_by again - it stays the same
+            updated_race = form.save()
+            
+            # STEP 7: Show success message with race name
+            success_msg = f'Race "{updated_race.name}" updated successfully! 🎉'
+            messages.success(request, success_msg)
+            
+            # STEP 8: Redirect user to the updated race's detail page
+            return redirect('race-detail', pk=updated_race.pk)
+        else:
+            # STEP 9: Form has errors - show error message
+            messages.error(request, "Please correct the errors below.")
+    
+    else:
+        # USER IS JUST VIEWING THE EDIT PAGE - Show form with current race data
+        # instance=race = pre-populate form fields with existing race data
+        form = RaceForm(instance=race)
+        
+        # Ensure date field is properly formatted for HTML5 date input
+        if race.race_date:
+            date_str = race.race_date.strftime('%Y-%m-%d')
+            form.fields['race_date'].widget.attrs['value'] = date_str
+    
+    # STEP 10: Prepare data for template
+    context = {
+        'form': form,           # Form with race data (for editing)
+        'race': race,           # Original race object (for page title, etc.)
+        'is_editing': True,     # Flag to help template know this is edit mode
+    }
+    
+    # STEP 11: Show the edit race template with pre-filled form
+    return render(request, 'races/edit_race.html', context)

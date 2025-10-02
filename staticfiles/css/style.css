@@ -142,18 +142,21 @@ Making sure text is ALWAYS visible and readable
     color: white !important;  /* White text on hover */
 }
 
-/* SUCCESS BUTTONS - Teal with white text */
+/* SUCCESS BUTTONS - Bright green "easy-peasy" style */
 .btn-success {
-    background-color: var(--hover-color) !important;  /* Teal background */
-    border-color: var(--hover-color) !important;
+    background-color: #28a745 !important;  /* Bright green background */
+    border-color: #28a745 !important;
     color: white !important;  /* White text for contrast */
-    font-weight: 500 !important;  /* Bold text */
+    font-weight: 600 !important;  /* Bold text */
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3) !important;  /* Subtle green shadow */
 }
 
 .btn-success:hover {
-    background-color: var(--navbar-color) !important;  /* Deep Ocean Blue hover */
-    border-color: var(--navbar-color) !important;
+    background-color: #218838 !important;  /* Darker green hover */
+    border-color: #1e7e34 !important;
     color: white !important;  /* Keep white text */
+    transform: translateY(-1px) !important;  /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4) !important;  /* Enhanced shadow on hover */
 }
 
 /* 
@@ -256,6 +259,134 @@ For screens smaller than 1000px (lg breakpoint)
     font-weight: 600 !important;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important; /* Better readability over images */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; /* Subtle shadow for depth */
+}
+
+/* 
+EDIT RACE FUNCTIONALITY STYLING
+Adventure-themed styling for edit buttons and forms
+*/
+
+/* Edit buttons with adventure colors */
+.btn-outline-warning {
+    border-color: var(--btn-primary) !important;  /* Expedition Orange border */
+    color: var(--btn-primary) !important;  /* Expedition Orange text */
+}
+
+.btn-outline-warning:hover {
+    background-color: var(--btn-primary) !important;  /* Expedition Orange background */
+    border-color: var(--btn-primary) !important;
+    color: var(--bg-neutral) !important;  /* White text on hover */
+    transform: translateY(-1px) !important;  /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(255, 107, 1, 0.3) !important;  /* Orange shadow */
+}
+
+/* Edit form styling */
+.edit-race-form {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(11, 61, 145, 0.1) !important;  /* Deep Ocean Blue shadow */
+}
+
+/* Button group spacing for action buttons */
+.btn-group .btn {
+    margin-left: 0.25rem !important;
+}
+
+.btn-group .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Enhanced form field styling for edit forms */
+.edit-race-form .form-control:focus {
+    border-color: var(--btn-primary) !important;  /* Expedition Orange focus */
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 1, 0.25) !important;  /* Orange focus shadow */
+}
+
+/* Success message styling for edit confirmations */
+.alert-success {
+    border-left: 4px solid var(--btn-primary) !important;  /* Orange accent border */
+}
+
+/* Edit icon styling */
+.fa-edit {
+    color: var(--btn-primary) !important;  /* Expedition Orange edit icons */
+}
+
+/* 
+==============================================
+HERO SECTION - HUMBLE DESIGN
+==============================================
+*/
+
+/* Hero section - simple and elegant */
+.hero-section {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-neutral) 100%);
+    border-bottom: 1px solid rgba(11, 61, 145, 0.1);  /* Subtle Deep Ocean Blue border */
+    box-shadow: 0 2px 4px rgba(11, 61, 145, 0.1);  /* Subtle shadow for depth */
+}
+
+/* Hero content styling */
+.hero-content {
+    padding: 3rem 1rem;
+}
+
+/* Hero title - elegant and readable */
+.hero-title {
+    color: var(--navbar-color);  /* Deep Ocean Blue */
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+/* Special hero title with Deep Ocean Blue and Roboto Black Italic */
+.hero-title-special {
+    color: var(--navbar-color) !important;  /* Deep Ocean Blue */
+    background: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    text-shadow: none !important;
+    font-family: 'Roboto', sans-serif !important;  /* Roboto font family */
+    font-weight: 900 !important;  /* Black weight */
+    font-style: italic !important;  /* Italic style */
+}
+
+/* Hero description - readable and inviting */
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Responsive hero design */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+    }
 }
 
 .badge.bg-warning {

@@ -21,6 +21,12 @@ urlpatterns = [
     # Django passes pk=5 to views.race_detail(request, pk=5)
     path('race/<int:pk>/', views.race_detail, name='race-detail'),
     
+    # EDIT RACE: '/race/5/edit/' shows edit form for race with ID 5
+    # <int:pk> = capture race ID from URL as 'pk' parameter
+    # Django passes pk=5 to views.edit_race(request, pk=5)
+    # Requires login (handled by @login_required in view)
+    path('race/<int:pk>/edit/', views.edit_race, name='edit-race'),
+    
     # CREATE RACE: '/create-race/' shows race creation form
     # Fixed URL (no parameters)
     path('create-race/', views.create_race, name='create-race'),
@@ -31,5 +37,7 @@ urlpatterns = [
     
     # DELETE COMMENT: '/delete-comment/5/' deletes comment with ID 5
     # <int:comment_id> = capture comment ID from URL
-    path('delete-comment/<int:comment_id>/', views.delete_comment, name='delete-comment'),
+    path('delete-comment/<int:comment_id>/',
+         views.delete_comment,
+         name='delete-comment'),
 ]

@@ -1,7 +1,10 @@
 # Run-for-fun
-Race Explorer is a web platform that curates the world’s most extreme, quirky, and unforgettable races—from desert ultramarathons to mud-drenched obstacle runs. Whether you're an athlete chasing your next challenge, a traveler seeking adventure, or a gift-giver looking for something truly unique, this site helps you discover, explore, and share races that push boundaries and spark curiosity.
+Where wild races meet curious souls.
 
-Live link: # Run-for-fun
+Discover the world’s most extreme, quirky, and unforgettable running events—from desert ultras to cheese-rolling chaos. Whether you're chasing a personal challenge or just exploring for fun, this platform lets you browse, create, and share races that defy the ordinary.
+
+
+Live link: [# Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
 
 Table of Contents
 
@@ -284,6 +287,9 @@ Testing & Debugging: Copilot supported the creation of Django test cases and hel
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=white)
+[![Badges by Shields.io](https://img.shields.io/badge/Badges-by%20Shields.io-brightgreen?logo=shieldsdotio)](https://shields.io/)
+[![Using MermaidChart](https://img.shields.io/badge/Using-MermaidChart-00BFA5?logo=mermaid&logoColor=white)](https://www.mermaidchart.com/)
+
 
 
 https://www.mermaidchart.com/
