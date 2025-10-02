@@ -7,7 +7,7 @@ from django.contrib import messages
 # Import Django's pagination system to split long lists into pages
 from django.core.paginator import Paginator
 # Import our Race and Comment models from the current app
-from .models import Race, Comment
+from .models import Race, Comment, AccountDeletionRequest
 # Import our custom forms
 from .forms import RaceForm
 
@@ -289,3 +289,118 @@ def edit_race(request, pk):
     
     # STEP 11: Show the edit race template with pre-filled form
     return render(request, 'races/edit_race.html', context)
+
+
+# ==============================================================================
+# ACCOUNT DELETION VIEWS
+# ==============================================================================
+
+@login_required
+def request_account_deletion(request):
+    """
+    VIEW 7: Request Account Deletion - Allow users to request account deletion
+    
+    This view allows authenticated users to request deletion of their account.
+    The request must be approved by an admin before the account is deleted.
+    """
+    
+    # STEP 1: Check if user already has a pending deletion request
+    existing_request = AccountDeletionRequest.objects.filter(
+        user=request.user,
+        status__in=['PENDING', 'APPROVED']
+    ).first()
+    
+    if existing_request:
+        # User already has a pending or approved deletion request
+        messages.info(
+            request,
+            f"You already have a {existing_request.get_status_display().lower()} "
+            f"account deletion request."
+        )
+        return redirect('deletion-status')
+    
+    # STEP 2: Handle form submission
+    if request.method == 'POST':
+        reason = request.POST.get('reason', '').strip()
+        
+        # STEP 3: Create the deletion request
+        AccountDeletionRequest.objects.create(
+            user=request.user,
+            reason=reason
+        )
+        
+        # STEP 4: Show success message
+        messages.success(
+            request,
+            "Your account deletion request has been submitted for admin review. "
+            "You will be notified via email when a decision is made."
+        )
+        
+        # STEP 5: Redirect to status page
+        return redirect('deletion-status')
+    
+    # STEP 6: Show the deletion request form
+    return render(request, 'account/request_deletion.html')
+
+
+@login_required
+def deletion_status(request):
+    """
+    VIEW 8: Deletion Status - Show user their deletion request status
+    
+    This view shows the current status of the user's account deletion request.
+    """
+    
+    # STEP 1: Get user's deletion request if it exists
+    deletion_request = AccountDeletionRequest.objects.filter(
+        user=request.user
+    ).first()
+    
+    # STEP 2: Prepare context
+    context = {
+        'deletion_request': deletion_request,
+    }
+    
+    # STEP 3: Show the status template
+    return render(request, 'account/deletion_status.html', context)
+
+
+@login_required
+def cancel_deletion_request(request):
+    """
+    VIEW 9: Cancel Deletion Request - Allow users to cancel pending requests
+    
+    This view allows users to cancel their account deletion request
+    if it's still pending admin review.
+    """
+    
+    # STEP 1: Get user's pending deletion request
+    deletion_request = AccountDeletionRequest.objects.filter(
+        user=request.user,
+        status='PENDING'
+    ).first()
+    
+    if not deletion_request:
+        messages.error(
+            request,
+            "You don't have a pending deletion request to cancel."
+        )
+        return redirect('race-list')
+    
+    # STEP 2: Handle cancellation
+    if request.method == 'POST':
+        # Delete the request
+        deletion_request.delete()
+        
+        messages.success(
+            request,
+            "Your account deletion request has been cancelled."
+        )
+        
+        return redirect('race-list')
+    
+    # STEP 3: Show confirmation page
+    context = {
+        'deletion_request': deletion_request,
+    }
+    return render(request, 'account/cancel_deletion.html', context)

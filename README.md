@@ -289,6 +289,7 @@ Testing & Debugging: Copilot supported the creation of Django test cases and hel
 ![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=white)
 [![Badges by Shields.io](https://img.shields.io/badge/Badges-by%20Shields.io-brightgreen?logo=shieldsdotio)](https://shields.io/)
 [![Using MermaidChart](https://img.shields.io/badge/Using-MermaidChart-00BFA5?logo=mermaid&logoColor=white)](https://www.mermaidchart.com/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
 
 

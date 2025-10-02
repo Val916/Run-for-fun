@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Cancel Deletion Request - Run for Fun{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Cancel Account Deletion Request</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-question-circle"></i> Confirm Cancellation</h6>
+                        <p>Are you sure you want to cancel your account deletion request?</p>
+                        
+                        <p><strong>Request Details:</strong></p>
+                        <ul class="mb-0">
+                            <li><strong>Requested:</strong> {{ deletion_request.requested_at|date:"F j, Y g:i A" }}</li>
+                            <li><strong>Status:</strong> {{ deletion_request.get_status_display }}</li>
+                            {% if deletion_request.reason %}
+                                <li><strong>Reason:</strong> {{ deletion_request.reason }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <p class="mb-0">
+                            <strong>If you cancel:</strong> Your deletion request will be removed and your account will remain active. 
+                            You can submit a new deletion request later if needed.
+                        </p>
+                    </div>
+
+                    <form method="post" class="mt-4">
+                        {% csrf_token %}
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'deletion-status' %}" class="btn btn-secondary">
+                                Keep Request
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                Yes, Cancel Deletion Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Back to status page -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'deletion-status' %}" class="btn btn-outline-primary">
+                    ← Back to Status
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

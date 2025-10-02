@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Request Account Deletion - Run for Fun{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">⚠️ Request Account Deletion</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <strong>Warning:</strong> This action will permanently delete your account and all associated data, including:
+                        <ul class="mt-2 mb-0">
+                            <li>Your races and race submissions</li>
+                            <li>Your comments and interactions</li>
+                            <li>Your profile and personal information</li>
+                        </ul>
+                        <p class="mt-2 mb-0"><strong>This action cannot be undone!</strong></p>
+                    </div>
+
+                    <h5>How Account Deletion Works:</h5>
+                    <ol>
+                        <li><strong>Submit Request:</strong> Fill out the form below to request account deletion</li>
+                        <li><strong>Admin Review:</strong> An administrator will review your request (usually within 24-48 hours)</li>
+                        <li><strong>Final Deletion:</strong> If approved, your account will be permanently deleted</li>
+                        <li><strong>Confirmation:</strong> You'll receive an email confirmation when the deletion is complete</li>
+                    </ol>
+
+                    <form method="post" class="mt-4">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="reason" class="form-label">
+                                <strong>Reason for Deletion (Optional)</strong>
+                            </label>
+                            <textarea 
+                                name="reason" 
+                                id="reason" 
+                                class="form-control" 
+                                rows="4"
+                                placeholder="Please let us know why you're deleting your account (optional). This helps us improve our service."
+                                maxlength="500"
+                            ></textarea>
+                            <div class="form-text">
+                                Maximum 500 characters. This information will only be seen by administrators.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input" 
+                                    type="checkbox" 
+                                    id="confirm-deletion" 
+                                    required
+                                >
+                                <label class="form-check-label" for="confirm-deletion">
+                                    <strong>I understand that this action will permanently delete my account and all associated data, and this cannot be undone.</strong>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'race-list' %}" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                Request Account Deletion
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="mt-4 text-center">
+                <small class="text-muted">
+                    Need help or have questions? 
+                    <a href="mailto:support@runforfun.com">Contact our support team</a> instead of deleting your account.
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

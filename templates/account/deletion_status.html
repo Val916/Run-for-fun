@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Account Deletion Status - Run for Fun{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Account Deletion Status</h4>
+                </div>
+                <div class="card-body">
+                    {% if deletion_request %}
+                        <!-- User has a deletion request -->
+                        <div class="status-info">
+                            <h5>Your Deletion Request Status</h5>
+                            
+                            {% if deletion_request.status == 'PENDING' %}
+                                <div class="alert alert-warning">
+                                    <h6><i class="fas fa-clock"></i> Pending Admin Review</h6>
+                                    <p>Your account deletion request is waiting for administrator review.</p>
+                                    <p><strong>Requested:</strong> {{ deletion_request.requested_at|date:"F j, Y g:i A" }}</p>
+                                    
+                                    {% if deletion_request.reason %}
+                                        <p><strong>Your Reason:</strong> {{ deletion_request.reason }}</p>
+                                    {% endif %}
+                                    
+                                    <p class="mb-0"><small>We typically review deletion requests within 24-48 hours.</small></p>
+                                </div>
+                                
+                                <!-- Option to cancel request -->
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a href="{% url 'cancel-deletion' %}" class="btn btn-outline-secondary">
+                                        Cancel Request
+                                    </a>
+                                </div>
+                                
+                            {% elif deletion_request.status == 'APPROVED' %}
+                                <div class="alert alert-danger">
+                                    <h6><i class="fas fa-check-circle"></i> Approved - Account Will Be Deleted</h6>
+                                    <p>Your account deletion request has been approved by an administrator.</p>
+                                    <p><strong>Requested:</strong> {{ deletion_request.requested_at|date:"F j, Y g:i A" }}</p>
+                                    <p><strong>Approved:</strong> {{ deletion_request.reviewed_at|date:"F j, Y g:i A" }}</p>
+                                    
+                                    {% if deletion_request.admin_notes %}
+                                        <p><strong>Admin Notes:</strong> {{ deletion_request.admin_notes }}</p>
+                                    {% endif %}
+                                    
+                                    <p class="mb-0"><strong>Your account will be permanently deleted within 24 hours.</strong></p>
+                                </div>
+                                
+                            {% elif deletion_request.status == 'REJECTED' %}
+                                <div class="alert alert-info">
+                                    <h6><i class="fas fa-times-circle"></i> Request Rejected</h6>
+                                    <p>Your account deletion request has been rejected by an administrator.</p>
+                                    <p><strong>Requested:</strong> {{ deletion_request.requested_at|date:"F j, Y g:i A" }}</p>
+                                    <p><strong>Reviewed:</strong> {{ deletion_request.reviewed_at|date:"F j, Y g:i A" }}</p>
+                                    
+                                    {% if deletion_request.admin_notes %}
+                                        <p><strong>Admin Notes:</strong> {{ deletion_request.admin_notes }}</p>
+                                    {% endif %}
+                                    
+                                    <p class="mb-0">Your account remains active. You can submit a new deletion request if needed.</p>
+                                </div>
+                                
+                                <!-- Option to submit new request -->
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a href="{% url 'request-deletion' %}" class="btn btn-outline-danger">
+                                        Submit New Request
+                                    </a>
+                                </div>
+                                
+                            {% elif deletion_request.status == 'COMPLETED' %}
+                                <div class="alert alert-dark">
+                                    <h6><i class="fas fa-check"></i> Account Deletion Completed</h6>
+                                    <p>Your account has been permanently deleted.</p>
+                                    <p><strong>Completed:</strong> {{ deletion_request.completed_at|date:"F j, Y g:i A" }}</p>
+                                    <p class="mb-0"><em>This message should not normally be visible as your account would be deleted.</em></p>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                    {% else %}
+                        <!-- User has no deletion request -->
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-info-circle"></i> No Deletion Request</h6>
+                            <p>You currently have no account deletion request.</p>
+                            <p class="mb-0">If you want to delete your account, you can submit a deletion request below.</p>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'request-deletion' %}" class="btn btn-outline-danger">
+                                Request Account Deletion
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Back to homepage -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'race-list' %}" class="btn btn-primary">
+                    ← Back to Races
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

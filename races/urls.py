@@ -40,4 +40,14 @@ urlpatterns = [
     path('delete-comment/<int:comment_id>/',
          views.delete_comment,
          name='delete-comment'),
+    
+    # ACCOUNT DELETION URLs
+    # REQUEST DELETION: '/request-deletion/' allows user to request account deletion
+    path('request-deletion/', views.request_account_deletion, name='request-deletion'),
+    
+    # DELETION STATUS: '/deletion-status/' shows status of deletion request
+    path('deletion-status/', views.deletion_status, name='deletion-status'),
+    
+    # CANCEL DELETION: '/cancel-deletion/' allows user to cancel pending request
+    path('cancel-deletion/', views.cancel_deletion_request, name='cancel-deletion'),
 ]

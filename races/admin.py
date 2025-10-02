@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Race, Comment
+from .models import Race, Comment, AccountDeletionRequest
 
 
 @admin.register(Race)
@@ -145,3 +145,101 @@ class CommentAdmin(admin.ModelAdmin):
         """Show first 50 characters of comment"""
         return obj.body[:50] + "..." if len(obj.body) > 50 else obj.body
     short_body.short_description = 'Comment'
+
+
+@admin.register(AccountDeletionRequest)
+class AccountDeletionRequestAdmin(admin.ModelAdmin):
+    """Admin interface for Account Deletion Requests"""
+    
+    # What columns to show in the deletion requests list
+    list_display = [
+        'user',
+        'status',
+        'requested_at',
+        'reviewed_by',
+        'reviewed_at'
+    ]
+    
+    # Add filters in the right sidebar
+    list_filter = [
+        'status',
+        'requested_at',
+        'reviewed_at'
+    ]
+    
+    # Add search functionality
+    search_fields = [
+        'user__username',
+        'user__email',
+        'reason',
+        'admin_notes'
+    ]
+    
+    # Order by newest first
+    ordering = ['-requested_at']
+    
+    # Make some fields read-only
+    readonly_fields = [
+        'user',
+        'reason',
+        'requested_at',
+        'reviewed_at',
+        'completed_at'
+    ]
+    
+    # Group form fields logically
+    fieldsets = (
+        ('Request Details', {
+            'fields': (
+                'user', 'reason', 'requested_at'
+            )
+        }),
+        ('Admin Review', {
+            'fields': ('status', 'admin_notes')
+        }),
+        ('Review Info', {
+            'fields': ('reviewed_by', 'reviewed_at', 'completed_at'),
+            'classes': ('collapse',)  # Starts collapsed
+        })
+    )
+    
+    # Custom admin actions
+    def approve_deletion(self, request, queryset):
+        """Bulk action to approve selected deletion requests"""
+        from django.utils import timezone
+        
+        updated = 0
+        for deletion_request in queryset.filter(status='PENDING'):
+            deletion_request.approve(request.user, "Approved via admin bulk action")
+            updated += 1
+        
+        self.message_user(
+            request,
+            f'{updated} deletion request(s) have been approved.'
+        )
+    approve_deletion.short_description = "Approve selected deletion requests"
+    
+    def reject_deletion(self, request, queryset):
+        """Bulk action to reject selected deletion requests"""
+        from django.utils import timezone
+        
+        updated = 0
+        for deletion_request in queryset.filter(status='PENDING'):
+            deletion_request.reject(request.user, "Rejected via admin bulk action")
+            updated += 1
+        
+        self.message_user(
+            request,
+            f'{updated} deletion request(s) have been rejected.'
+        )
+    reject_deletion.short_description = "Reject selected deletion requests"
+    
+    actions = ['approve_deletion', 'reject_deletion']
+    
+    # Automatically set the reviewer to current user when saving
+    def save_model(self, request, obj, form, change):
+        if change and 'status' in form.changed_data:
+            if obj.status in ['APPROVED', 'REJECTED'] and not obj.reviewed_by:
+                obj.reviewed_by = request.user
+                obj.reviewed_at = timezone.now()
+        super().save_model(request, obj, form, change)
