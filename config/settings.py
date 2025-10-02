@@ -126,6 +126,17 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+# Django Allauth settings for better user experience
+ACCOUNT_SESSION_REMEMBER = True  # Show "Remember Me" checkbox
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # Auto login after email confirmation
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # Auto login after password reset
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = False  # Don't logout when changing password
+
+# Session settings for "Remember Me" functionality
+SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds (14 * 24 * 60 * 60)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Don't expire when browser closes
+SESSION_SAVE_EVERY_REQUEST = True  # Refresh session on every request
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 

@@ -31,12 +31,28 @@
                         <!-- Loop through form fields -->
                         {% for field in form %}
                             <div class="mb-3">
-                                <label class="form-label fw-bold">{{ field.label }}</label>
-                                <input type="{{ field.field.widget.input_type|default:'text' }}" 
-                                       class="form-control auth-input" 
-                                       name="{{ field.name }}" 
-                                       value="{{ field.value|default:'' }}"
-                                       {% if field.field.required %}required{% endif %}>
+                                {% if field.name == 'remember' %}
+                                    <!-- Special handling for Remember Me checkbox -->
+                                    <div class="form-check">
+                                        <input type="checkbox" 
+                                               class="form-check-input" 
+                                               name="{{ field.name }}" 
+                                               id="{{ field.id_for_label }}"
+                                               {% if field.value %}checked{% endif %}>
+                                        <label class="form-check-label" for="{{ field.id_for_label }}">
+                                            {{ field.label }}
+                                        </label>
+                                    </div>
+                                {% else %}
+                                    <!-- Regular form fields -->
+                                    <label class="form-label fw-bold">{{ field.label }}</label>
+                                    <input type="{{ field.field.widget.input_type|default:'text' }}" 
+                                           class="form-control auth-input" 
+                                           name="{{ field.name }}" 
+                                           id="{{ field.id_for_label }}"
+                                           value="{{ field.value|default:'' }}"
+                                           {% if field.field.required %}required{% endif %}>
+                                {% endif %}
                                 
                                 <!-- Show errors -->
                                 {% if field.errors %}
