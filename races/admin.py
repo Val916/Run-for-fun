@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils import timezone
 from .models import Race, Comment, AccountDeletionRequest
 
 
@@ -206,11 +207,10 @@ class AccountDeletionRequestAdmin(admin.ModelAdmin):
     # Custom admin actions
     def approve_deletion(self, request, queryset):
         """Bulk action to approve selected deletion requests"""
-        from django.utils import timezone
-        
         updated = 0
         for deletion_request in queryset.filter(status='PENDING'):
-            deletion_request.approve(request.user, "Approved via admin bulk action")
+            deletion_request.approve(request.user, 
+                                   "Approved via admin bulk action")
             updated += 1
         
         self.message_user(
@@ -221,11 +221,10 @@ class AccountDeletionRequestAdmin(admin.ModelAdmin):
     
     def reject_deletion(self, request, queryset):
         """Bulk action to reject selected deletion requests"""
-        from django.utils import timezone
-        
         updated = 0
         for deletion_request in queryset.filter(status='PENDING'):
-            deletion_request.reject(request.user, "Rejected via admin bulk action")
+            deletion_request.reject(request.user, 
+                                  "Rejected via admin bulk action")
             updated += 1
         
         self.message_user(

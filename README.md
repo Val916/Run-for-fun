@@ -290,6 +290,7 @@ Testing & Debugging: Copilot supported the creation of Django test cases and hel
 [![Badges by Shields.io](https://img.shields.io/badge/Badges-by%20Shields.io-brightgreen?logo=shieldsdotio)](https://shields.io/)
 [![Using MermaidChart](https://img.shields.io/badge/Using-MermaidChart-00BFA5?logo=mermaid&logoColor=white)](https://www.mermaidchart.com/)
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Google Fonts](https://img.shields.io/badge/Typography-Google%20Fonts-4285F4?logo=googlefonts&logoColor=white)](https://fonts.google.com/)
 
 
 
