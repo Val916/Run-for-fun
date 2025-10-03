@@ -69,8 +69,8 @@ class Race(models.Model):
         'image',                          # Cloudinary field name
         blank=True,                       # Field is optional
         null=True,                        # Can be empty in database
+        default='placeholder',            # Default placeholder image
         help_text="Upload a photo for this race (optional)")
-    featured_image = CloudinaryField('image', default='placeholder')  # Cloudinary image field for better media handling
 
     city = models.CharField(
         max_length=100,
