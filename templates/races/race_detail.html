@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cloudinary_filters %}
 
 {% block content %}
 <div class="row">
@@ -38,20 +39,20 @@
             <!-- Race image - Responsive for all screen sizes -->
             {% if race.image %}
                 <div class="image-container position-relative overflow-hidden mb-3">
-                    {% with race.image.url as image_url %}
-                        {% if "placeholder" in image_url or image_url == "" %}
-                            <img class="img-fluid w-100 race-detail-image" 
-                                 src="{% static 'images/default.png' %}"
-                                 alt="placeholder image"
-                                 loading="lazy">
-                        {% else %}
-                            <img src="{{ image_url }}" 
-                                 class="img-fluid w-100 race-detail-image" 
-                                 alt="{{ race.name }}" 
-                                 loading="lazy"
-                                 onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
-                        {% endif %}
-                    {% endwith %}
+                    {% if race.image|is_placeholder %}
+                        <img class="img-fluid w-100 race-detail-image" 
+                             src="{% static 'images/default.png' %}"
+                             alt="placeholder image"
+                             loading="lazy">
+                    {% else %}
+                        <img src="{{ race.image|secure_cloudinary_url }}" 
+                             class="img-fluid w-100 race-detail-image" 
+                             alt="{{ race.name }}" 
+                             loading="lazy"
+                             crossorigin="anonymous"
+                             referrerpolicy="no-referrer-when-downgrade"
+                             onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
+                    {% endif %}
                 </div>
             {% else %}
                 <!-- Show default image when no image is uploaded -->
@@ -113,7 +114,7 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col-md-8">
-                        <h5>Comments ({{ comment_count }})</h5>
+                        <h2>Comments ({{ comment_count }})</h2>
                         
                         <!-- Display existing comments -->
                         {% for comment in comments %}
@@ -121,7 +122,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <h6 class="card-title">👤 {{ comment.author.username }}</h6>
+                                            <h3 class="card-title">👤 {{ comment.author.username }}</h3>
                                             <small class="text-muted">{{ comment.created_on|date:"d/m/Y H:i" }}</small>
                                         </div>
                                         

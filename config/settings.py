@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'run-for-fun-b329a2374625.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
@@ -69,7 +69,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'config.middleware.SecurityHeadersMiddleware',  # Custom security headers
 ]
+
+# Security Headers - Improve Best Practices Score
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
 
 ROOT_URLCONF = 'config.urls'
 
@@ -137,6 +143,14 @@ SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds (14 * 24 * 60 * 60)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Don't expire when browser closes
 SESSION_SAVE_EVERY_REQUEST = True  # Refresh session on every request
 
+# Cookie Security Settings - Improve Best Practices Score
+SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
+SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access to session cookies
+SESSION_COOKIE_SAMESITE = 'Lax'  # Prevent CSRF attacks
+CSRF_COOKIE_SECURE = False  # Set to True in production with HTTPS
+CSRF_COOKIE_HTTPONLY = True  # Prevent JavaScript access to CSRF cookies
+CSRF_COOKIE_SAMESITE = 'Lax'  # Prevent CSRF attacks
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -167,12 +181,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if 'CLOUDINARY_URL' in os.environ:
     # Use the CLOUDINARY_URL if available (most common format)
     cloudinary.config()
+    # Explicitly set the config as backup
+    cloudinary.config(
+        cloud_name='dece3gnhm',
+        api_key='832681451742447',
+        api_secret='1XTFspXWu98Gs8G7YtAUNmAVC6U',
+        secure=True,
+    )
 else:
     # Fallback to individual environment variables
     cloudinary.config(
         cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
         api_key=os.environ.get('CLOUDINARY_API_KEY'),
         api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+        secure=True,  # Always use HTTPS
     )
 
 # Use Cloudinary for media storage in production

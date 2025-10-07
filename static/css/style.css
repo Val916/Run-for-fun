@@ -25,7 +25,7 @@ Just change the color codes here and everything updates automatically
     --bg-light: #F4F1DE;        /* Sandstone - main page background */
     --bg-dark: #2C3D73;         /* Twilight Indigo - cards and sections */
     --bg-medium: #F4F1DE;       /* Sandstone - medium backgrounds */
-    --bg-neutral: s#E4580B;      /* Volcano Ember - neutral elements */
+    --bg-neutral: #E4580B;      /* Volcano Ember - neutral elements (fixed typo) */
     
     /* Interactive Colors */
     --hover-color: #E4580B;      /* Volcano Ember - hover effects on everything */
@@ -60,6 +60,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* RACE DETAIL PAGE HEADERS - Make section headers more visible */
+.card-body h2,
+.card-body h3,
 .card-body h5,
 .card-body h6 {
     color: var(--navbar-color) !important;  /* Deep Ocean Blue for detail page section headers */
@@ -70,6 +72,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* First header in card body shouldn't have top margin */
+.card-body h2:first-child,
+.card-body h3:first-child,
 .card-body h5:first-child,
 .card-body h6:first-child {
     margin-top: 0 !important;
@@ -175,10 +179,19 @@ Making sure text is ALWAYS visible and readable
     border-bottom: 2px solid var(--button-color) !important;  /* Expedition Orange accent border */
 }
 
+/* Card header headings should be appropriately sized */
+.card-header h1 { font-size: 1.5rem !important; }
+.card-header h2 { font-size: 1.25rem !important; }
+.card-header h3 { font-size: 1.1rem !important; }
+
 .card-title {
     color: var(--header-color) !important;  /* Warm Golden Yellow card titles */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;  /* Subtle shadow for card titles */
 }
+
+/* Specific sizing for card titles to prevent them from being too large */
+h2.card-title { font-size: 1.25rem !important; }
+h3.card-title { font-size: 1.1rem !important; }
 
 .card-footer {
     background-color: var(--bg-light) !important;  /* Sandstone footers */
@@ -319,7 +332,7 @@ HERO SECTION - HUMBLE DESIGN
 
 /* Hero section - simple and elegant */
 .hero-section {
-    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-neutral) 100%);
+    background-color: var(--bg-light);  /* Simple sandstone background */
     border-bottom: 1px solid rgba(11, 61, 145, 0.1);  /* Subtle Deep Ocean Blue border */
     box-shadow: 0 2px 4px rgba(11, 61, 145, 0.1);  /* Subtle shadow for depth */
 }
@@ -358,6 +371,7 @@ HERO SECTION - HUMBLE DESIGN
     line-height: 1.6;
     max-width: 100%;
     margin: 0 auto;
+    color: #333 !important;  /* Darker text like race card content */
 }
 
 /* Responsive hero design */
@@ -471,15 +485,10 @@ Responsive navbar for better mobile experience
 ==============================================
 */
 
-/* Default - show full text, hide short text */
-.navbar-full-text { display: inline !important; }
-.navbar-short-text { display: none !important; }
+/* Default - show text normally (removed responsive text switching) */
 
-/* Screens 550px and smaller - show short text only */
+/* Screens 550px and smaller - adjust navbar size */
 @media (max-width: 550px) {
-    .navbar-full-text { display: none !important; }
-    .navbar-short-text { display: inline !important; }
-    
     .navbar-brand {
         font-size: 0.95rem !important;
         max-width: 70% !important;

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cloudinary_filters %}
 
 {% block content %}
 <!-- 
@@ -33,9 +34,9 @@ Pre-fills form with current race data and processes updates.
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">
+                    <h2 class="mb-0">
                         <i class="fas fa-edit me-2"></i>Race Details
-                    </h5>
+                    </h2>
                 </div>
                 
                 <div class="card-body">
@@ -174,19 +175,19 @@ Pre-fills form with current race data and processes updates.
                                 <div class="mb-2">
                                     <p class="small text-muted mb-1">Current image:</p>
                                     <div class="current-image-preview">
-                                        {% with race.image.url as image_url %}
-                                            {% if "placeholder" not in image_url and image_url != "" %}
-                                                <img src="{{ image_url }}" 
-                                                     alt="{{ race.name }}" 
-                                                     class="img-thumbnail"
-                                                     style="max-height: 150px; max-width: 200px;">
-                                            {% else %}
-                                                <img src="{% static 'images/default.png' %}" 
-                                                     alt="Current default image" 
-                                                     class="img-thumbnail"
-                                                     style="max-height: 150px; max-width: 200px;">
-                                            {% endif %}
-                                        {% endwith %}
+                                        {% if race.image|is_placeholder %}
+                                            <img src="{% static 'images/default.png' %}" 
+                                                 alt="Current default image" 
+                                                 class="img-thumbnail"
+                                                 style="max-height: 150px; max-width: 200px;">
+                                        {% else %}
+                                            <img src="{{ race.image|secure_cloudinary_url }}" 
+                                                 alt="{{ race.name }}" 
+                                                 class="img-thumbnail"
+                                                 style="max-height: 150px; max-width: 200px;"
+                                                 crossorigin="anonymous"
+                                                 referrerpolicy="no-referrer-when-downgrade">
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endif %}
@@ -259,9 +260,9 @@ Pre-fills form with current race data and processes updates.
             -->
             <div class="card mt-4">
                 <div class="card-body">
-                    <h6 class="card-title">
+                    <h3 class="card-title">
                         <i class="fas fa-info-circle me-2"></i>Important Notes
-                    </h6>
+                    </h3>
                     <ul class="mb-0">
                         <li>Changes will be saved immediately when you click "Save Changes"</li>
                         <li>All participants will see the updated information</li>

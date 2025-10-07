@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load cloudinary_filters %}
 
 {% block content %}
 <!-- Page header -->
@@ -17,7 +19,19 @@
                 <div class="card h-100">
                     <!-- Race image if available -->
                     {% if race.image %}
-                        <img src="{{ race.image.url }}" class="card-img-top" alt="{{ race.name }}" style="height: 150px; object-fit: cover;">
+                        {% if race.image|is_placeholder %}
+                            <img src="{% static 'images/default.png' %}" 
+                                 class="card-img-top" 
+                                 alt="Default race image" 
+                                 style="height: 150px; object-fit: cover;">
+                        {% else %}
+                            <img src="{{ race.image|secure_cloudinary_url }}" 
+                                 class="card-img-top" 
+                                 alt="{{ race.name }}" 
+                                 style="height: 150px; object-fit: cover;"
+                                 crossorigin="anonymous"
+                                 referrerpolicy="no-referrer-when-downgrade">
+                        {% endif %}
                     {% endif %}
                     
                     <div class="card-header d-flex justify-content-between align-items-center">
