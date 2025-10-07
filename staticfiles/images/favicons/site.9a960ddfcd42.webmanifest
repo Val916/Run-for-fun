@@ -1,0 +1,20 @@
+{
+  "name": "Run for Fun",
+  "short_name": "RunForFun",
+  "icons": [
+    {
+      "src": "/static/images/favicons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/images/favicons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#00535F",
+  "background_color": "#F4F1DE",
+  "display": "standalone",
+  "start_url": "/"
+}

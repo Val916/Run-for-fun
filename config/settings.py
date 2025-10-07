@@ -62,6 +62,7 @@ LOGOUT_REDIRECT_URL = '/'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'config.middleware.MediaCacheMiddleware',  # Custom media cache headers
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -169,6 +170,24 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# WhiteNoise configuration for efficient static file caching
+# This significantly improves repeat visit performance
+WHITENOISE_USE_FINDERS = True  # Use Django's staticfiles finders
+WHITENOISE_AUTOREFRESH = True  # Auto-refresh static files in development
+
+# Cache static files for 1 year (31536000 seconds) for maximum efficiency
+# These files have cache-busting via Django's collectstatic versioning
+WHITENOISE_MAX_AGE = 31536000  # 1 year cache for static files
+
+# Configure different cache times for different file types
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS = [
+    'jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'gz', 'tgz',
+    'bz2', 'tbz', 'xz', 'br'
+]
+
+# Enable static file compression for better transfer efficiency
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"

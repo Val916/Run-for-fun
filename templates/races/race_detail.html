@@ -43,12 +43,14 @@
                         <img class="img-fluid w-100 race-detail-image" 
                              src="{% static 'images/default.png' %}"
                              alt="placeholder image"
-                             loading="lazy">
+                             width="800" height="400"
+                             fetchpriority="high">
                     {% else %}
                         <img src="{{ race.image|secure_cloudinary_url }}" 
                              class="img-fluid w-100 race-detail-image" 
                              alt="{{ race.name }}" 
-                             loading="lazy"
+                             width="800" height="400"
+                             fetchpriority="high"
                              crossorigin="anonymous"
                              referrerpolicy="no-referrer-when-downgrade"
                              onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
@@ -60,7 +62,8 @@
                     <img class="img-fluid w-100 race-detail-image" 
                          src="{% static 'images/default.png' %}"
                          alt="default race image"
-                         loading="lazy">
+                         width="800" height="400"
+                         fetchpriority="high">
                 </div>
             {% endif %}
             

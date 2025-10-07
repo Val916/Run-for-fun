@@ -1,0 +1,480 @@
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:    <nav class="navbar navbar-expand-lg navbar-dark">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:        <div class="container">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:            <a class="navbar-brand" href="{% url 'race-list' %}">Run for Fun</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                <span class="navbar-toggler-icon"></span>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:            <div class="collapse navbar-collapse" id="navbarNav">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                <ul class="navbar-nav ms-auto">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                    <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                        <a class="nav-link" href="{% url 'race-list' %}">{% trans "All Races" %}</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                            <a class="nav-link" href="{% url 'create-race' %}">{% trans "Create Race" %}</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                            <a class="nav-link" href="{% url 'my-races' %}">{% trans "My Races" %}</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                            <span class="nav-link">{% trans "Hello" %}, {{ user.username }}!</span>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                            <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                            <a class="nav-link" href="{% url 'account_signup' %}">{% trans "Register" %}</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                            <a class="nav-link" href="{% url 'account_login' %}">{% trans "Login" %}</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:    <div class="container mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:        <div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\base.html:            <div class="col-md-8 col-lg-6">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:<div class="container mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:    <div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:        <div class="col-md-8 col-lg-6">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:            <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                <div class="card-header">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                    <h4 class="mb-0">Cancel Account Deletion Request</h4>
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                    <div class="alert alert-info">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                        <h6><i class="fas fa-question-circle"></i> Confirm Cancellation</h6>
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                        <ul class="mb-0">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                    <div class="alert alert-success">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                        <p class="mb-0">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                    <form method="post" class="mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                            <a href="{% url 'deletion-status' %}" class="btn btn-secondary">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                            <button type="submit" class="btn btn-success">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:            <div class="mt-4 text-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\cancel_deletion.html:                <a href="{% url 'deletion-status' %}" class="btn btn-outline-primary">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:<div class="container mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:    <div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:        <div class="col-md-8 col-lg-6">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:            <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                <div class="card-header">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                    <h4 class="mb-0"><i class="fas fa-user-cog"></i> Account Settings</h4>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                    <div class="mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                        <p class="text-muted">Manage your account settings and preferences.</p>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                        <div class="d-grid gap-2">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                            <a href="{% url 'account_change_password' %}" class="btn btn-primary">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                <i class="fas fa-key"></i> Change Password
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                            <a href="{% url 'request-deletion' %}" class="btn btn-danger">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                <i class="fas fa-trash-alt"></i> Delete Account
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                        <div class="status-info">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                <div class="alert alert-warning">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <h6><i class="fas fa-clock"></i> Pending Admin Review</h6>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <p class="mb-0"><small>We typically review deletion requests within 24-48 hours.</small></p>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <a href="{% url 'cancel-deletion' %}" class="btn btn-outline-secondary">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                <div class="alert alert-danger">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <h6><i class="fas fa-check-circle"></i> Approved - Account Will Be Deleted</h6>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <p class="mb-0"><strong>Your account will be permanently deleted within 24 hours.</strong></p>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                <div class="alert alert-info">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <h6><i class="fas fa-times-circle"></i> Request Rejected</h6>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <p class="mb-0">Your account remains active. You can submit a new deletion request if needed.</p>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                <div class="alert alert-dark">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <h6><i class="fas fa-check"></i> Account Deletion Completed</h6>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                                    <p class="mb-0"><em>This message should not normally be visible as your account would be deleted.</em></p>
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:            <div class="mt-4 text-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\deletion_status.html:                <a href="{% url 'race-list' %}" class="btn btn-primary">
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:<form action="{% url 'account_email' %}" class="email_list" method="post">
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:<fieldset class="blockLabels">
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:<div class="ctrlHolder">
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:      <label for="email_radio_{{forloop.counter}}" class="{% if emailaddress.primary %}primary_email{%endif%}">
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:    <span class="verified">{% trans "Verified" %}</span>
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:    <span class="unverified">{% trans "Unverified" %}</span>
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:      {% if emailaddress.primary %}<span class="primary">{% trans "Primary" %}</span>{% endif %}
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:<div class="buttonHolder">
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:      <button class="primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+d:\vs-code-projects\Run-for-fun1\templates\account\email.html:    <form method="post" action="{% url 'account_email' %}" class="add_email">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:<div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:    <div class="col-md-8 col-lg-6">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:        <div class="auth-form-container mt-5">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:            <div class="card shadow">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                <div class="card-header text-center py-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                    <h1 class="auth-title">{% trans "Welcome Back!" %}</h1>
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                    <p class="auth-subtitle mb-0">{% trans "Sign in to continue sharing your running adventures" %}</p>
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                <div class="card-body p-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                    <p class="text-center mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                        {% blocktrans %}New to Run for Fun? <a href="{{ signup_url }}" class="auth-link">Create an account</a> to get started!{% endblocktrans %}
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                                    <div class="form-check">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                                               class="form-check-input" 
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                                        <label class="form-check-label" for="{{ field.id_for_label }}">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                                    <label class="form-label fw-bold">{{ field.label }}</label>
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                                           class="form-control auth-input" 
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                                        <div class="text-danger mt-1">{{ error }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                        <div class="d-grid mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                            <button class="btn btn-primary btn-lg" type="submit">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                <div class="card-footer text-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\login.html:                        <a href="{% url 'account_reset_password' %}" class="auth-link">{% trans "Forgot your password?" %}</a>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:<div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:    <div class="col-md-12 col-lg-10 col-xl-8">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:        <div class="auth-form-container mt-5">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:            <div class="card shadow-lg border-0">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                <div class="card-header text-center py-5 position-relative">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                    <div class="logout-icon mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                        <i class="fas fa-sign-out-alt fa-3x text-white opacity-75"></i>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                    <h2 class="auth-title mb-2">{% trans "Sign Out" %}</h2>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                    <p class="auth-subtitle mb-0">{% trans "We hope to see you back soon!" %}</p>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                <div class="card-body text-center py-5 px-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                    <div class="logout-message mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                        <h4 class="text-muted mb-3">{% trans 'Are you sure you want to sign out?' %}</h4>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                        <p class="text-secondary">{% trans 'You will need to log in again to create or manage races.' %}</p>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                    <form method="post" action="{% url 'account_logout' %}" class="logout-form">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                        <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3 mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                            <button class="btn btn-primary btn-lg px-4 py-3 logout-confirm-btn" type="submit">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                                <i class="fas fa-sign-out-alt me-2"></i>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                            <span class="text-muted d-none d-sm-inline">{% trans 'or' %}</span>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                            <a href="{% url 'race-list' %}" class="btn btn-outline-secondary btn-lg px-4 py-3 logout-cancel-btn">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                                <i class="fas fa-arrow-left me-2"></i>
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                <div class="card-footer text-center py-3 bg-light">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                    <small class="text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\account\logout.html:                        <i class="fas fa-shield-alt me-1"></i>
+d:\vs-code-projects\Run-for-fun1\templates\account\password_change.html:    <form method="POST" action="{% url 'account_change_password' %}" class="password_change">
+d:\vs-code-projects\Run-for-fun1\templates\account\password_reset.html:    <form method="POST" action="{% url 'account_reset_password' %}" class="password_reset">
+d:\vs-code-projects\Run-for-fun1\templates\account\password_reset_from_key.html:        <form method="POST" action="{{ action_url }}" class="password_reset_from_key">
+d:\vs-code-projects\Run-for-fun1\templates\account\password_set.html:    <form method="POST" action="{% url 'account_set_password' %}" class="password_set">
+d:\vs-code-projects\Run-for-fun1\templates\account\reauthenticate.html:<form class="reauthenticate" method="POST" action="{% url 'account_reauthenticate' %}">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:<div class="container mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:    <div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:        <div class="col-md-8 col-lg-6">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:            <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                <div class="card-header bg-danger text-white">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                    <h4 class="mb-0">⚠️ Request Account Deletion</h4>
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                    <div class="alert alert-warning">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                        <ul class="mt-2 mb-0">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                        <p class="mt-2 mb-0"><strong>This action cannot be undone!</strong></p>
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                    <form method="post" class="mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                            <label for="reason" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                                class="form-control" 
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                            <div class="form-text">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                            <div class="form-check">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                                    class="form-check-input" 
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                                <label class="form-check-label" for="confirm-deletion">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                            <a href="{% url 'race-list' %}" class="btn btn-secondary">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                            <button type="submit" class="btn btn-danger">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:            <div class="mt-4 text-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\request_deletion.html:                <small class="text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:<div class="auth-form-container mt-5">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:    <div class="card shadow">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:        <div class="card-header text-center py-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:            <h1 class="auth-title">{% trans "Join Run for Fun!" %}</h1>
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:            <p class="auth-subtitle mb-0">{% trans "Create your account to start sharing amazing races" %}</p>
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:        <div class="card-body p-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:            <p class="text-center mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                {% blocktrans %}Already have an account? <a href="{{ login_url }}" class="auth-link">Sign in here</a>.{% endblocktrans %}
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                    <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                        <label for="{{ field.id_for_label }}" class="form-label fw-bold">{{ field.label }}</label>
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                                   class="form-control auth-input" 
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                                   class="form-control auth-input" 
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                                <div class="text-danger mt-1"><small>{{ error }}</small></div>
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                            <small class="text-muted d-block mt-1">{{ field.help_text }}</small>
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                <div class="d-grid mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:                    <button type="submit" class="btn btn-primary btn-lg">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:        <div class="card-footer text-center">
+d:\vs-code-projects\Run-for-fun1\templates\account\signup.html:            <small class="text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:        <div class="container">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:            <a class="navbar-brand d-flex align-items-center" href="{% url 'race-list' %}">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                <img src="{% static 'images/logos/logo-tiny.png' %}" alt="Run" height="40" class="me-2">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                <span class="navbar-toggler-icon"></span>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:            <div class="collapse navbar-collapse" id="navbarNav">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                <ul class="navbar-nav ms-auto">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                    <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <a class="nav-link" href="{% url 'race-list' %}">All Races</a>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <a class="nav-link" href="{% url 'create-race' %}">Create Race</a>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <a class="nav-link" href="{% url 'my-races' %}">My Races</a>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <li class="nav-item dropdown">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                                <li><hr class="dropdown-divider"></li>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                                <li><a class="dropdown-item text-danger" href="{% url 'deletion-status' %}">Account Settings</a></li>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <li class="nav-item">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+d:\vs-code-projects\Run-for-fun1\templates\base.html:        <section class="hero-section">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:            <div class="container">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                <div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                    <div class="col-lg-8 col-md-10 col-12">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <div class="hero-content text-center py-4">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <h2 class="hero-title hero-title-special mb-3"> 
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <p class="hero-description text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:    <div class="container mt-2">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:            <div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                <div class="col-md-8 offset-md-2">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+d:\vs-code-projects\Run-for-fun1\templates\base.html:                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+d:\vs-code-projects\Run-for-fun1\templates\mfa\authenticate.html:    <form class="authenticate"
+d:\vs-code-projects\Run-for-fun1\templates\mfa\index.html:    <section class="totp">
+d:\vs-code-projects\Run-for-fun1\templates\mfa\index.html:            <ul class="actions">
+d:\vs-code-projects\Run-for-fun1\templates\mfa\index.html:            <ul class="actions">
+d:\vs-code-projects\Run-for-fun1\templates\mfa\index.html:    <section class="recovery_codes">
+d:\vs-code-projects\Run-for-fun1\templates\mfa\index.html:            <ul class="actions">
+d:\vs-code-projects\Run-for-fun1\templates\mfa\recovery_codes\index.html:        <textarea class="recovery-codes" rows="{{ unused_codes|length }}" readonly>{% for code in unused_codes %}{{ code }}
+d:\vs-code-projects\Run-for-fun1\templates\mfa\recovery_codes\index.html:    <ul class="actions">
+d:\vs-code-projects\Run-for-fun1\templates\openid\login.html:<form id="openid_login_form" class="openid_login" method="post" action="{% url 'openid_login' %}">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:<div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:    <div class="col-md-8">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:        <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:            <div class="card-header">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:            <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                    <div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.name.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.name.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.city.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.city.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.country.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.country.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.race_date.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.race_date.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <div class="form-text">Select the race date</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.distance.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.distance.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.custom_distance.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.custom_distance.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <div class="form-text">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.difficulty.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.difficulty.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                    <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <label for="{{ form.description.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="text-danger">{{ form.description.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                    <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <label for="{{ form.registration_link.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="text-danger">{{ form.registration_link.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <div class="form-text">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                    <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <label for="{{ form.image.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="text-danger">{{ form.image.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <div class="form-text">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                    <div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.latitude.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.latitude.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                            <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                <label for="{{ form.longitude.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                                    <div class="text-danger">{{ form.longitude.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                    <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <button type="submit" class="btn btn-primary">Create Race</button>
+d:\vs-code-projects\Run-for-fun1\templates\races\create_race.html:                        <a href="{% url 'race-list' %}" class="btn btn-secondary ms-2">Cancel</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:<div class="container-fluid">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:    <div class="d-flex justify-content-between align-items-center mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:            <h1 class="mb-1">Edit Race</h1>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:            <p class="text-muted mb-0">Editing: <strong>{{ race.name }}</strong></p>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:        <a href="{% url 'race-detail' race.pk %}" class="btn btn-outline-secondary">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:    <div class="row justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:        <div class="col-lg-8">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:            <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                <div class="card-header">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                    <h2 class="mb-0">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <i class="fas fa-edit me-2"></i>Race Details
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <label for="{{ form.name.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <div class="text-danger small">{{ form.name.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <label for="{{ form.description.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <div class="text-danger small">{{ form.description.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="row mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <label for="{{ form.distance.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <div class="text-danger small">{{ form.distance.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <label for="{{ form.custom_distance.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <strong>Custom Distance</strong> <small class="text-muted">(if "Other" selected)</small>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <div class="text-danger small">{{ form.custom_distance.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <label for="{{ form.difficulty.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="small text-muted">Current: 
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }}">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <div class="text-danger small">{{ form.difficulty.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <label for="{{ form.race_date.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="small text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <div class="text-danger small">{{ form.race_date.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="row mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <label for="{{ form.city.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <div class="text-danger small">{{ form.city.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <label for="{{ form.country.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <div class="text-danger small">{{ form.country.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <label for="{{ form.registration_link.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <strong>Registration Link</strong> <small class="text-muted">(optional)</small>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <div class="text-danger small">{{ form.registration_link.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <label for="{{ form.image.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <strong>Race Image</strong> <small class="text-muted">(optional - leave empty to keep current)</small>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <div class="mb-2">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <p class="small text-muted mb-1">Current image:</p>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <div class="current-image-preview">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                                 class="img-thumbnail"
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                                 class="img-thumbnail"
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="small text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <div class="text-danger small">{{ form.image.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="row mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <label for="{{ form.latitude.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <strong>Latitude</strong> <small class="text-muted">(optional)</small>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <div class="text-danger small">{{ form.latitude.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <label for="{{ form.longitude.id_for_label }}" class="form-label">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <strong>Longitude</strong> <small class="text-muted">(optional)</small>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                    <div class="text-danger small">{{ form.longitude.errors }}</div>
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <div class="alert alert-danger">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <div class="d-flex justify-content-between mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                            <button type="submit" class="btn btn-primary btn-lg">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <i class="fas fa-save me-2"></i>Save Changes
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                               class="btn btn-outline-secondary btn-lg">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                                <i class="fas fa-times me-2"></i>Cancel
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:            <div class="card mt-4">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                    <h3 class="card-title">
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                        <i class="fas fa-info-circle me-2"></i>Important Notes
+d:\vs-code-projects\Run-for-fun1\templates\races\edit_race.html:                    <ul class="mb-0">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:<div class="d-flex justify-content-between align-items-center mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:    <a href="{% url 'create-race' %}" class="btn btn-primary">Create New Race</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:    <div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:            <div class="col-md-6 col-lg-4 mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                <div class="card h-100">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                 class="card-img-top" 
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                 class="card-img-top" 
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                    <div class="card-header d-flex justify-content-between align-items-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                        <h6 class="card-title mb-0">{{ race.name }}</h6>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                            <span class="badge bg-warning">Draft</span>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                            <span class="badge bg-success">Published</span>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                    <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                        <p class="card-text">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                    <div class="card-footer">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                        <div class="d-grid gap-2">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                               class="btn btn-outline-primary btn-sm">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                <i class="fas fa-eye me-1"></i>View Details
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                               class="btn btn-outline-warning btn-sm">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                <i class="fas fa-edit me-1"></i>Edit Race
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                        <div class="mt-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                            <small class="text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                            <div class="mt-2">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                <small class="text-warning">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                    <i class="fas fa-clock me-1"></i>Pending approval
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                            <div class="mt-2">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                <small class="text-success">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                                    <i class="fas fa-check-circle me-1"></i>Approved
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:            <ul class="pagination justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                    <li class="page-item">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                <li class="page-item active">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                    <span class="page-link">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                    <li class="page-item">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:    <div class="text-center mt-5">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:        <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:            <div class="card-body py-5">
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                <h4 class="text-muted">No races yet!</h4>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                <p class="text-muted mb-4">You haven't created any races yet. Start by creating your first race!</p>
+d:\vs-code-projects\Run-for-fun1\templates\races\my_races.html:                <a href="{% url 'create-race' %}" class="btn btn-primary btn-lg">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:<div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:    <div class="col-md-8">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:        <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:            <div class="card-header">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                <div class="d-flex justify-content-between align-items-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                    <h1 class="mb-0">{{ race.name }}</h1>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                            <div class="btn-group" role="group">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                   class="btn btn-outline-warning btn-sm"
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                    <i class="fas fa-edit me-1"></i>Edit Race
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                       class="btn btn-outline-secondary btn-sm"
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                        <i class="fas fa-list me-1"></i>My Races
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                <div class="image-container position-relative overflow-hidden mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                        <img class="img-fluid w-100 race-detail-image" 
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                             class="img-fluid w-100 race-detail-image" 
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                <div class="image-container position-relative overflow-hidden mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                    <img class="img-fluid w-100 race-detail-image" 
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:            <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                <div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                    <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                    <div class="col-md-6">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                    <div class="alert alert-success">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                        <a href="{{ race.registration_link }}" target="_blank" class="btn btn-success">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:            <div class="card-footer">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                <div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                    <div class="col-md-8">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                            <div class="card mb-2">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                    <div class="d-flex justify-content-between align-items-start">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                            <h3 class="card-title">👤 {{ comment.author.username }}</h3>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                            <small class="text-muted">{{ comment.created_on|date:"d/m/Y H:i" }}</small>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                                <a class="btn btn-sm btn-outline-danger" 
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                    <p class="card-text mt-2">{{ comment.body|linebreaks }}</p>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                            <p class="text-muted">No comments yet. Be the first to comment!</p>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                            <div class="mt-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                    <div class="mb-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                        <textarea name="body" class="form-control" rows="3" placeholder="Write your comment..." required></textarea>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                                    <button type="submit" class="btn btn-primary">Post Comment</button>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                            <p class="text-muted mt-3">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:            <div class="card-footer text-muted">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:    <div class="col-md-4">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:        <div class="card">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:            <div class="card-header">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:            <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                <a href="{% url 'race-list' %}" class="btn btn-outline-primary w-100 mb-2">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_detail.html:                    <a href="{% url 'create-race' %}" class="btn btn-primary w-100">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:<div class="page-header">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:    <div class="d-flex justify-content-between align-items-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:            <a href="{% url 'create-race' %}" class="btn btn-success">+ Create New Race</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:<div class="row">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:        <div class="col-12 col-sm-6 col-md-4 col-xl-4 mb-4">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:            <div class="card h-100">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <div class="image-container position-relative overflow-hidden">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                        <a href="{% url 'race-detail' race.pk %}" class="race-image-link">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                                <img class="card-img-top img-fluid race-image" 
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                                     class="card-img-top img-fluid race-image" 
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} difficulty-on-image d-block d-lg-none">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <div class="image-container position-relative overflow-hidden">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                        <a href="{% url 'race-detail' race.pk %}" class="race-image-link">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                            <img class="card-img-top img-fluid race-image" 
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} difficulty-on-image d-block d-lg-none">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                <div class="card-header">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <div class="d-flex justify-content-between align-items-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                        <h2 class="card-title mb-0 flex-grow-1">{{ race.name }}</h2>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                        <span class="badge difficulty-badge difficulty-{{ race.difficulty|lower|cut:' '|cut:'_' }} ms-2 d-none d-lg-block">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                <div class="card-body">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <p class="card-text">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                <div class="card-footer">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <a href="{% url 'race-detail' race.pk %}" class="btn btn-outline-primary btn-sm">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:        <div class="col-12">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:            <div class="empty-state">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                <p class="text-muted mb-4">Be the first to create a race for the community and get everyone running!</p>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <a href="{% url 'create-race' %}" class="btn btn-primary btn-lg">🚀 Create First Race</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <p class="text-muted mb-3">Please log in to create races.</p>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <a href="{% url 'account_login' %}" class="btn btn-secondary">Login to Get Started</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:        <ul class="pagination justify-content-center">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                <li class="page-item">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:            <li class="page-item active">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                <li class="page-item">
+d:\vs-code-projects\Run-for-fun1\templates\races\race_list.html:                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+d:\vs-code-projects\Run-for-fun1\templates\socialaccount\connections.html:<span class="socialaccount_provider {{ base_account.provider }} {{ account.get_brand.id }}">{{account.get_brand.name}}</span>
+d:\vs-code-projects\Run-for-fun1\templates\socialaccount\connections.html:<ul class="socialaccount_providers">
+d:\vs-code-projects\Run-for-fun1\templates\socialaccount\signup.html:<form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+d:\vs-code-projects\Run-for-fun1\templates\socialaccount\snippets\provider_list.html:     class="socialaccount_provider {{provider.id}} {{brand.id}}"
+d:\vs-code-projects\Run-for-fun1\templates\socialaccount\snippets\provider_list.html:  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
+d:\vs-code-projects\Run-for-fun1\templates\tests\test_403_csrf.html:<a href="{% provider_login_url "google" next=next %}" class="nav-link">Sign In</a>

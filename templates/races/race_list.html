@@ -46,6 +46,7 @@ Loop through races or show empty message if none exist
                 
                 <!-- 
                 RACE IMAGE - Responsive for all screen sizes with clickable link
+                LCP Optimization: First image loads immediately with high priority, others lazy load
                 -->
                 {% if race.image %}
                     <div class="image-container position-relative overflow-hidden">
@@ -54,12 +55,14 @@ Loop through races or show empty message if none exist
                                 <img class="card-img-top img-fluid race-image" 
                                      src="{% static 'images/default.jpg' %}"
                                      alt="placeholder image"
-                                     loading="lazy">
+                                     width="300" height="200"
+                                     {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
                             {% else %}
                                 <img src="{{ race.image|secure_cloudinary_url }}" 
                                      class="card-img-top img-fluid race-image" 
                                      alt="{{ race.name }}" 
-                                     loading="lazy"
+                                     width="300" height="200"
+                                     {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
                                      crossorigin="anonymous"
                                      referrerpolicy="no-referrer-when-downgrade"
                                      onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
@@ -78,7 +81,8 @@ Loop through races or show empty message if none exist
                             <img class="card-img-top img-fluid race-image" 
                                  src="{% static 'images/default.png' %}"
                                  alt="default race image"
-                                 loading="lazy">
+                                 width="300" height="200"
+                                 {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
                         </a>
                         
                         <!-- Difficulty badge positioned on top-right of image for screens < 1000px -->
