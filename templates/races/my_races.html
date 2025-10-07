@@ -19,29 +19,52 @@
                 <div class="card h-100">
                     <!-- Race image if available -->
                     {% if race.image %}
-                        {% if race.image|is_placeholder %}
-                            <img src="{% static 'images/default.png' %}" 
-                                 class="card-img-top" 
-                                 alt="Default race image" 
-                                 style="height: 150px; object-fit: cover;">
-                        {% else %}
-                            <img src="{{ race.image|secure_cloudinary_url }}" 
-                                 class="card-img-top" 
-                                 alt="{{ race.name }}" 
-                                 style="height: 150px; object-fit: cover;"
-                                 crossorigin="anonymous"
-                                 referrerpolicy="no-referrer-when-downgrade">
-                        {% endif %}
+                        <div class="image-container position-relative overflow-hidden">
+                            <a href="{% url 'race-detail' race.pk %}" class="race-image-link">
+                                {% if race.image|is_placeholder %}
+                                    <img src="{% static 'images/default.png' %}" 
+                                         class="card-img-top img-fluid race-image" 
+                                         alt="Default race image" 
+                                         width="300" height="200">
+                                {% else %}
+                                    <img src="{{ race.image|secure_cloudinary_url }}" 
+                                         class="card-img-top img-fluid race-image" 
+                                         alt="{{ race.name }}" 
+                                         width="300" height="200"
+                                         crossorigin="anonymous"
+                                         referrerpolicy="no-referrer-when-downgrade"
+                                         onerror="this.onerror=null; this.src='{% static 'images/default.png' %}';">
+                                {% endif %}
+                            </a>
+                            
+                            <!-- Status badge positioned on top-right of image -->
+                            {% if race.status == 0 %}
+                                <span class="badge bg-warning position-absolute top-0 end-0 m-2">Draft</span>
+                            {% elif race.status == 1 %}
+                                <span class="badge bg-success position-absolute top-0 end-0 m-2">Published</span>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <!-- Show default image when no image is uploaded -->
+                        <div class="image-container position-relative overflow-hidden">
+                            <a href="{% url 'race-detail' race.pk %}" class="race-image-link">
+                                <img class="card-img-top img-fluid race-image" 
+                                     src="{% static 'images/default.png' %}"
+                                     alt="default race image"
+                                     width="300" height="200">
+                            </a>
+                            
+                            <!-- Status badge positioned on top-right of image -->
+                            {% if race.status == 0 %}
+                                <span class="badge bg-warning position-absolute top-0 end-0 m-2">Draft</span>
+                            {% elif race.status == 1 %}
+                                <span class="badge bg-success position-absolute top-0 end-0 m-2">Published</span>
+                            {% endif %}
+                        </div>
                     {% endif %}
                     
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h6 class="card-title mb-0">{{ race.name }}</h6>
-                        <!-- Show race status -->
-                        {% if race.status == 0 %}
-                            <span class="badge bg-warning">Draft</span>
-                        {% elif race.status == 1 %}
-                            <span class="badge bg-success">Published</span>
-                        {% endif %}
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">{{ race.name }}</h5>
                     </div>
                     
                     <div class="card-body">
