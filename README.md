@@ -18,7 +18,7 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [UX Design](#-ux-design)
    - [Colour Scheme](#color-scheme)
