@@ -20,6 +20,8 @@ def race_list(request):
     - Everyone: approved and published races only
     - Admin: all races (approved and pending approval)  
     - Race creators: their own races + approved races by others
+    
+    Also handles difficulty filtering via URL parameter
     """
     
     # STEP 1: Get base queryset of published races
@@ -39,6 +41,11 @@ def race_list(request):
         else:
             # Anonymous users: only approved races
             races = Race.objects.filter(status=1, approved=True).order_by('race_date')
+    
+    # STEP 1.5: Apply difficulty filter if provided
+    difficulty_filter = request.GET.get('difficulty')
+    if difficulty_filter and difficulty_filter != 'ALL':
+        races = races.filter(difficulty=difficulty_filter)
     
     # STEP 2: Split races into pages (pagination)
     # This prevents showing 100+ races on one page
@@ -60,6 +67,8 @@ def race_list(request):
         'races': page_obj,  # The races to display on this page
         'is_paginated': page_obj.has_other_pages(),  # True if more than 1 page
         'page_obj': page_obj,  # Pagination info (current page, total pages, etc.)
+        'difficulty_choices': Race.DIFFICULTY_CHOICES,  # Available difficulty filters
+        'current_difficulty': difficulty_filter or 'ALL',  # Currently selected filter
     }
     
     # STEP 6: Render the HTML template with our data

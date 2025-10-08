@@ -28,6 +28,36 @@ Shows title and create button (if user logged in)
 </div>
 
 <!-- 
+DIFFICULTY FILTER SECTION
+Allow users to filter races by difficulty level
+-->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="filter-section">
+            <form method="get" class="d-flex align-items-center gap-3">
+                <label for="difficulty-filter" class="form-label mb-0 fw-bold">Filter by Difficulty:</label>
+                <select name="difficulty" id="difficulty-filter" class="form-select w-auto" onchange="this.form.submit()">
+                    <option value="ALL" {% if current_difficulty == 'ALL' %}selected{% endif %}>All Difficulties</option>
+                    {% for value, display in difficulty_choices %}
+                        <option value="{{ value }}" {% if current_difficulty == value %}selected{% endif %}>
+                            {{ display }}
+                        </option>
+                    {% endfor %}
+                </select>
+                
+                <!-- Show current filter if active -->
+                {% if current_difficulty != 'ALL' %}
+                    <span class="badge bg-primary">
+                        Showing: {% for value, display in difficulty_choices %}{% if current_difficulty == value %}{{ display }}{% endif %}{% endfor %}
+                        <a href="?" class="text-white text-decoration-none ms-1" title="Clear filter">×</a>
+                    </span>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 
 MAIN CONTENT SECTION
 Loop through races or show empty message if none exist
 -->
@@ -183,6 +213,7 @@ Loop through races or show empty message if none exist
 <!-- 
 PAGINATION SECTION
 Only show pagination controls if there are multiple pages
+Preserve difficulty filter in pagination links
 -->
 {% if is_paginated %}
     <nav aria-label="Race list pagination">
@@ -194,7 +225,7 @@ Only show pagination controls if there are multiple pages
             -->
             {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if current_difficulty != 'ALL' %}&difficulty={{ current_difficulty }}{% endif %}">Previous</a>
                 </li>
             {% endif %}
 
@@ -212,7 +243,7 @@ Only show pagination controls if there are multiple pages
             -->
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if current_difficulty != 'ALL' %}&difficulty={{ current_difficulty }}{% endif %}">Next</a>
                 </li>
             {% endif %}
         </ul>

@@ -630,6 +630,44 @@ Just scroll to the top and change the color codes in the :root section!
 
 /* 
 ==============================================
+DIFFICULTY FILTER STYLING
+Style the difficulty filter dropdown on the homepage
+==============================================
+*/
+.filter-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--header-color);
+}
+
+.filter-section .form-select {
+    min-width: 200px;
+    border: 2px solid var(--header-color);
+    border-radius: 6px;
+}
+
+.filter-section .form-select:focus {
+    border-color: var(--button-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 1, 0.25);
+}
+
+.filter-section .badge {
+    font-size: 0.9em;
+}
+
+.filter-section .badge a {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.filter-section .badge a:hover {
+    color: #ffffff !important;
+}
+
+/* 
+==============================================
 RESPONSIVE IMAGE STYLING
 Advanced image handling for race cards and detail pages
 Ensures images look great on all devices from mobile to desktop
