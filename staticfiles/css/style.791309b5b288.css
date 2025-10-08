@@ -622,6 +622,46 @@ Making sure ALL button types have good text contrast
 }
 
 
+/* 
+==============================================
+DIFFICULTY FILTER STYLING
+Style the difficulty filter dropdown on the homepage
+==============================================
+*/
+.filter-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--header-color);
+}
+
+.filter-section .form-select {
+    min-width: 200px;
+    border: 2px solid var(--header-color);
+    border-radius: 6px;
+}
+
+.filter-section .form-select:focus {
+    border-color: var(--button-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 1, 0.25);
+}
+
+.filter-section .badge {
+    font-size: 0.9em;
+    background-color: #2C3D73 !important;  /* Twilight Indigo instead of blue */
+    border-color: #2C3D73 !important;
+}
+
+.filter-section .badge a {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.filter-section .badge a:hover {
+    color: #ffffff !important;
+}
+
 /* Pagination styling - Complete override of Bootstrap pagination */
 .pagination .page-item .page-link {
     color: #0B3D91 !important;  /* Deep Ocean Blue text for all pagination links */
@@ -648,6 +688,13 @@ Making sure ALL button types have good text contrast
 .pagination .page-item.active .page-link:focus {
     background-color: #083066 !important;  /* Darker shade on hover for active */
     border-color: #083066 !important;
+    color: white !important;
+}
+
+/* Difficulty filter badge - ensure consistent styling */
+.filter-section .badge.bg-primary {
+    background-color: #0B3D91 !important;  /* Deep Ocean Blue */
+    border-color: #0B3D91 !important;
     color: white !important;
 }
 

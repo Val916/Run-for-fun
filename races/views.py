@@ -20,8 +20,6 @@ def race_list(request):
     - Everyone: approved and published races only
     - Admin: all races (approved and pending approval)  
     - Race creators: their own races + approved races by others
-    
-    Also handles difficulty filtering via URL parameter
     """
     
     # STEP 1: Get base queryset of published races
@@ -41,11 +39,6 @@ def race_list(request):
         else:
             # Anonymous users: only approved races
             races = Race.objects.filter(status=1, approved=True).order_by('race_date')
-    
-    # STEP 1.5: Apply difficulty filter if provided
-    difficulty_filter = request.GET.get('difficulty')
-    if difficulty_filter and difficulty_filter != 'ALL':
-        races = races.filter(difficulty=difficulty_filter)
     
     # STEP 2: Split races into pages (pagination)
     # This prevents showing 100+ races on one page
@@ -67,8 +60,6 @@ def race_list(request):
         'races': page_obj,  # The races to display on this page
         'is_paginated': page_obj.has_other_pages(),  # True if more than 1 page
         'page_obj': page_obj,  # Pagination info (current page, total pages, etc.)
-        'difficulty_choices': Race.DIFFICULTY_CHOICES,  # Available difficulty filters
-        'current_difficulty': difficulty_filter or 'ALL',  # Currently selected filter
     }
     
     # STEP 6: Render the HTML template with our data
@@ -154,10 +145,13 @@ def create_race(request):
             if request.user.is_staff or request.user.is_superuser:
                 messages.success(request, f'Race "{race.name}" created and published!')
             else:
-                messages.success(
-                    request, 
-                    f'Race "{race.name}" created! It will be visible to others once approved by admin.'
+                success_msg = (
+                    f'🎉 Race "{race.name}" created successfully! '
+                    f'Note: Your race is not visible to other users until '
+                    f'it\'s approved by an admin. You can view and edit it '
+                    f'in "My Races".'
                 )
+                messages.success(request, success_msg)
             
             # STEP 9: Redirect user to the new race's detail page
             return redirect('race-detail', pk=race.pk)

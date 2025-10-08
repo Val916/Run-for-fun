@@ -11,7 +11,6 @@ YOUR CUSTOM COLORS - CHANGE THESE TO CUSTOMIZE EVERYTHING!
 ==============================================
 Just change the color codes here and everything updates automatically
 */
-/* Bootstrap 5 CSS Custom Properties Override - Changes original Bootstrap colors */
 :root {
     /* Headers and Navigation Colors */
     --header-color: #F39C12;     /* Warm Golden Yellow - used for all headings */
@@ -31,26 +30,6 @@ Just change the color codes here and everything updates automatically
     /* Interactive Colors */
     --hover-color: #E4580B;      /* Volcano Ember - hover effects on everything */
     --accent-color: #FFD372;     /* Desert Gold - accents and highlights */
-    
-    /* Bootstrap 5 Pagination Variable Overrides */
-    --bs-pagination-color: #2C3D73;
-    --bs-pagination-bg: #fff;
-    --bs-pagination-border-width: 1px;
-    --bs-pagination-border-color: #2C3D73;
-    --bs-pagination-border-radius: 0.375rem;
-    --bs-pagination-hover-color: #fff;
-    --bs-pagination-hover-bg: #2C3D73;
-    --bs-pagination-hover-border-color: #2C3D73;
-    --bs-pagination-focus-color: #fff;
-    --bs-pagination-focus-bg: #2C3D73;
-    --bs-pagination-focus-border-color: #2C3D73;
-    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(44, 61, 115, 0.25);
-    --bs-pagination-active-color: #fff;
-    --bs-pagination-active-bg: #2C3D73;
-    --bs-pagination-active-border-color: #2C3D73;
-    --bs-pagination-disabled-color: #6c757d;
-    --bs-pagination-disabled-bg: #fff;
-    --bs-pagination-disabled-border-color: #dee2e6;
 }
 
 /* 
@@ -643,54 +622,33 @@ Making sure ALL button types have good text contrast
 }
 
 
-/* 
-==============================================
-DIFFICULTY FILTER STYLING
-Style the difficulty filter dropdown on the homepage
-==============================================
-*/
-.filter-section {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid var(--header-color);
+/* Pagination styling - Complete override of Bootstrap pagination */
+.pagination .page-item .page-link {
+    color: #0B3D91 !important;  /* Deep Ocean Blue text for all pagination links */
+    border-color: #0B3D91 !important;
+    background-color: white !important;
 }
 
-.filter-section .form-select {
-    min-width: 200px;
-    border: 2px solid var(--header-color);
-    border-radius: 6px;
+.pagination .page-item .page-link:hover,
+.pagination .page-item .page-link:focus {
+    background-color: #0B3D91 !important;  /* Deep Ocean Blue background on hover */
+    border-color: #0B3D91 !important;
+    color: white !important;
+    box-shadow: 0 0 0 0.2rem rgba(11, 61, 145, 0.25) !important;
 }
 
-.filter-section .form-select:focus {
-    border-color: var(--button-color);
-    box-shadow: 0 0 0 0.2rem rgba(255, 107, 1, 0.25);
+.pagination .page-item.active .page-link {
+    background-color: #0B3D91 !important;  /* Deep Ocean Blue for active page */
+    border-color: #0B3D91 !important;
+    color: white !important;
+    z-index: 3 !important;
 }
 
-.filter-section .badge {
-    font-size: 0.9em;
-    background-color: #2C3D73 !important;  /* Twilight Indigo instead of blue */
-    border-color: #2C3D73 !important;
-}
-
-.filter-section .badge a {
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-.filter-section .badge a:hover {
-    color: #ffffff !important;
-}
-
-/* Pagination now uses Bootstrap 5 CSS custom properties defined in :root */
-/* No additional CSS needed - Bootstrap will use our custom colors automatically */
-
-/* Difficulty filter badge - clean styling without !important */
-.filter-section .badge.bg-primary {
-    background-color: #2C3D73;
-    border-color: #2C3D73;
-    color: white;
+.pagination .page-item.active .page-link:hover,
+.pagination .page-item.active .page-link:focus {
+    background-color: #083066 !important;  /* Darker shade on hover for active */
+    border-color: #083066 !important;
+    color: white !important;
 }
 
 /* Footer styling to match navbar */
