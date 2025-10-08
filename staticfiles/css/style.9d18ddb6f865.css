@@ -621,6 +621,12 @@ Making sure ALL button types have good text contrast
     font-weight: 500 !important;
 }
 
+/* 
+==============================================
+TO CUSTOMIZE COLORS:
+Just scroll to the top and change the color codes in the :root section!
+==============================================
+*/
 
 /* 
 ==============================================
@@ -662,58 +668,23 @@ Style the difficulty filter dropdown on the homepage
     color: #ffffff !important;
 }
 
-/* Pagination styling - Complete override of Bootstrap pagination */
-.pagination .page-item .page-link {
-    color: #2C3D73 !important;  /* Twilight Indigo text for all pagination links */
+/* Pagination styling - Page number indicator */
+.pagination .page-item.active .page-link {
+    background-color: #2C3D73 !important;  /* Twilight Indigo instead of blue */
     border-color: #2C3D73 !important;
-    background-color: white !important;
+    color: white !important;
 }
 
-.pagination .page-item .page-link:hover,
-.pagination .page-item .page-link:focus {
+/* Pagination styling - Previous/Next buttons */
+.pagination .page-item .page-link {
+    color: #2C3D73 !important;  /* Twilight Indigo text for Previous/Next */
+    border-color: #2C3D73 !important;
+}
+
+.pagination .page-item .page-link:hover {
     background-color: #2C3D73 !important;  /* Twilight Indigo background on hover */
     border-color: #2C3D73 !important;
     color: white !important;
-    box-shadow: 0 0 0 0.2rem rgba(44, 61, 115, 0.25) !important;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: #2C3D73 !important;  /* Twilight Indigo for active page */
-    border-color: #2C3D73 !important;
-    color: white !important;
-    z-index: 3 !important;
-}
-
-.pagination .page-item.active .page-link:hover,
-.pagination .page-item.active .page-link:focus {
-    background-color: #1a2952 !important;  /* Darker shade on hover for active */
-    border-color: #1a2952 !important;
-    color: white !important;
-}
-
-/* Difficulty filter badge - ensure consistent styling */
-.filter-section .badge.bg-primary {
-    background-color: #2C3D73 !important;  /* Twilight Indigo */
-    border-color: #2C3D73 !important;
-    color: white !important;
-}
-
-/* Footer styling to match navbar */
-footer {
-    background-color: var(--navbar-color) !important;  /* Deep Ocean Blue like navbar */
-    color: white !important;
-    border-top: 3px solid var(--button-color) !important;  /* Orange accent border */
-}
-
-footer h5 {
-    color: var(--accent-color) !important;  /* Desert Gold heading */
-    font-weight: 600 !important;
-    text-shadow: none !important;
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.9) !important;
-    margin-bottom: 0.5rem !important;
 }
 
 /* 
