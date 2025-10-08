@@ -9,6 +9,8 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=white)
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Badges by Shields.io](https://img.shields.io/badge/Badges-by%20Shields.io-brightgreen?logo=shieldsdotio)](https://shields.io/)
+[![Using MermaidChart](https://img.shields.io/badge/Using-MermaidChart-00BFA5?logo=mermaid&logoColor=white)](https://www.mermaidchart.com/)
 
 Discover the world's most extreme, quirky, and unforgettable running events—from desert ultras to cheese-rolling chaos. Whether you're chasing a personal challenge or just exploring for fun, this platform lets you browse, create, and share races that defy the ordinary.
 
@@ -42,38 +44,38 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### Existing Features
 
 #### Core Functionality
-- **🏠 Home Page** - Browse races with pagination and responsive design
-- **🏁 Race Detail Pages** - Complete race information with comments system
-- **👤 User Authentication** - Register, login, logout functionality
-- **💬 Comment System** - Add, view, and delete comments on races
-- **📝 Race Management** - Create, read, update, and delete races (CRUD)
-- **🎯 My Races Page** - Personal dashboard for managing your races
+- **Home Page** - Browse races with pagination and responsive design
+- **Race Detail Pages** - Complete race information with comments system
+- **User Authentication** - Register, login, logout functionality
+- **Comment System** - Add, view, and delete comments on races
+- **Race Management** - Create, read, update, and delete races (CRUD)
+- **My Races Page** - Personal dashboard for managing your races
 
 #### User Experience
-- **📱 Responsive Design** - Works perfectly on all devices
-- **🎨 Modern UI** - Clean, accessible interface with Bootstrap 5
-- **⚡ Fast Loading** - Optimized images and performance enhancements
-- **🔔 User Feedback** - Success/error messages for all actions
-- **🖼️ Image Upload** - Cloudinary integration for race images
+- **Responsive Design** - Works perfectly on all devices
+- **Modern UI** - Clean, accessible interface with Bootstrap 5
+- **Fast Loading** - Optimized images and performance enhancements
+- **User Feedback** - Success/error messages for all actions
+- **Image Upload** - Cloudinary integration for race images
 
 #### Administrative Features
-- **👨‍💼 Admin Interface** - Full Django admin for content management
-- **✅ Comment Moderation** - Approve/disapprove user comments
-- **📊 Race Approval** - Review and approve user-submitted races
+- **Admin Interface** - Full Django admin for content management
+- **Comment Moderation** - Approve/disapprove user comments
+- **Race Approval** - Review and approve user-submitted races
 
 ### Features Left to Implement
 
-- [ ] **🔍 Advanced Search** - Filter races by location, difficulty, date
-- [ ] **👤 User Profiles** - Enhanced user profile pages
-- [ ] **🔐 Password Reset** - Email-based password recovery
-- [ ] **⭐ Race Ratings** - User rating system for races
-- [ ] **📅 Race Calendar** - Calendar view of upcoming events
-- [ ] **🏆 Leaderboards** - Track user achievements and participation
+- [ ] **Advanced Search** - Filter races by location, difficulty, date
+- [ ] **User Profiles** - Enhanced user profile pages
+- [ ] **Password Reset** - Email-based password recovery
+- [ ] **Race Ratings** - User rating system for races
+- [ ] **Race Calendar** - Calendar view of upcoming events
+- [ ] **Leaderboards** - Track user achievements and participation
 
 ---
 
@@ -121,7 +123,7 @@ The site uses **Google Fonts**:
 - **[Chrome DevTools](https://developer.chrome.com/docs/devtools/)** - Testing and debugging
 
 
-## 📊 User Stories & Planning
+##  User Stories & Planning
 
 The project was developed using **Agile methodology** with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development.
 
@@ -142,7 +144,7 @@ The project was developed using **Agile methodology** with iterative progress an
 
 ---
 
-## 🗃️ Database Design
+##  Database Design
 
 ### ERD Diagram
 The Entity Relationship Diagram visually represents the structure of the database and the relationships between entities (tables).
@@ -176,27 +178,27 @@ class Comment(models.Model):
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing Results
 
 | Test Case | Expected Result | Actual Result | Status |
 |-----------|----------------|---------------|---------|
-| 🏠 Click Home menu | Navigate to homepage | ✅ Success | PASS |
-| ℹ️ Click About menu | Navigate to about page | ✅ Success | PASS |
-| 📝 Click Register | Open registration form | ✅ Success | PASS |
-| 🔑 Click Login | Open login form | ✅ Success | PASS |
-| 🚪 Click Logout | User logged out successfully | ✅ Success | PASS |
-| 📧 Click Contact Us button | Open contact form | ✅ Success | PASS |
-| 🎯 Click Upcoming Events button | Show filtered events | ✅ Success | PASS |
-| 🏁 Click individual race post | Navigate to race detail | ✅ Success | PASS |
-| ⬅️ Click back to race list | Return to race listing | ✅ Success | PASS |
-| 💬 Create/edit/delete comment | Comment CRUD operations | ✅ Success | PASS |
-| 👤 Register new account | Account created successfully | ✅ Success | PASS |
-| 📝 Create contact request | Contact form submitted | ✅ Success | PASS |
-| 👨‍💼 Access admin interface | Admin panel accessible | ✅ Success | PASS |
-| 📱 Responsivity | Works on all devices | ✅ Success | PASS |
-| 🔗 Social media links | Open in new tabs | ✅ Success | PASS |
+|  Click Home menu | Navigate to homepage | ✅ Success | PASS |
+|  Click About menu | Navigate to about page | ✅ Success | PASS |
+|  Click Register | Open registration form | ✅ Success | PASS |
+|  Click Login | Open login form | ✅ Success | PASS |
+|  Click Logout | User logged out successfully | ✅ Success | PASS |
+|  Click Contact Us button | Open contact form | ✅ Success | PASS |
+|  Click Upcoming Events button | Show filtered events | ✅ Success | PASS |
+|  Click individual race post | Navigate to race detail | ✅ Success | PASS |
+|  Click back to race list | Return to race listing | ✅ Success | PASS |
+|  Create/edit/delete comment | Comment CRUD operations | ✅ Success | PASS |
+|  Register new account | Account created successfully | ✅ Success | PASS |
+|  Create contact request | Contact form submitted | ✅ Success | PASS |
+|  Access admin interface | Admin panel accessible | ✅ Success | PASS |
+|  Responsivity | Works on all devices | ✅ Success | PASS |
+|  Social media links | Open in new tabs | ✅ Success | PASS |
 
 ### Automated Testing
 Automated tests written using **Django Test Framework**:
@@ -231,16 +233,16 @@ python manage.py test
 ### Lighthouse Performance Testing
 
 **Performance Metrics:**
-- **Performance**: 95/100 ⚡
-- **Accessibility**: 98/100 ♿  
-- **Best Practices**: 87/100 ✅
+- **Performance**: 95/100 
+- **Accessibility**: 98/100   
+- **Best Practices**: 87/100 
 - **SEO**: 100/100 🔍
 
 > **Note**: The lower Best Practices score is due to Cloudinary images using HTTP URLs that are automatically upgraded to HTTPS.
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 ### Heroku Deployment Process
 
@@ -282,30 +284,30 @@ The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous de
 
 **GitHub Copilot** played a significant role throughout the development process:
 
-#### 📋 Planning & Design
+####  Planning & Design
 - **User Story Generation**: AI helped structure user stories and acceptance criteria
 - **Feature Ideation**: Provided suggestions for platform features and functionality
 - **UX Recommendations**: Offered insights for layout and user experience improvements
 
-#### 💻 Code Development  
+####  Code Development  
 - **Django Scaffolding**: Generated boilerplate code for models, views, and forms
 - **CRUD Operations**: Assisted with Create, Read, Update, Delete functionality
 - **Template Generation**: Helped create responsive Bootstrap components
 - **Database Queries**: Optimized ORM queries and relationships
 
-#### 🎨 Frontend Development
+####  Frontend Development
 - **Responsive Design**: Suggested mobile-first CSS patterns
 - **Accessibility**: Provided ARIA labels and semantic HTML structures  
 - **Bootstrap Integration**: Streamlined component implementation
 - **Performance Optimization**: Recommended image loading strategies
 
-#### 🧪 Testing & Debugging
+####  Testing & Debugging
 - **Test Case Creation**: Generated Django test cases for models and views
 - **Bug Detection**: Identified potential issues in code logic
 - **Error Resolution**: Suggested fixes for template and deployment errors
 - **Performance Analysis**: Recommended optimization strategies
 
-#### 🚀 Deployment Support
+####  Deployment Support
 - **Configuration**: Helped set up Heroku deployment configuration
 - **Static Files**: Assisted with WhiteNoise and Cloudinary integration
 - **Environment Variables**: Guided secure configuration management
@@ -314,7 +316,7 @@ The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous de
 
 ---
 
-## 📚 Credits and Acknowledgements
+##  Credits and Acknowledgements
 
 ### Project Foundation
 - **[Code Institute](https://codeinstitute.net/)** - "I Think Therefore I Blog" project provided structural inspiration
@@ -358,7 +360,7 @@ Race images used throughout the platform are sourced from:
 
 ---
 
-## 📖 Appendix
+##  Appendix
 
 ### Wireframes
 - **Home Page** - Main race listing and navigation design
@@ -368,12 +370,12 @@ Race images used throughout the platform are sourced from:
 ### Additional Documentation
 - **[Project Repository](https://github.com/Val916/Run-for-fun)** - Complete source code
 - **[Live Application](https://run-for-fun-b329a2374625.herokuapp.com/)** - Deployed platform
-- **[Issue Tracker](https://github.com/Val916/Run-for-fun/issues)** - Bug reports and feature requests
+- **[Project Board](https://github.com/users/Val916/projects/6)** - User Stories
 
 ---
 
 <details>
-<summary>🚀 <strong>Project Specifications</strong></summary>
+<summary> <strong>Project Specifications</strong></summary>
 
 ### Custom Model Implementation
 - **Race Model**: Complete CRUD functionality for race management
@@ -427,27 +429,3 @@ Testing & Debugging: Copilot supported the creation of Django test cases and hel
 
 
 ![Homepage Screenshot](path/to/image.png)
-
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=white)
-[![Badges by Shields.io](https://img.shields.io/badge/Badges-by%20Shields.io-brightgreen?logo=shieldsdotio)](https://shields.io/)
-[![Using MermaidChart](https://img.shields.io/badge/Using-MermaidChart-00BFA5?logo=mermaid&logoColor=white)](https://www.mermaidchart.com/)
-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![Google Fonts](https://img.shields.io/badge/Typography-Google%20Fonts-4285F4?logo=googlefonts&logoColor=white)](https://fonts.google.com/)
-
-
-
-https://www.mermaidchart.com/
-
-https://ui.dev/amiresponsive
-
-
-Incredible races list
-
-Custom Model: Race
-CRUD implimantation:: Users can see create their own races, update them (distance, difficalty, date, description, country and city), or delete. 
