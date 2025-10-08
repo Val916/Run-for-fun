@@ -53,7 +53,7 @@ Loop through races or show empty message if none exist
                         <a href="{% url 'race-detail' race.pk %}" class="race-image-link">
                             {% if race.image|is_placeholder %}
                                 <img class="card-img-top img-fluid race-image" 
-                                     src="{% static 'images/default.jpg' %}"
+                                     src="{% static 'images/default.png' %}"
                                      alt="placeholder image"
                                      width="300" height="200"
                                      {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
