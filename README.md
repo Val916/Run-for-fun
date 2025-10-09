@@ -14,7 +14,7 @@
 
 Discover the world's most extreme, quirky, and unforgettable running events—from desert ultras to cheese-rolling chaos. Whether you're chasing a personal challenge or just exploring for fun, this platform lets you browse, create, and share races that defy the ordinary.
 
-🌟 **Deployed Link**: [Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
+🌟 **Deployed Link**: [<span style="color: #FF6B35;">Run-for-fun</span>](https://run-for-fun-b329a2374625.herokuapp.com/)
 
 
 ---
@@ -47,15 +47,15 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 ### Existing Features
 
 #### Core Functionality
-- **Home Page** - Browse races with pagination and responsive design [Here](docs/images/features/home-pagination.png)
-- **Race Detail Pages** - Complete race information with comments system [Here](docs/images/features/registration.png)
+- **Home Page** - Browse races with pagination and responsive design [<span style="color: #FF6B35;">Here</span>](docs/images/features/home-pagination.png)
+- **Race Detail Pages** - Complete race information with comments system [<span style="color: #FF6B35;">Here</span>](docs/images/features/registration.png)
 - **User Authentication** - Register, login, logout functionality, Password Reset
 - **Comment System** - Add, view, and delete comments on races
 - **Race Management** - Create, read, update, and delete races (CRUD)
 - **My Races Page** - Personal dashboard for managing your races
 
 #### User Experience
-- **Responsive Design** - Works perfectly on all devices [Here](docs/images/features/home-tablet.png)
+- **Responsive Design** - Works perfectly on all devices [<span style="color: #FF6B35;">Here</span>](docs/images/features/home-tablet.png)
 - **Modern UI** - Clean, accessible interface with Bootstrap 5
 - **Fast Loading** - Optimized images and performance enhancements
 - **User Feedback** - Success/error messages for all actions with celebrational Fireworks
@@ -70,13 +70,13 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 
 ### Wireframes
 
-[Wireframes](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/wireframe!!!.png)
+[<span style="color: #FF6B35;">Wireframes</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/wireframe!!!.png)
 ---
 
 ### Color Scheme
 This color scheme blends bold adventure with warm accessibility, featuring vibrant orange and deep navy for headers and buttons, contrasted against soft beige backgrounds and accented with cheerful yellow highlights.
 
-![Color Palette](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/palette.png)
+![<span style="color: #FF6B35;">Color Palette</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/palette.png)
 
 ### Typography
 The site uses **Google Fonts**:
@@ -121,9 +121,9 @@ The site uses **Google Fonts**:
 
 
 ##  User Stories & Planning
-- **[Project Board](https://github.com/users/Val916/projects/6)**
+- **[<span style="color: #FF6B35;">Project Board</span>](https://github.com/users/Val916/projects/6)**
 
-The project was developed using Agile methodology [**(see Board in process)**](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/project-board.png) with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development, using categorized tasks into Must have, Should have, Could have, and Won’t have to clarify what’s essential, desirable, optional, or excluded for a project’s success.
+The project was developed using Agile methodology [**(<span style="color: #FF6B35;">see Board in process</span>)**](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/project-board.png) with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development, using categorized tasks into Must have, Should have, Could have, and Won’t have to clarify what’s essential, desirable, optional, or excluded for a project’s success.
 
 ### As a visitor, I want to browse available races so that I can find interesting events.
 
@@ -259,7 +259,7 @@ Tasks:
 
 ✅ Find a library and make a css styling for a Firework, that will be popping out after every successful message about creating a new race or creating or deleting a comment the existing race.
 
-![Fireworks](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/fireworks.png)
+![<span style="color: #FF6B35;">Fireworks</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/fireworks.png)
   
 </details>
 
@@ -300,7 +300,7 @@ The Entity Relationship Diagram visually represents the structure of the databas
 
 <details> 
 
-<summary><b>Tables</b> </summary>
+<summary><b><span style="color: #FF6B35;">Tables</span></b> </summary>
 
 ![Tables](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/2_diagram_tables.png)
 
@@ -308,7 +308,7 @@ The Entity Relationship Diagram visually represents the structure of the databas
 
 <details>
 
-  <summary><b>Click to view relationships between entities diagram</b> </summary>
+  <summary><b><span style="color: #FF6B35;">Click to view relationships between entities diagram</b> </span> </summary>
   <img src="https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/main_diagram.png" alt="Entities">
 
 </details>
@@ -386,7 +386,7 @@ class Comment(models.Model):
 
 ### Lighthouse Performance Testing
 
-[Mobile](docs/images/testing/mobile-lighthouse.png)
+[<span style="color: #FF6B35;">Mobile View Link</span>](docs/images/testing/mobile-lighthouse.png)
 
 **Performance Metrics:**
 - **Performance**: 80/100 
@@ -394,7 +394,7 @@ class Comment(models.Model):
 - **Best Practices**: 93/100 
 - **SEO**: 91/100 
 
-[Desktop](docs/images/testing/screen-lighthouse.png)
+[<span style="color: #FF6B35;">Desktop View Link</span>](docs/images/testing/screen-lighthouse.png)
 
 **Performance Metrics:**
 - **Performance**: 99/100 
@@ -432,7 +432,7 @@ The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous de
    - Enable automatic deploys from main branch
    - Manual deploy for immediate updates
 
-**Live Application**: [Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
+**Live Application**: [<span style="color: #FF6B35;">Run-for-fun</span>](https://run-for-fun-b329a2374625.herokuapp.com/)
 
 ---
 
@@ -464,24 +464,19 @@ Assisted with WhiteNoise and Cloudinary integration
 - **[Django Documentation](https://docs.djangoproject.com/)** - Comprehensive framework guidance
 - **[Bootstrap Documentation](https://getbootstrap.com/docs/)** - UI component implementation
 
-### Development Resources
-- **[MDN Web Docs](https://developer.mozilla.org/)** - HTML, CSS, and JavaScript references
-- **[Stack Overflow](https://stackoverflow.com/)** - Community problem-solving
+### Development Resources and Tools
 - **[Django Girls Tutorial](https://tutorial.djangogirls.org/)** - Additional Django learning
 - **[Real Python](https://realpython.com/)** - Python best practices
-
-### Tools and Services
 - **[GitHub Copilot](https://github.com/features/copilot)** - AI-assisted development
 - **[Favicon.io](https://favicon.io/favicon-converter/)** - Favicon generation
 - **[Shields.io](https://shields.io/)** - README badges
 - **[MermaidChart](https://www.mermaidchart.com/)** - Database diagram creation
-- **[Am I Responsive](https://ui.dev/amiresponsive)** - Responsiveness testing
 
-### Content Sources
+
+### Content Sources and Media Attribution
 The race content and event information displayed on the site were sourced from:
 - **Official race event websites** - Verified race details and descriptions
 
-### Media Attribution
 Race images used throughout the platform are sourced from:
 - **Official event photography** - Race organizers and event websites (all the links for oficial websites could be found on the Race Details pages)
 - **[Cloudinary](https://cloudinary.com/)** - Image hosting and optimization
@@ -499,9 +494,9 @@ Race images used throughout the platform are sourced from:
 
 ---
 
-### Bug detected, to be fixed
+### Known nugs, to be fixed
 
-[The image on "My Races" page is not responsive](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
+[<span style="color: #FF6B35;">The image on "My Races" page is not responsive</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
 
 
 ---
