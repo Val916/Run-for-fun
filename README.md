@@ -68,19 +68,15 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 - **Comment Moderation** - Approve/disapprove user comments
 - **Race Approval** - Review and approve user-submitted races
 
-### Features Left to Implement
 
-- [ ] **Advanced Search** - Filter races by location, difficulty, date
-- [ ] **User Profiles** - Enhanced user profile pages
-- [ ] **Race Ratings** - User rating system for races
-- [ ] **Race Calendar** - Calendar view of upcoming events
-- [ ] **Leaderboards** - Track user achievements and participation
 
+### Wireframes
 ---
 
 ### Color Scheme
 This color scheme blends bold adventure with warm accessibility, featuring vibrant orange and deep navy for headers and buttons, contrasted against soft beige backgrounds and accented with cheerful yellow highlights.
 
+![Color Palette](docs\images\features\palette.png)
 
 ### Typography
 The site uses **Google Fonts**:
@@ -95,7 +91,7 @@ The site uses **Google Fonts**:
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 ### Backend
 - **[Python 3.12](https://www.python.org/)** - Core programming language
@@ -123,33 +119,198 @@ The site uses **Google Fonts**:
 - **[Chrome DevTools](https://developer.chrome.com/docs/devtools/)** - Testing and debugging
 
 
+
 ##  User Stories & Planning
+- **[Project Board](https://github.com/users/Val916/projects/6)** - User Stories
 
-The project was developed using **Agile methodology** with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development.
+The project was developed using Agile methodology [**(see Board in process)**](docs\images\features\project-board.png) with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development.
 
-### Epic: Race Discovery
-- As a **visitor**, I want to **browse available races** so that **I can find interesting events**
-- As a **user**, I want to **filter races by difficulty** so that **I can find suitable challenges**
-- As a **user**, I want to **view detailed race information** so that **I can make informed decisions**
+### As a visitor, I want to browse available races so that I can find interesting events.
 
-### Epic: User Engagement
-- As a **registered user**, I want to **create my own races** so that **I can share unique events**
-- As a **race creator**, I want to **edit my race details** so that **I can keep information current**
-- As a **participant**, I want to **comment on races** so that **I can share experiences**
+**Acceptance Criteria:**
+The homepage displays a list of races with name, date, location, and image.
+Each race links to a detail page.
+The layout is responsive across devices using Bootstrap or CSS Grid/Flexbox.
+Images have alt text and semantic HTML is used.
 
-### Epic: Content Management
-- As an **admin**, I want to **moderate race submissions** so that **quality is maintained**
-- As an **admin**, I want to **approve comments** so that **discussions stay relevant**
-- As a **race creator**, I want to **delete inappropriate comments** so that **my events stay positive**
+**Tasks:**
+1. ✅ Create race list view and template
+2. ✅ Display race name, date, location, and image
+3. ✅ Link each race to its detail page
+4. ✅ Use semantic HTML for structure and accessibility
+5. ✅ Apply responsive layout using Bootstrap grid or Flexbox
+6. ✅ Ensure images have alt text
 
+</details>
+
+<details>
+
+  <summary>- As a new user, I want to register and log in so I can access personalized features and manage races.</summary>
+
+  **Acceptance Criteria:**
+- A registration form is available and functional.
+- A login form allows existing users to authenticate.
+- After login, the user is redirected to the homepage with a personalized greeting.
+- Navigation updates to show “Logout” and “Create Race” links.
+- Only authenticated users can access race creation/editing views.
+- Invalid login attempts show error messages.
+
+**Tasks:**
+
+1. ✅ Enable Django’s built-in authentication system
+2. ✅ Create registration and login templates with Bootstrap styling
+3. ✅ Add login/logout links to base navigation
+4. ✅ Redirect users after login with personalized greeting
+5. ✅ Protect race creation/editing views with @login_required
+6. ✅ Handle invalid login attempts with error messages
+7. ✅ Commit changes with descriptive messages
+
+</details>
+
+<details>
+
+  <summary>- As a logged-in user, I want the UI to reflect my login state so I know what actions I can take.</summary>
+
+  **Acceptance Criteria:**
+- Navigation bar updates dynamically based on authentication status.
+- Logged-in users see “Create Race” and “Logout” links.
+- Logged-out users see “Login” and “Register” links.
+- A welcome message appears for authenticated users.
+
+Tasks:
+
+1. ✅ Update navigation bar to show/hide links based on login status
+2. ✅ Display “Create Race” and “Logout” for logged-in users
+3. ✅ Show “Login” and “Register” for anonymous users
+4. ✅ Add welcome message for authenticated users
+  
+</details>
+
+<details>
+
+  <summary>- As a race organizer, I want to create and edit race pages with images, maps, and descriptions so I can promote my event effectively.</summary>
+
+  **Acceptance Criteria:**
+- A logged-in user can access a “Create Race” form via the navigation bar.
+- The form includes fields for name, date, location, description, image upload, and coordinates.
+- Upon submission, the race is saved to the database and visible on the race list page.
+- The user can edit or delete their own races via dedicated buttons.
+- Image uploads are resized (via Pillow or Cloudinary) and displayed correctly.
+- A map is rendered on the race detail page using Leaflet or Google Maps.
+- Success messages are shown after creation or editing.
+
+Tasks:
+
+1. ✅ Define Race model with fields: name, date, location, description, image, latitude, longitude
+2. ✅ Create race creation form using Django ModelForm
+3. ✅ Build race creation and editing views (CreateView, UpdateView)
+4. ✅ Add image upload handling (Pillow or Cloudinary)
+5. ✅ Resize or optimize images on upload
+6. ✅ Render race detail page with map (Leaflet or Google Maps)
+7. ✅ Restrict race creation/editing to authenticated users
+8. ✅ Add success messages after create/edit/delete
+9. ✅ Test model behavior and form validation
+  
+</details>
+
+<details>
+
+  <summary>- As a user, I want to receive feedback when I create or edit a race, so I know my action was successful.</summary>
+
+  **Acceptance Criteria:**
+- Django messages appear after race creation, editing, or deletion.
+- Messages are styled using Bootstrap alerts.
+- Errors (e.g., missing fields) are clearly displayed on the form.
+
+Tasks:
+
+1. ✅ Enable Django messaging framework
+2. ✅ Add success messages for race creation/editing/deletion
+3. ✅ Style messages using Bootstrap alerts
+4. ✅ Display form errors clearly on submission
+  
+</details>
+
+<details>
+
+  <summary>- As a visitor, I want the site to feel visually consistent and adventurous so I enjoy exploring it.</summary>
+  
+  **Acceptance Criteria:**
+
+- A consistent color palette and font style are applied across all pages.
+- Buttons, cards, and headings follow a unified design system.
+- Accessibility checks confirm sufficient contrast and readable font sizes.
+- The layout adapts to mobile, tablet, and desktop views.
+
+Tasks:
+
+✅ Apply consistent color palette across templates
+✅ Use unified font styles and spacing
+✅ Style buttons, cards, and headings with Bootstrap/custom CSS
+✅ Check accessibility contrast and font sizes
+✅ Test layout on mobile, tablet, and desktop
+  
+</details>
+
+<details>
+
+  <summary>- As a joyful user I would like to celebrate any action on the website I made.</summary>
+  Task:
+
+✅ Find a library and make a css styling for a Firework, that will be popping out after every successful message about creating a new race or creating or deleting a comment the existing race.
+  
+</details>
+
+<details>
+
+  <summary>- As a user I want to comment the races, edit and delete my comments, if I need to.</summary>
+  
+  **Acceptance Criteria:**
+- Users must be authenticated to post, edit, or delete comments.
+- Comments are linked to specific race entries and user accounts.
+- Only the comment author can edit or delete their own comments.
+- Unapproved comments are hidden from other users but visible to the author.
+- A confirmation message appears after each action (create, edit, delete).
+- Comments are displayed in reverse chronological order.
+
+Tasks:
+
+1. ✅ Create Comment model with fields: body, author, race, created_on, approved
+2. ✅ Build CommentForm using Django’s ModelForm
+3. ✅ Display approved comments on race detail page with count
+4. ✅ Add comment form for logged-in users using crispy forms
+5. ✅ Handle POST request to save new comments
+6. ✅ Create views for editing and deleting comments (restricted to author)
+7. ✅ Add success messages for create/edit/delete actions
+8. ✅ Style comments and form using Bootstrap
+9. ✅ Write basic tests for comment functionality and access control
+  
+</details>
 ---
 
 ##  Database Design
 
 ### ERD Diagram
+
+<details> 
+
 The Entity Relationship Diagram visually represents the structure of the database and the relationships between entities (tables).
 
+<summary><b>Tables</b> </summary>
+
+![Tables](docs\images\wireframes\2_diagram_tables.png)
+
+<details>
+
+  <summary><b>Click to view relationships between entities diagram</b> </summary>
+  <img src="docs\images\wireframes\main_diagram.png" alt="Entities">
+
+</details>
+
+
 ### Core Models
+
+**CRUD Implementation**: Users can create their own races, update them (distance, difficulty, date, description, country and city), or delete them.
 
 #### Race Model
 ```python
@@ -185,34 +346,21 @@ class Comment(models.Model):
 | Test Case | Expected Result | Actual Result | Status |
 |-----------|----------------|---------------|---------|
 |  Click Home menu | Navigate to homepage | ✅ Success | PASS |
-|  Click About menu | Navigate to about page | ✅ Success | PASS |
 |  Click Register | Open registration form | ✅ Success | PASS |
 |  Click Login | Open login form | ✅ Success | PASS |
 |  Click Logout | User logged out successfully | ✅ Success | PASS |
-|  Click Contact Us button | Open contact form | ✅ Success | PASS |
-|  Click Upcoming Events button | Show filtered events | ✅ Success | PASS |
 |  Click individual race post | Navigate to race detail | ✅ Success | PASS |
 |  Click back to race list | Return to race listing | ✅ Success | PASS |
 |  Create/edit/delete comment | Comment CRUD operations | ✅ Success | PASS |
 |  Register new account | Account created successfully | ✅ Success | PASS |
-|  Create contact request | Contact form submitted | ✅ Success | PASS |
 |  Access admin interface | Admin panel accessible | ✅ Success | PASS |
 |  Responsivity | Works on all devices | ✅ Success | PASS |
-|  Social media links | Open in new tabs | ✅ Success | PASS |
 
-### Automated Testing
-Automated tests written using **Django Test Framework**:
-
-```bash
-python manage.py test
-```
 
 **Test Coverage:**
 - ✅ Home page loads successfully
 - ✅ Race detail page loads successfully  
-- ✅ About page loads successfully
 - ✅ Comment form submits successfully
-- ✅ Contact form submits successfully
 - ✅ User authentication flows
 - ✅ CRUD operations for races
 
@@ -238,8 +386,6 @@ python manage.py test
 - **Best Practices**: 87/100 
 - **SEO**: 100/100 🔍
 
-> **Note**: The lower Best Practices score is due to Cloudinary images using HTTP URLs that are automatically upgraded to HTTPS.
-
 ---
 
 ##  Deployment
@@ -256,17 +402,14 @@ The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous de
 
 #### Deployment Steps
 1. **Create Heroku App**
-   ```bash
-   # Create new app on Heroku dashboard
-   heroku create run-for-fun-app
-   ```
+  -  Create new "run-for-fun" app on Heroku dashboard
 
 2. **Configure Environment Variables**
    - Navigate to app Settings → "Reveal Config Vars"
    - Add all required environment variables
 
 3. **Database Setup**
-   - **Service**: [ElephantSQL](https://www.elephantsql.com/) PostgreSQL
+   - **Service**: PostgreSQL from Code Institute
    - Connection configured via `DATABASE_URL`
 
 4. **Deploy Application**
@@ -274,45 +417,28 @@ The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous de
    - Enable automatic deploys from main branch
    - Manual deploy for immediate updates
 
-**Live Application**: [Run-for-fun Platform](https://run-for-fun-b329a2374625.herokuapp.com/)
+**Live Application**: [Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
 
 ---
 
 ## 🤖 AI Integration
 
-### How AI Enhanced Development
-
 **GitHub Copilot** played a significant role throughout the development process:
 
-####  Planning & Design
-- **User Story Generation**: AI helped structure user stories and acceptance criteria
-- **Feature Ideation**: Provided suggestions for platform features and functionality
-- **UX Recommendations**: Offered insights for layout and user experience improvements
+###  Planning & Design
+Structured user stories, suggested features, and improved UX layout.
 
-####  Code Development  
-- **Django Scaffolding**: Generated boilerplate code for models, views, and forms
-- **CRUD Operations**: Assisted with Create, Read, Update, Delete functionality
-- **Template Generation**: Helped create responsive Bootstrap components
-- **Database Queries**: Optimized ORM queries and relationships
+###  Code Development  
+Generated Django scaffolding, CRUD logic, templates, and optimized ORM queries.
 
-####  Frontend Development
-- **Responsive Design**: Suggested mobile-first CSS patterns
-- **Accessibility**: Provided ARIA labels and semantic HTML structures  
-- **Bootstrap Integration**: Streamlined component implementation
-- **Performance Optimization**: Recommended image loading strategies
+###  Frontend Development
+Recommended responsive design, semantic HTML, and streamlined Bootstrap use.
 
-####  Testing & Debugging
-- **Test Case Creation**: Generated Django test cases for models and views
-- **Bug Detection**: Identified potential issues in code logic
 - **Error Resolution**: Suggested fixes for template and deployment errors
 - **Performance Analysis**: Recommended optimization strategies
 
-####  Deployment Support
-- **Configuration**: Helped set up Heroku deployment configuration
-- **Static Files**: Assisted with WhiteNoise and Cloudinary integration
-- **Environment Variables**: Guided secure configuration management
-
-> **AI Efficiency**: AI tools reduced development time by approximately **40%** while maintaining code quality and best practices.
+###  Deployment Support
+Assisted with WhiteNoise and Cloudinary integration
 
 ---
 
@@ -339,38 +465,30 @@ The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous de
 ### Content Sources
 The race content and event information displayed on the site were sourced from:
 - **Official race event websites** - Verified race details and descriptions
-- **Running community forums** - Additional race insights and reviews
-- **Adventure racing organizations** - Extreme and unique event information
-- **Local tourism boards** - Location-specific race events
 
 ### Media Attribution
 Race images used throughout the platform are sourced from:
 - **Official event photography** - Race organizers and event websites
 - **[Cloudinary](https://cloudinary.com/)** - Image hosting and optimization
-- **Creative Commons licensed images** - Where official images unavailable
 - **User-submitted content** - Race creators' personal event photos
 
 > **Note**: All images are properly attributed and used in accordance with their respective licenses. Original creators retain all rights to their content.
 
 ### Special Thanks
-- **Course Mentors** - Guidance throughout development process
+- **Course Mentors** - Guidance throughout development process (Mark, Alex 💛)
 - **Code Institute Community** - Peer support and code reviews
-- **Testing Volunteers** - User experience feedback and bug reports
+- **Testing Volunteers** - User experience feedback and bug reports (thank you, 🎆 guys!)
 - **Open Source Community** - Libraries and tools that made this project possible
 
 ---
+### Features Left to Implement
 
-##  Appendix
+- [ ] **Advanced Search** - Filter races by location, difficulty, date
+- [ ] **User Profiles** - Enhanced user profile pages
+- [ ] **Race Ratings** - User rating system for races
+- [ ] **Race Calendar** - Calendar view of upcoming events
+- [ ] **Leaderboards** - Track user achievements and participation
 
-### Wireframes
-- **Home Page** - Main race listing and navigation design
-- **Race Detail** - Individual race information layout
-- **User Dashboard** - Personal race management interface
-
-### Additional Documentation
-- **[Project Repository](https://github.com/Val916/Run-for-fun)** - Complete source code
-- **[Live Application](https://run-for-fun-b329a2374625.herokuapp.com/)** - Deployed platform
-- **[Project Board](https://github.com/users/Val916/projects/6)** - User Stories
 
 ---
 
@@ -399,33 +517,3 @@ Race images used throughout the platform are sourced from:
 
 ---
 
-**Incredible Races List Platform** - *Where adventure meets community*
-
-**Custom Model**: Race  
-**CRUD Implementation**: Users can create their own races, update them (distance, difficulty, date, description, country and city), or delete them.
-
----
-
-*Last updated: October 2025*
-The project structure and some code snippets were inspired by the "I Think Therefore I Blog" project from the LMS.
-The project was developed using the Django web framework.
-The project was deployed on Heroku.
-Content
-The content for the site was sourced from official event pages.
-
-Media
-The images used on the site were hosted on Cloudinary and sourced from official event pages.
-
-
-🤖 AI Tool Reflections
-Throughout the development of this Django-based race platform, AI tools—primarily GitHub Copilot—were used to accelerate coding, streamline design decisions, and support testing. Here’s how they contributed across key phases:
-
-User Story Definition & Planning: GitHub Copilot provided helpful suggestions for structuring user stories and acceptance criteria. While some outputs required refinement, it sped up the ideation process and aligned well with project goals.
-
-Model & CRUD Development: Copilot assisted in generating Django model fields, views, and form logic. It offered boilerplate code for CRUD operations, which was manually adjusted to meet specific data constraints and user flows. Manual adjustments ensured accessibility and design consistency.
-
-Testing & Debugging: Copilot supported the creation of Django test cases and helped identify edge cases. It also suggested fixes for template errors and static file issues during deployment.
-
-
-
-![Homepage Screenshot](path/to/image.png)
