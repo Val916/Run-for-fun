@@ -1,5 +1,8 @@
-# 🏃‍♂️ Run-for-fun 
-*Where wild races meet curious souls.*
+# Run for fun
+
+_Where wild races meet curious souls._
+
+<div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white)
@@ -12,41 +15,44 @@
 [![Badges by Shields.io](https://img.shields.io/badge/Badges-by%20Shields.io-brightgreen?logo=shieldsdotio)](https://shields.io/)
 [![Using MermaidChart](https://img.shields.io/badge/Using-MermaidChart-00BFA5?logo=mermaid&logoColor=white)](https://www.mermaidchart.com/)
 
+</div>
+<div align="center">
 Discover the world's most extreme, quirky, and unforgettable running events—from desert ultras to cheese-rolling chaos. Whether you're chasing a personal challenge or just exploring for fun, this platform lets you browse, create, and share races that defy the ordinary.
+</div>
+<br>
 
 🌟 **Deployed Link**: [<span style="color: #FF6B35;">Run-for-fun</span>](https://run-for-fun-b329a2374625.herokuapp.com/)
 
-
 ---
 
-##  Table of Contents
+## Table of Contents
 
-1. [Features](#-features)
+1. [Features](#features)
    - [Existing Features](#existing-features)
    - [Features Left to Implement](#features-left-to-implement)
 2. [Wireframes](#wireframes)
-3. [UX Design](#-ux-design)
    - [Color Scheme](#color-scheme)
    - [Typography](#typography)
    - [Imagery](#imagery)
-4. [Technologies Used](#-technologies-used)
-5. [User Stories & Planning](#-user-stories--planning)
-6. [Database Design](#-database-design)
-7. [Testing](#-testing)
+3. [Technologies Used](#technologies-used)
+4. [User Stories & Planning](#user-stories--planning)
+5. [Database Design](#database-design)
+6. [Testing](#testing)
    - [Manual Testing Results](#manual-testing-results)
    - [Code Validation](#code-validation)
    - [Lighthouse Performance Testing](#lighthouse-performance-testing)
-8. [Deployment](#-deployment)
-9. [AI Integration](#-ai-integration)
-10. [Credits and Acknowledgements](#-credits-and-acknowledgements)
+7. [Deployment](#deployment)
+8. [AI Integration](#-ai-integration)
+9. [Credits and Acknowledgements](#credits-and-acknowledgements)
 
 ---
 
-##  Features
+## Features
 
 ### Existing Features
 
 #### Core Functionality
+
 - **Home Page** - Browse races with pagination and responsive design [<span style="color: #FF6B35;">Here</span>](docs/images/features/home-pagination.png)
 - **Race Detail Pages** - Complete race information with comments system [<span style="color: #FF6B35;">Here</span>](docs/images/features/registration.png)
 - **User Authentication** - Register, login, logout functionality, Password Reset
@@ -55,6 +61,7 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 - **My Races Page** - Personal dashboard for managing your races
 
 #### User Experience
+
 - **Responsive Design** - Works perfectly on all devices [<span style="color: #FF6B35;">Here</span>](docs/images/features/home-tablet.png)
 - **Modern UI** - Clean, accessible interface with Bootstrap 5
 - **Fast Loading** - Optimized images and performance enhancements
@@ -62,28 +69,30 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 - **Image Upload** - Cloudinary integration for race images
 
 #### Administrative Features
+
 - **Admin Interface** - Full Django admin for content management
 - **Comment Moderation** - Approve/disapprove user comments
 - **Race Approval** - Review and approve user-submitted races
 
-
-
 ### Wireframes
 
-[<span style="color: #FF6B35;">Wireframes</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/wireframe!!!.png)
----
+## [<span style="color: #FF6B35;">Wireframes</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/wireframe!!!.png)
 
 ### Color Scheme
+
 This color scheme blends bold adventure with warm accessibility, featuring vibrant orange and deep navy for headers and buttons, contrasted against soft beige backgrounds and accented with cheerful yellow highlights.
 
 ![<span style="color: #FF6B35;">Color Palette</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/palette.png)
 
 ### Typography
+
 The site uses **Google Fonts**:
+
 - **[Inter](https://fonts.google.com/specimen/Inter)** - Main text font for excellent readability
 - **[Lato](https://fonts.google.com/specimen/Lato)** - Heading font for modern appearance
 
 ### Imagery
+
 - **Source**: Race images from official event pages
 - **Hosting**: [Cloudinary](https://cloudinary.com/) for optimized loading
 - **Optimization**: Responsive images with proper aspect ratios
@@ -91,15 +100,17 @@ The site uses **Google Fonts**:
 
 ---
 
-##  Technologies Used
+## Technologies Used
 
 ### Backend
+
 - **[Python 3.12](https://www.python.org/)** - Core programming language
 - **[Django 4.2](https://www.djangoproject.com/)** - Web framework
 - **[PostgreSQL](https://www.postgresql.org/)** - Database system
 - **[Django Allauth](https://django-allauth.readthedocs.io/)** - Authentication system
 
 ### Frontend
+
 - **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)** - Markup language
 - **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)** - Styling
 - **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** - Interactive functionality
@@ -108,19 +119,20 @@ The site uses **Google Fonts**:
 - **[Google Fonts](https://fonts.google.com/)** - Typography (Inter & Lato)
 
 ### Cloud Services & Deployment
+
 - **[Heroku](https://www.heroku.com/)** - Application hosting
 - **[Cloudinary](https://cloudinary.com/)** - Image hosting and optimization
 - **[WhiteNoise](https://whitenoise.evans.io/)** - Static file serving
 
 ### Development Tools
+
 - **[GitHub](https://github.com/)** - Version control
 - **[GitHub Copilot](https://github.com/features/copilot)** - AI-assisted development
 - **[VS Code](https://code.visualstudio.com/)** - Code editor
 - **[Chrome DevTools](https://developer.chrome.com/docs/devtools/)** - Testing and debugging
 
+## User Stories & Planning
 
-
-##  User Stories & Planning
 - **[<span style="color: #FF6B35;">Project Board</span>](https://github.com/users/Val916/projects/6)**
 
 The project was developed using Agile methodology [**(<span style="color: #FF6B35;">see Board in process</span>)**](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/project-board.png) with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development, using categorized tasks into Must have, Should have, Could have, and Won’t have to clarify what’s essential, desirable, optional, or excluded for a project’s success.
@@ -134,6 +146,7 @@ The layout is responsive across devices using Bootstrap or CSS Grid/Flexbox.
 Images have alt text and semantic HTML is used.
 
 **Tasks:**
+
 1. ✅ Create race list view and template
 2. ✅ Display race name, date, location, and image
 3. ✅ Link each race to its detail page
@@ -147,7 +160,8 @@ Images have alt text and semantic HTML is used.
 
   <summary>- As a new user, I want to register and log in so I can access personalized features and manage races.</summary>
 
-  **Acceptance Criteria:**
+**Acceptance Criteria:**
+
 - A registration form is available and functional.
 - A login form allows existing users to authenticate.
 - After login, the user is redirected to the homepage with a personalized greeting.
@@ -171,7 +185,8 @@ Images have alt text and semantic HTML is used.
 
   <summary>- As a logged-in user, I want the UI to reflect my login state so I know what actions I can take.</summary>
 
-  **Acceptance Criteria:**
+**Acceptance Criteria:**
+
 - Navigation bar updates dynamically based on authentication status.
 - Logged-in users see “Create Race” and “Logout” links.
 - Logged-out users see “Login” and “Register” links.
@@ -183,14 +198,15 @@ Tasks:
 2. ✅ Display “Create Race” and “Logout” for logged-in users
 3. ✅ Show “Login” and “Register” for anonymous users
 4. ✅ Add welcome message for authenticated users
-  
+
 </details>
 
 <details>
 
   <summary>- As a race organizer, I want to create and edit race pages with images, maps, and descriptions so I can promote my event effectively.</summary>
 
-  **Acceptance Criteria:**
+**Acceptance Criteria:**
+
 - A logged-in user can access a “Create Race” form via the navigation bar.
 - The form includes fields for name, date, location, description, image upload, and coordinates.
 - Upon submission, the race is saved to the database and visible on the race list page.
@@ -210,14 +226,15 @@ Tasks:
 7. ✅ Restrict race creation/editing to authenticated users
 8. ✅ Add success messages after create/edit/delete
 9. ✅ Test model behavior and form validation
-  
+
 </details>
 
 <details>
 
   <summary>- As a user, I want to receive feedback when I create or edit a race, so I know my action was successful.</summary>
 
-  **Acceptance Criteria:**
+**Acceptance Criteria:**
+
 - Django messages appear after race creation, editing, or deletion.
 - Messages are styled using Bootstrap alerts.
 - Errors (e.g., missing fields) are clearly displayed on the form.
@@ -228,7 +245,7 @@ Tasks:
 2. ✅ Add success messages for race creation/editing/deletion
 3. ✅ Style messages using Bootstrap alerts
 4. ✅ Display form errors clearly on submission
-  
+
 </details>
 
 <details>
@@ -249,7 +266,7 @@ Tasks:
 3. ✅ Style buttons, cards, and headings with Bootstrap/custom CSS
 4. ✅ Check accessibility contrast and font sizes
 5. ✅ Test layout on mobile, tablet, and desktop
-  
+
 </details>
 
 <details>
@@ -260,7 +277,7 @@ Tasks:
 ✅ Find a library and make a css styling for a Firework, that will be popping out after every successful message about creating a new race or creating or deleting a comment the existing race.
 
 ![<span style="color: #FF6B35;">Fireworks</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/fireworks.png)
-  
+
 </details>
 
 <details>
@@ -286,25 +303,22 @@ Tasks:
 7. ✅ Add success messages for create/edit/delete actions
 8. ✅ Style comments and form using Bootstrap
 9. ✅ Write basic tests for comment functionality and access control
-  
-</details>
----
 
-##  Database Design
+## </details>
+
+## Database Design
 
 ### ERD Diagram
 
-
-
 The Entity Relationship Diagram visually represents the structure of the database and the relationships between entities (tables).
 
-<details> 
+<details>
 
 <summary><b><span style="color: #FF6B35;">Tables</span></b> </summary>
 
 ![Tables](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/2_diagram_tables.png)
 
-</details> 
+</details>
 
 <details>
 
@@ -313,12 +327,12 @@ The Entity Relationship Diagram visually represents the structure of the databas
 
 </details>
 
-
 ### Core Models
 
 **CRUD Implementation**: Users can create their own races, update them (distance, difficulty, date, description, country and city), or delete them.
 
 #### Race Model
+
 ```python
 class Race(models.Model):
     title = models.CharField(max_length=200)
@@ -334,6 +348,7 @@ class Race(models.Model):
 ```
 
 #### Comment Model
+
 ```python
 class Comment(models.Model):
     race = models.ForeignKey(Race, related_name='comments', on_delete=models.CASCADE)
@@ -345,27 +360,27 @@ class Comment(models.Model):
 
 ---
 
-##  Testing
+## Testing
 
 ### Manual Testing Results
 
-| Test Case | Expected Result | Actual Result | Status |
-|-----------|----------------|---------------|---------|
-|  Click Home menu | Navigate to homepage | ✅ Success | PASS |
-|  Click Register | Open registration form | ✅ Success | PASS |
-|  Click Login | Open login form | ✅ Success | PASS |
-|  Click Logout | User logged out successfully | ✅ Success | PASS |
-|  Click individual race post | Navigate to race detail | ✅ Success | PASS |
-|  Click back to race list | Return to race listing | ✅ Success | PASS |
-|  Create/edit/delete comment | Comment CRUD operations | ✅ Success | PASS |
-|  Register new account | Account created successfully | ✅ Success | PASS |
-|  Access admin interface | Admin panel accessible | ✅ Success | PASS |
-|  Responsivity | Works on all devices | ✅ Success | PASS |
-
+| Test Case                  | Expected Result              | Actual Result | Status |
+| -------------------------- | ---------------------------- | ------------- | ------ |
+| Click Home menu            | Navigate to homepage         | ✅ Success    | PASS   |
+| Click Register             | Open registration form       | ✅ Success    | PASS   |
+| Click Login                | Open login form              | ✅ Success    | PASS   |
+| Click Logout               | User logged out successfully | ✅ Success    | PASS   |
+| Click individual race post | Navigate to race detail      | ✅ Success    | PASS   |
+| Click back to race list    | Return to race listing       | ✅ Success    | PASS   |
+| Create/edit/delete comment | Comment CRUD operations      | ✅ Success    | PASS   |
+| Register new account       | Account created successfully | ✅ Success    | PASS   |
+| Access admin interface     | Admin panel accessible       | ✅ Success    | PASS   |
+| Responsivity               | Works on all devices         | ✅ Success    | PASS   |
 
 **Test Coverage:**
+
 - ✅ Home page loads successfully
-- ✅ Race detail page loads successfully  
+- ✅ Race detail page loads successfully
 - ✅ Comment form submits successfully
 - ✅ User authentication flows
 - ✅ CRUD operations for races
@@ -373,14 +388,17 @@ class Comment(models.Model):
 ### Code Validation
 
 #### HTML Validation
+
 - **Tool**: [W3C Markup Validation Service](https://validator.w3.org/)
 - **Result**: Minor template-related warnings (Django syntax)
 
-#### CSS Validation  
+#### CSS Validation
+
 - **Tool**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 - **Result**: ✅ No errors found - [CSS Validation](https://jigsaw.w3.org/css-validator/)
 
 #### Python Validation
+
 - **Tool**: [CI Python Linter](https://pep8ci.herokuapp.com/)
 - **Result**: ✅ PEP8 compliant, no errors found
 
@@ -389,48 +407,63 @@ class Comment(models.Model):
 [<span style="color: #FF6B35;">Mobile View Link</span>](docs/images/testing/mobile-lighthouse.png)
 
 **Performance Metrics:**
-- **Performance**: 80/100 
-- **Accessibility**: 93/100   
-- **Best Practices**: 93/100 
-- **SEO**: 91/100 
+
+- **Performance**: 80/100
+- **Accessibility**: 93/100
+- **Best Practices**: 93/100
+- **SEO**: 91/100
 
 [<span style="color: #FF6B35;">Desktop View Link</span>](docs/images/testing/screen-lighthouse.png)
 
 **Performance Metrics:**
-- **Performance**: 99/100 
-- **Accessibility**: 93/100   
-- **Best Practices**: 93/100 
-- **SEO**: 91/100 
+
+- **Performance**: 99/100
+- **Accessibility**: 93/100
+- **Best Practices**: 93/100
+- **SEO**: 91/100
+
 ---
 
-##  Deployment
+## Deployment
 
 ### Heroku Deployment Process
 
 The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous deployment from the main branch.
 
-#### Environment Setup
-**Required Environment Variables:**
-- `DATABASE_URL` - PostgreSQL connection string
-- `SECRET_KEY` - Django secret key
-- `CLOUDINARY_URL` - Cloudinary API configuration
-
 #### Deployment Steps
+
 1. **Create Heroku App**
-  -  Create new "run-for-fun" app on Heroku dashboard
+   - Create new "run-for-fun" app on Heroku dashboard
+   - Note the app name for later configuration
 
 2. **Configure Environment Variables**
    - Navigate to app Settings → "Reveal Config Vars"
-   - Add all required environment variables
+   - Add all required environment variables:
+     - `DATABASE_URL` - PostgreSQL connection string
+     - `SECRET_KEY` - Django secret key
+     - `CLOUDINARY_URL` - Cloudinary API configuration
 
-3. **Database Setup**
+3. **Prepare Project Files**
+   - Create a `Procfile` with: `web: gunicorn project_name.wsgi`
+   - Ensure `Debug = False` in `settings.py`
+   - Add `'localhost'` and `'project_name.herokuapp.com'` to `ALLOWED_HOSTS`
+   - Update `requirements.txt` with all dependencies
+
+4. **Database Setup**
    - **Service**: PostgreSQL from Code Institute
-   - Connection configured via `DATABASE_URL`
+   - Copy DATABASE_URL from dashboard
+   - Add DATABASE_URL to both Heroku Config Vars and local `env.py`
+   - Run migrations:
+     ```bash
+     python3 manage.py makemigrations
+     python3 manage.py migrate
+     ```
 
-4. **Deploy Application**
-   - Connect to GitHub repository
+5. **Deploy Application**
+   - Connect GitHub repository to Heroku
    - Enable automatic deploys from main branch
-   - Manual deploy for immediate updates
+   - Perform initial manual deploy
+   - Verify deployment success
 
 **Live Application**: [<span style="color: #FF6B35;">Run-for-fun</span>](https://run-for-fun-b329a2374625.herokuapp.com/)
 
@@ -440,31 +473,37 @@ The site is deployed to **[Heroku](https://www.heroku.com/)** with continuous de
 
 **GitHub Copilot** played a significant role throughout the development process:
 
-###  Planning & Design
+### Planning & Design
+
 Structured user stories, suggested features, and improved UX layout.
 
-###  Code Development  
+### Code Development
+
 Generated Django scaffolding, CRUD logic, templates, and optimized ORM queries.
 
-###  Frontend Development
+### Frontend Development
+
 Recommended responsive design, semantic HTML, and streamlined Bootstrap use.
 
 - **Error Resolution**: Suggested fixes for template and deployment errors
 - **Performance Analysis**: Recommended optimization strategies
 
-###  Deployment Support
+### Deployment Support
+
 Assisted with WhiteNoise and Cloudinary integration
 
 ---
 
-##  Credits and Acknowledgements
+## Credits and Acknowledgements
 
 ### Project Foundation
+
 - **[Code Institute](https://codeinstitute.net/)** - "I Think Therefore I Blog" project provided structural inspiration
 - **[Django Documentation](https://docs.djangoproject.com/)** - Comprehensive framework guidance
 - **[Bootstrap Documentation](https://getbootstrap.com/docs/)** - UI component implementation
 
 ### Development Resources and Tools
+
 - **[Django Girls Tutorial](https://tutorial.djangogirls.org/)** - Additional Django learning
 - **[Real Python](https://realpython.com/)** - Python best practices
 - **[GitHub Copilot](https://github.com/features/copilot)** - AI-assisted development
@@ -472,18 +511,22 @@ Assisted with WhiteNoise and Cloudinary integration
 - **[Shields.io](https://shields.io/)** - README badges
 - **[MermaidChart](https://www.mermaidchart.com/)** - Database diagram creation
 
-
 ### Content Sources and Media Attribution
+
 The race content and event information displayed on the site were sourced from:
+
 - **Official race event websites** - Verified race details and descriptions
 
 Race images used throughout the platform are sourced from:
+
 - **Official event photography** - Race organizers and event websites (all the links for oficial websites could be found on the Race Details pages)
 - **[Cloudinary](https://cloudinary.com/)** - Image hosting and optimization
 - **User-submitted content** - Race creators' personal event photos
 
 > **Note**: All images are properly attributed and used in accordance with their respective licenses. Original creators retain all rights to their content.
+
 ---
+
 ### Features Left to Implement
 
 - [ ] **Advanced Search** - Filter races by location, difficulty, date
@@ -498,25 +541,27 @@ Race images used throughout the platform are sourced from:
 
 [<span style="color: #FF6B35;">The image on "My Races" page is not responsive</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
 
-
 ---
 
 <details>
 <summary> <strong>Project Specifications</strong></summary>
 
 ### Custom Model Implementation
+
 - **Race Model**: Complete CRUD functionality for race management
 - **Comment System**: User engagement with approval workflow
 - **User Authentication**: Django Allauth integration
 - **Image Handling**: Cloudinary for optimized media storage
 
 ### Technical Achievements
+
 - **Performance Optimization**: LCP improvements with fetchpriority
 - **Responsive Design**: Mobile-first approach with Bootstrap 5
 - **Accessibility**: WCAG compliant with semantic HTML
 - **Security**: CSRF protection and secure authentication
 
 ### Deployment Features
+
 - **Continuous Deployment**: Heroku integration with GitHub
 - **Environment Management**: Secure configuration variables
 - **Static File Handling**: WhiteNoise for production efficiency
@@ -527,6 +572,7 @@ Race images used throughout the platform are sourced from:
 ---
 
 ### Special Thanks
+
 - **Course Mentors** - Guidance throughout development process (Mark, Alex 💛)
 - **Code Institute Community** - Peer support and code reviews
 - **Testing Volunteers** - User experience feedback and bug reports (thank you, 🎆 guys!)
