@@ -1,4 +1,4 @@
-# 🏃‍♂️ Run-for-fun
+# 🏃‍♂️ Run-for-fun 
 *Where wild races meet curious souls.*
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
@@ -14,7 +14,7 @@
 
 Discover the world's most extreme, quirky, and unforgettable running events—from desert ultras to cheese-rolling chaos. Whether you're chasing a personal challenge or just exploring for fun, this platform lets you browse, create, and share races that defy the ordinary.
 
-🌟 **Live Application**: [Run-for-fun Platform](https://run-for-fun-b329a2374625.herokuapp.com/)
+🌟 **Live Application**: [Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
 
 ---
 
@@ -51,7 +51,7 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 #### Core Functionality
 - **Home Page** - Browse races with pagination and responsive design
 - **Race Detail Pages** - Complete race information with comments system
-- **User Authentication** - Register, login, logout functionality
+- **User Authentication** - Register, login, logout functionality, Password Reset
 - **Comment System** - Add, view, and delete comments on races
 - **Race Management** - Create, read, update, and delete races (CRUD)
 - **My Races Page** - Personal dashboard for managing your races
@@ -60,7 +60,7 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 - **Responsive Design** - Works perfectly on all devices
 - **Modern UI** - Clean, accessible interface with Bootstrap 5
 - **Fast Loading** - Optimized images and performance enhancements
-- **User Feedback** - Success/error messages for all actions
+- **User Feedback** - Success/error messages for all actions with celebrational Fireworks
 - **Image Upload** - Cloudinary integration for race images
 
 #### Administrative Features
@@ -72,7 +72,6 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 
 - [ ] **Advanced Search** - Filter races by location, difficulty, date
 - [ ] **User Profiles** - Enhanced user profile pages
-- [ ] **Password Reset** - Email-based password recovery
 - [ ] **Race Ratings** - User rating system for races
 - [ ] **Race Calendar** - Calendar view of upcoming events
 - [ ] **Leaderboards** - Track user achievements and participation
@@ -80,7 +79,8 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 ---
 
 ### Color Scheme
-The colour scheme for the site draws inspiration from the natural beauty of Cornwall. The primary colours are shades of blue, reflecting the sea and sky, while secondary colours include white and grey to ensure contrast and readability.
+This color scheme blends bold adventure with warm accessibility, featuring vibrant orange and deep navy for headers and buttons, contrasted against soft beige backgrounds and accented with cheerful yellow highlights.
+
 
 ### Typography
 The site uses **Google Fonts**:
