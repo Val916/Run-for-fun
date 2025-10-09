@@ -68,12 +68,14 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 
 
 ### Wireframes
+
+![Wireframes](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/wireframe!!!.png)
 ---
 
 ### Color Scheme
 This color scheme blends bold adventure with warm accessibility, featuring vibrant orange and deep navy for headers and buttons, contrasted against soft beige backgrounds and accented with cheerful yellow highlights.
 
-![Color Palette](docs\images\features\palette.png)
+![Color Palette](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/palette.png)
 
 ### Typography
 The site uses **Google Fonts**:
@@ -120,7 +122,7 @@ The site uses **Google Fonts**:
 ##  User Stories & Planning
 - **[Project Board](https://github.com/users/Val916/projects/6)** - User Stories
 
-The project was developed using Agile methodology [**(see Board in process)**](docs\images\features\project-board.png) with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development.
+The project was developed using Agile methodology [**(see Board in process)**](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/project-board.png) with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development, using categorized tasks into Must have, Should have, Could have, and Won’t have to clarify what’s essential, desirable, optional, or excluded for a project’s success.
 
 ### As a visitor, I want to browse available races so that I can find interesting events.
 
@@ -241,11 +243,11 @@ Tasks:
 
 Tasks:
 
-✅ Apply consistent color palette across templates
-✅ Use unified font styles and spacing
-✅ Style buttons, cards, and headings with Bootstrap/custom CSS
-✅ Check accessibility contrast and font sizes
-✅ Test layout on mobile, tablet, and desktop
+1. ✅ Apply consistent color palette across templates
+2. ✅ Use unified font styles and spacing
+3. ✅ Style buttons, cards, and headings with Bootstrap/custom CSS
+4. ✅ Check accessibility contrast and font sizes
+5. ✅ Test layout on mobile, tablet, and desktop
   
 </details>
 
@@ -255,6 +257,8 @@ Tasks:
   Task:
 
 ✅ Find a library and make a css styling for a Firework, that will be popping out after every successful message about creating a new race or creating or deleting a comment the existing race.
+
+![Fireworks](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/fireworks.png)
   
 </details>
 
@@ -295,12 +299,12 @@ The Entity Relationship Diagram visually represents the structure of the databas
 
 <summary><b>Tables</b> </summary>
 
-![Tables](docs\images\wireframes\2_diagram_tables.png)
+![Tables](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/2_diagram_tables.png)
 
 <details>
 
   <summary><b>Click to view relationships between entities diagram</b> </summary>
-  <img src="docs\images\wireframes\main_diagram.png" alt="Entities">
+  <img src="https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/main_diagram.png" alt="Entities">
 
 </details>
 
@@ -470,13 +474,6 @@ Race images used throughout the platform are sourced from:
 - **User-submitted content** - Race creators' personal event photos
 
 > **Note**: All images are properly attributed and used in accordance with their respective licenses. Original creators retain all rights to their content.
-
-### Special Thanks
-- **Course Mentors** - Guidance throughout development process (Mark, Alex 💛)
-- **Code Institute Community** - Peer support and code reviews
-- **Testing Volunteers** - User experience feedback and bug reports (thank you, 🎆 guys!)
-- **Open Source Community** - Libraries and tools that made this project possible
-
 ---
 ### Features Left to Implement
 
@@ -485,6 +482,12 @@ Race images used throughout the platform are sourced from:
 - [ ] **Race Ratings** - User rating system for races
 - [ ] **Race Calendar** - Calendar view of upcoming events
 - [ ] **Leaderboards** - Track user achievements and participation
+
+---
+
+### Bug detected, to be fixed
+
+![The image on "My Races" page is not responsive](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
 
 
 ---
@@ -514,3 +517,8 @@ Race images used throughout the platform are sourced from:
 
 ---
 
+### Special Thanks
+- **Course Mentors** - Guidance throughout development process (Mark, Alex 💛)
+- **Code Institute Community** - Peer support and code reviews
+- **Testing Volunteers** - User experience feedback and bug reports (thank you, 🎆 guys!)
+- **Open Source Community** - Libraries and tools that made this project possible
