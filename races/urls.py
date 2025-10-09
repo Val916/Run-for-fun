@@ -27,6 +27,12 @@ urlpatterns = [
     # Requires login (handled by @login_required in view)
     path('race/<int:pk>/edit/', views.edit_race, name='edit-race'),
     
+    # DELETE RACE: '/race/5/delete/' shows delete confirmation for race with ID 5
+    # <int:pk> = capture race ID from URL as 'pk' parameter
+    # Django passes pk=5 to views.delete_race(request, pk=5)
+    # Requires login (handled by @login_required in view)
+    path('race/<int:pk>/delete/', views.delete_race, name='delete-race'),
+    
     # CREATE RACE: '/create-race/' shows race creation form
     # Fixed URL (no parameters)
     path('create-race/', views.create_race, name='create-race'),

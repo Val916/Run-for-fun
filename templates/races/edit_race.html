@@ -236,19 +236,30 @@ Pre-fills form with current race data and processes updates.
                         
                         <!-- 
                         FORM ACTIONS
-                        Save and Cancel buttons
+                        Save, Cancel, and Delete buttons
                         -->
                         <div class="d-flex justify-content-between mt-4">
-                            <!-- Save changes button -->
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="fas fa-save me-2"></i>Save Changes
-                            </button>
+                            <div>
+                                <!-- Save changes button -->
+                                <button type="submit" class="btn btn-primary btn-lg me-2">
+                                    <i class="fas fa-save me-2"></i>Save Changes
+                                </button>
+                                
+                                <!-- Cancel button - returns to race detail without saving -->
+                                <a href="{% url 'race-detail' race.pk %}" 
+                                   class="btn btn-outline-secondary btn-lg">
+                                    <i class="fas fa-times me-2"></i>Cancel
+                                </a>
+                            </div>
                             
-                            <!-- Cancel button - returns to race detail without saving -->
-                            <a href="{% url 'race-detail' race.pk %}" 
-                               class="btn btn-outline-secondary btn-lg">
-                                <i class="fas fa-times me-2"></i>Cancel
-                            </a>
+                            <!-- Delete button - only for race creator and admin -->
+                            <div>
+                                <a href="{% url 'delete-race' race.pk %}" 
+                                   class="btn btn-outline-danger btn-lg"
+                                   title="Delete this race permanently">
+                                    <i class="fas fa-trash me-2"></i>Delete Race
+                                </a>
+                            </div>
                         </div>
                     </form>
                 </div>

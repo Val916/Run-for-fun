@@ -294,6 +294,45 @@ def edit_race(request, pk):
     return render(request, 'races/edit_race.html', context)
 
 
+@login_required
+def delete_race(request, pk):
+    """
+    VIEW 7: Delete Race - Allow race creator and admin to delete existing races
+    
+    This view handles race deletion with confirmation.
+    Only the race creator or admin/staff can delete a race.
+    """
+    
+    # STEP 1: Get the race from database (published races only)
+    race = get_object_or_404(Race, pk=pk, status=1)
+    
+    # STEP 2: Check permissions - only race creator or admin can delete
+    user_is_creator = race.created_by == request.user
+    user_is_admin = request.user.is_staff or request.user.is_superuser
+    
+    if not (user_is_creator or user_is_admin):
+        # User doesn't have permission to delete this race
+        messages.error(request, "You can only delete races that you created!")
+        return redirect('race-detail', pk=race.pk)
+    
+    # STEP 3: Handle deletion confirmation
+    if request.method == 'POST':
+        # User confirmed deletion
+        race_name = race.name
+        race.delete()
+        
+        # STEP 4: Show success message and redirect
+        success_msg = f'Race "{race_name}" has been deleted successfully! 🗑️'
+        messages.success(request, success_msg)
+        return redirect('my-races')
+    
+    # STEP 5: Show confirmation page
+    context = {
+        'race': race,
+    }
+    return render(request, 'races/delete_race.html', context)
+
+
 # ==============================================================================
 # ACCOUNT DELETION VIEWS
 # ==============================================================================

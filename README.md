@@ -56,16 +56,16 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 - **Home Page** - Browse races with pagination and responsive design [<span style="color: #FF6B35;">Here</span>](docs/images/features/home-pagination.png)
 - **Race Detail Pages** - Complete race information with comments system [<span style="color: #FF6B35;">Here</span>](docs/images/features/registration.png)
 - **User Authentication** - Register, login, logout functionality, Password Reset [<span style="color: #FF6B35;">Here</span>](docs/images/features/sign-in.png)
-- **Comment System** - Add, view, and delete comments on races
-- **Race Management** - Create, read, update, and delete races (CRUD)
-- **My Races Page** - Personal dashboard for managing your races
+- **Comment System** - Add, view, and delete comments on races [<span style="color: #FF6B35;">Here</span>](docs/images/features/comment.png)
+- **Race Management** - Create, read, update, and delete races (CRUD) [<span style="color: #FF6B35;">Here</span>](docs/images/features/create-new-race.png)
+- **My Races Page** - Personal dashboard for managing your races [<span style="color: #FF6B35;">Here</span>](docs/images/features/my-races.png)
 
 #### User Experience
 
 - **Responsive Design** - Works perfectly on all devices [<span style="color: #FF6B35;">Here</span>](docs/images/features/home-tablet.png)
 - **Modern UI** - Clean, accessible interface with Bootstrap 5
-- **Fast Loading** - Optimized images and performance enhancements
-- **User Feedback** - Success/error messages for all actions with celebrational Fireworks
+- **Fast Loading** - Optimized images and performance enhancements 
+- **User Feedback** - Success/error messages for all actions with celebrational Fireworks [<span style="color: #FF6B35;">Here</span>](docs/images/features/fireworks.png)
 - **Image Upload** - Cloudinary integration for race images
 
 #### Administrative Features
