@@ -70,7 +70,7 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 
 ### Wireframes
 
-![Wireframes](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/wireframe!!!.png)
+[Wireframes](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/wireframe!!!.png)
 ---
 
 ### Color Scheme
@@ -121,7 +121,7 @@ The site uses **Google Fonts**:
 
 
 ##  User Stories & Planning
-- **[Project Board](https://github.com/users/Val916/projects/6)** - User Stories
+- **[Project Board](https://github.com/users/Val916/projects/6)**
 
 The project was developed using Agile methodology [**(see Board in process)**](https://github.com/Val916/Run-for-fun/blob/main/docs/images/features/project-board.png) with iterative progress and continuous feedback. User stories were tracked using a Kanban board to ensure systematic development, using categorized tasks into Must have, Should have, Could have, and Won’t have to clarify what’s essential, desirable, optional, or excluded for a project’s success.
 
@@ -294,13 +294,17 @@ Tasks:
 
 ### ERD Diagram
 
-<details> 
+
 
 The Entity Relationship Diagram visually represents the structure of the database and the relationships between entities (tables).
+
+<details> 
 
 <summary><b>Tables</b> </summary>
 
 ![Tables](https://github.com/Val916/Run-for-fun/blob/main/docs/images/wireframes/2_diagram_tables.png)
+
+</details> 
 
 <details>
 
@@ -382,12 +386,21 @@ class Comment(models.Model):
 
 ### Lighthouse Performance Testing
 
-**Performance Metrics:**
-- **Performance**: 95/100 
-- **Accessibility**: 98/100   
-- **Best Practices**: 87/100 
-- **SEO**: 100/100 🔍
+[Mobile](docs/images/testing/mobile-lighthouse.png)
 
+**Performance Metrics:**
+- **Performance**: 80/100 
+- **Accessibility**: 93/100   
+- **Best Practices**: 93/100 
+- **SEO**: 91/100 
+
+[Desktop](docs/images/testing/screen-lighthouse.png)
+
+**Performance Metrics:**
+- **Performance**: 99/100 
+- **Accessibility**: 93/100   
+- **Best Practices**: 93/100 
+- **SEO**: 91/100 
 ---
 
 ##  Deployment
@@ -470,7 +483,7 @@ The race content and event information displayed on the site were sourced from:
 
 ### Media Attribution
 Race images used throughout the platform are sourced from:
-- **Official event photography** - Race organizers and event websites
+- **Official event photography** - Race organizers and event websites (all the links for oficial websites could be found on the Race Details pages)
 - **[Cloudinary](https://cloudinary.com/)** - Image hosting and optimization
 - **User-submitted content** - Race creators' personal event photos
 
@@ -488,7 +501,7 @@ Race images used throughout the platform are sourced from:
 
 ### Bug detected, to be fixed
 
-![The image on "My Races" page is not responsive](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
+[The image on "My Races" page is not responsive](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
 
 
 ---
