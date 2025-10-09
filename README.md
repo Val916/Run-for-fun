@@ -14,33 +14,30 @@
 
 Discover the world's most extreme, quirky, and unforgettable running events—from desert ultras to cheese-rolling chaos. Whether you're chasing a personal challenge or just exploring for fun, this platform lets you browse, create, and share races that defy the ordinary.
 
-🌟 **Live Application**: [Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
+🌟 **Deployed Link**: [Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
 
 ---
 
 ##  Table of Contents
 
-1. [UX Design](#-ux-design)
-   - [Colour Scheme](#color-scheme)
-   - [Typography](#typography)
-   - [Imagery](#imagery)
-2. [User Stories and Kanban Board](#-user-stories--planning)
-3. [Wireframes](#wireframes)
-4. [ERD Diagram](#-database-design)
-5. [Features](#-features)
+1. [Features](#-features)
    - [Existing Features](#existing-features)
    - [Features Left to Implement](#features-left-to-implement)
-6. [Technologies Used](#-technologies-used)
-7. [How AI Was Used](#-ai-integration)
-8. [Testing](#-testing)
-   - [Manual Testing](#manual-testing-results)
-   - [Automated Testing](#automated-testing)
+2. [Wireframes](#wireframes)
+3. [UX Design](#-ux-design)
+   - [Color Scheme](#color-scheme)
+   - [Typography](#typography)
+   - [Imagery](#imagery)
+4. [Technologies Used](#-technologies-used)
+5. [User Stories & Planning](#-user-stories--planning)
+6. [Database Design](#-database-design)
+7. [Testing](#-testing)
+   - [Manual Testing Results](#manual-testing-results)
    - [Code Validation](#code-validation)
-   - [Lighthouse Testing](#lighthouse-performance-testing)
-9. [Deployment](#-deployment)
+   - [Lighthouse Performance Testing](#lighthouse-performance-testing)
+8. [Deployment](#-deployment)
+9. [AI Integration](#-ai-integration)
 10. [Credits and Acknowledgements](#-credits-and-acknowledgements)
-    - [Content](#content-sources)
-    - [Media](#media-attribution)
 
 ---
 
