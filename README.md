@@ -16,6 +16,7 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 
 🌟 **Deployed Link**: [Run-for-fun](https://run-for-fun-b329a2374625.herokuapp.com/)
 
+
 ---
 
 ##  Table of Contents
@@ -46,15 +47,15 @@ Discover the world's most extreme, quirky, and unforgettable running events—fr
 ### Existing Features
 
 #### Core Functionality
-- **Home Page** - Browse races with pagination and responsive design
-- **Race Detail Pages** - Complete race information with comments system
+- **Home Page** - Browse races with pagination and responsive design [Here](docs/images/features/home-pagination.png)
+- **Race Detail Pages** - Complete race information with comments system [Here](docs/images/features/registration.png)
 - **User Authentication** - Register, login, logout functionality, Password Reset
 - **Comment System** - Add, view, and delete comments on races
 - **Race Management** - Create, read, update, and delete races (CRUD)
 - **My Races Page** - Personal dashboard for managing your races
 
 #### User Experience
-- **Responsive Design** - Works perfectly on all devices
+- **Responsive Design** - Works perfectly on all devices [Here](docs/images/features/home-tablet.png)
 - **Modern UI** - Clean, accessible interface with Bootstrap 5
 - **Fast Loading** - Optimized images and performance enhancements
 - **User Feedback** - Success/error messages for all actions with celebrational Fireworks
