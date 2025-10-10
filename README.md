@@ -535,7 +535,7 @@ Race images used throughout the platform are sourced from:
 
 ---
 
-### Known nugs, to be fixed
+### Known bugs, to be fixed
 
 1. [<span style="color: #FF6B35;">The image on "My Races" page is not responsive yet</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
 
@@ -555,7 +555,6 @@ Race images used throughout the platform are sourced from:
 
 ### Technical Achievements
 
-- **Performance Optimization**: LCP improvements with fetchpriority
 - **Responsive Design**: Mobile-first approach with Bootstrap 5
 - **Accessibility**: WCAG compliant with semantic HTML
 - **Security**: CSRF protection and secure authentication
