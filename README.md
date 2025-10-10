@@ -504,8 +504,6 @@ Assisted with WhiteNoise and Cloudinary integration
 
 ### Development Resources and Tools
 
-- **[Django Girls Tutorial](https://tutorial.djangogirls.org/)** - Additional Django learning
-- **[Real Python](https://realpython.com/)** - Python best practices
 - **[GitHub Copilot](https://github.com/features/copilot)** - AI-assisted development
 - **[Favicon.io](https://favicon.io/favicon-converter/)** - Favicon generation
 - **[Shields.io](https://shields.io/)** - README badges
@@ -539,7 +537,9 @@ Race images used throughout the platform are sourced from:
 
 ### Known nugs, to be fixed
 
-[<span style="color: #FF6B35;">The image on "My Races" page is not responsive</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
+1. [<span style="color: #FF6B35;">The image on "My Races" page is not responsive yet</span>](https://github.com/Val916/Run-for-fun/blob/main/docs/images/testing/bug-detected.png)
+
+2. [<span style="color: #FF6B35;">Mobile Performance to be fixed in future</span>](docs/images/testing/mobile-lighthouse.png)
 
 ---
 
