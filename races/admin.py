@@ -6,27 +6,27 @@ from .models import Race, Comment, AccountDeletionRequest
 @admin.register(Race)
 class RaceAdmin(admin.ModelAdmin):
     """ admin interface for Race model with approval system"""
-    
+
     # What columns to show in the race list
     list_display = [
-        'name', 
-        'distance', 
-        'race_date', 
-        'city', 
+        'name',
+        'distance',
+        'race_date',
+        'city',
         'status',
         'approved',
         'created_by'
     ]
-    
+
     # Add filters in the right sidebar
     list_filter = [
         'approved',
-        'status', 
+        'status',
         'distance',
         'race_date',
         'created_at'
     ]
-    
+
     # Add search functionality
     search_fields = [
         'name',
@@ -34,10 +34,10 @@ class RaceAdmin(admin.ModelAdmin):
         'country',
         'created_by__username'
     ]
-    
+
     # Add bulk actions for approval
     actions = ['approve_races', 'unapprove_races']
-    
+
     # Group form fields logically
     fieldsets = (
         ('Basic Race Info', {
@@ -61,7 +61,7 @@ class RaceAdmin(admin.ModelAdmin):
             'classes': ('collapse',)  # Starts collapsed
         })
     )
-    
+
     # Custom display methods
     def approval_status_display(self, obj):
         """Show approval status with colored badges"""
@@ -70,12 +70,12 @@ class RaceAdmin(admin.ModelAdmin):
         else:
             return "⏳ Pending"
     approval_status_display.short_description = 'Approval Status'
-    
+
     # Custom admin actions
     def approve_races(self, request, queryset):
         """Bulk action to approve selected races"""
         from django.utils import timezone
-        
+
         updated = 0
         for race in queryset:
             if not race.approved:
@@ -84,13 +84,13 @@ class RaceAdmin(admin.ModelAdmin):
                 race.approved_at = timezone.now()
                 race.save()
                 updated += 1
-        
+
         self.message_user(
             request,
             f'{updated} race(s) have been approved.'
         )
     approve_races.short_description = "Approve selected races"
-    
+
     def unapprove_races(self, request, queryset):
         """Bulk action to unapprove selected races"""
         updated = queryset.update(
@@ -103,7 +103,7 @@ class RaceAdmin(admin.ModelAdmin):
             f'{updated} race(s) have been unapproved.'
         )
     unapprove_races.short_description = "Unapprove selected races"
-    
+
     # Automatically set the creator to current user
     def save_model(self, request, obj, form, change):
         if not change:  # Only when creating new race
@@ -114,7 +114,7 @@ class RaceAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """Admin interface for Comment model"""
-    
+
     # What columns to show in the comments list
     list_display = [
         'short_body',
@@ -123,24 +123,24 @@ class CommentAdmin(admin.ModelAdmin):
         'created_on',
         'approved'
     ]
-    
+
     # Add filters in the right sidebar
     list_filter = [
         'approved',
         'created_on',
         'race'
     ]
-    
+
     # Add search functionality
     search_fields = [
         'body',
         'author__username',
         'race__name'
     ]
-    
+
     # Order by newest first
     ordering = ['-created_on']
-    
+
     # Custom display methods
     def short_body(self, obj):
         """Show first 50 characters of comment"""
@@ -151,7 +151,7 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(AccountDeletionRequest)
 class AccountDeletionRequestAdmin(admin.ModelAdmin):
     """Admin interface for Account Deletion Requests"""
-    
+
     # What columns to show in the deletion requests list
     list_display = [
         'user',
@@ -160,14 +160,14 @@ class AccountDeletionRequestAdmin(admin.ModelAdmin):
         'reviewed_by',
         'reviewed_at'
     ]
-    
+
     # Add filters in the right sidebar
     list_filter = [
         'status',
         'requested_at',
         'reviewed_at'
     ]
-    
+
     # Add search functionality
     search_fields = [
         'user__username',
@@ -175,10 +175,10 @@ class AccountDeletionRequestAdmin(admin.ModelAdmin):
         'reason',
         'admin_notes'
     ]
-    
+
     # Order by newest first
     ordering = ['-requested_at']
-    
+
     # Make some fields read-only
     readonly_fields = [
         'user',
@@ -187,7 +187,7 @@ class AccountDeletionRequestAdmin(admin.ModelAdmin):
         'reviewed_at',
         'completed_at'
     ]
-    
+
     # Group form fields logically
     fieldsets = (
         ('Request Details', {
@@ -203,38 +203,38 @@ class AccountDeletionRequestAdmin(admin.ModelAdmin):
             'classes': ('collapse',)  # Starts collapsed
         })
     )
-    
+
     # Custom admin actions
     def approve_deletion(self, request, queryset):
         """Bulk action to approve selected deletion requests"""
         updated = 0
         for deletion_request in queryset.filter(status='PENDING'):
-            deletion_request.approve(request.user, 
-                                   "Approved via admin bulk action")
+            deletion_request.approve(request.user,
+                                     "Approved via admin bulk action")
             updated += 1
-        
+
         self.message_user(
             request,
             f'{updated} deletion request(s) have been approved.'
         )
     approve_deletion.short_description = "Approve selected deletion requests"
-    
+
     def reject_deletion(self, request, queryset):
         """Bulk action to reject selected deletion requests"""
         updated = 0
         for deletion_request in queryset.filter(status='PENDING'):
-            deletion_request.reject(request.user, 
-                                  "Rejected via admin bulk action")
+            deletion_request.reject(request.user,
+                                    "Rejected via admin bulk action")
             updated += 1
-        
+
         self.message_user(
             request,
             f'{updated} deletion request(s) have been rejected.'
         )
     reject_deletion.short_description = "Reject selected deletion requests"
-    
+
     actions = ['approve_deletion', 'reject_deletion']
-    
+
     # Automatically set the reviewer to current user when saving
     def save_model(self, request, obj, form, change):
         if change and 'status' in form.changed_data:

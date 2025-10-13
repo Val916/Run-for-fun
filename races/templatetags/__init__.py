@@ -14,7 +14,7 @@ def cloudinary_secure(image_url):
     """
     if not image_url or 'res.cloudinary.com' not in str(image_url):
         return image_url
-    
+
     # Add parameters to reduce tracking and cookie issues
     if '?' in str(image_url):
         return f"{image_url}&dpr_auto=true&f_auto=true&q_auto=true"
@@ -22,20 +22,21 @@ def cloudinary_secure(image_url):
         return f"{image_url}?dpr_auto=true&f_auto=true&q_auto=true"
 
 
-@register.filter  
+@register.filter
 def img_with_security(image_url, alt_text=""):
     """
     Generate an img tag with security attributes for Cloudinary images
     """
     if not image_url:
         return ""
-    
+
     secure_url = cloudinary_secure(image_url)
-    
-    img_tag = f'''<img src="{secure_url}" 
+
+    img_tag = f'''<img src="{secure_url}"
                        alt="{alt_text}"
-                       crossorigin="anonymous" 
+                       crossorigin="anonymous"
                        referrerpolicy="no-referrer-when-downgrade"
                        loading="lazy">'''
-    
+
     return mark_safe(img_tag)
+
